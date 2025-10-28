@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Morris Lane – Integrity • Craft • Legacy</title>
 
   <style>
-    /* GLOBAL */
+    /* ========= GLOBAL LAYOUT ========= */
     body {
       margin: 0;
       padding: 0;
       background: radial-gradient(circle at center, #000000 60%, #050505 100%);
-      color: #d4af37;
+      color: #d4af37; /* gold */
       font-family: "Georgia", "Times New Roman", serif;
       text-align: center;
       line-height: 1.5;
@@ -19,12 +19,12 @@
     }
 
     .page-wrap {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 60px 20px 80px;
+      padding: 60px 20px 100px;
     }
 
-    /* CREST BLOCK */
+    /* ========= CREST / HERO ========= */
     .crest-block {
       margin-bottom: 40px;
       position: relative;
@@ -43,26 +43,29 @@
 
     @keyframes softGlow {
       from { filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.3)); }
-      to { filter: drop-shadow(0 0 60px rgba(255, 215, 0, 0.6)); }
+      to   { filter: drop-shadow(0 0 60px rgba(255, 215, 0, 0.6)); }
     }
 
     .brand-name {
       font-size: 2.2rem;
       font-weight: 700;
       margin: 18px 0 10px;
-      text-shadow: 0 0 15px rgba(255, 215, 0, 0.45);
+      text-shadow:
+        0 0 8px rgba(255,215,0,0.4),
+        0 0 25px rgba(255,215,0,0.25);
     }
 
     .tagline {
       font-size: 1rem;
       color: #d4af37;
       margin-bottom: 18px;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+      text-shadow: 0 0 10px rgba(255,215,0,0.3);
     }
 
     .contact-line {
       font-size: 1rem;
       margin: 0;
+      color: #d4af37;
     }
 
     .contact-line a {
@@ -75,69 +78,163 @@
       text-decoration: underline;
     }
 
-    /* GOLD DIVIDER */
+    /* ========= GOLD DIVIDER ========= */
     .gold-divider {
-      width: 85%;
+      width: 90%;
+      max-width: 1000px;
       margin: 50px auto;
       border-top: 1px solid rgba(212,175,55,0.5);
       box-shadow: 0 8px 25px rgba(255,215,0,0.15);
     }
 
-    /* WORK SECTION */
-    .work-section h2 {
-      font-size: 1.3rem;
+    /* ========= "OUR WORK" SECTION ========= */
+    .section-heading {
+      font-size: 1.4rem;
       color: #d4af37;
       text-decoration: underline;
       text-decoration-color: rgba(212,175,55,0.6);
       text-underline-offset: 6px;
-      text-shadow: 0 0 20px rgba(255,215,0,0.4);
-      margin-bottom: 12px;
+      text-shadow:
+        0 0 20px rgba(255,215,0,0.4),
+        0 0 40px rgba(255,215,0,0.15);
+      margin-bottom: 16px;
     }
 
-    .work-section p {
-      max-width: 600px;
-      margin: 0 auto;
+    .work-intro {
+      max-width: 700px;
+      margin: 0 auto 30px;
       font-size: 1rem;
       color: #c9a13a;
       line-height: 1.6;
       text-shadow: 0 0 8px rgba(255,215,0,0.25);
     }
 
-    /* FOOTER */
+    /* ========= WORK CARDS GRID ========= */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto 60px;
+      padding: 0 10px;
+    }
+
+    /* on larger screens, go 3 across */
+    @media (min-width: 768px) {
+      .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background: radial-gradient(circle at 20% 20%, rgba(35, 28, 0, 0.9) 0%, rgba(0,0,0,0.8) 60%);
+      border: 1px solid rgba(212,175,55,0.4);
+      box-shadow:
+        0 0 30px rgba(255,215,0,0.15),
+        0 30px 60px rgba(0,0,0,0.9),
+        0 0 120px rgba(255,215,0,0.07) inset;
+      border-radius: 8px;
+      padding: 20px 18px 24px;
+      text-align: left;
+      color: #d4af37;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      color: #d4af37;
+      margin: 0 0 10px;
+      font-weight: 600;
+      text-shadow:
+        0 0 10px rgba(255,215,0,0.4),
+        0 0 30px rgba(255,215,0,0.15);
+    }
+
+    .card-text {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #c9a13a;
+      text-shadow: 0 0 6px rgba(255,215,0,0.18);
+    }
+
+    /* ========= FOOTER ========= */
     footer {
       margin-top: 60px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #9c7c24;
       text-shadow: 0 0 6px rgba(255,215,0,0.2);
       border-top: 1px solid rgba(212,175,55,0.25);
       padding-top: 20px;
+      line-height: 1.4;
     }
   </style>
 </head>
 
 <body>
   <div class="page-wrap">
+    <!-- HERO / CREST -->
     <section class="crest-block">
-      <img src="assets/morrislane-crest.jpg" alt="Morris Lane Crest">
+      <!-- IMPORTANT: This path now points to /assets/morrislane-crest.jpg -->
+      <img src="assets/morrislane-crest.jpg" alt="Morris Lane Crest" />
+
       <h1 class="brand-name">MORRIS LANE</h1>
+
       <p class="tagline">Integrity • Craft • Legacy</p>
+
       <p class="contact-line">
-        📞 <a href="tel:+14792348770">(479) 234-8770</a> |
+        📞 <a href="tel:+14792348770">(479) 234-8770</a>
+        &nbsp;|&nbsp;
         <a href="mailto:info@MorrisLane.com">info@MorrisLane.com</a>
       </p>
     </section>
 
     <div class="gold-divider"></div>
 
+    <!-- OUR WORK SECTION -->
     <section class="work-section">
-      <h2>Our Work</h2>
-      <p>
+      <h2 class="section-heading">Our Work</h2>
+
+      <p class="work-intro">
         Design, build, trade, and preserve — every piece, every project, every promise.
       </p>
+
+      <div class="cards-grid">
+        <!-- Card 1 -->
+        <div class="card">
+          <h3 class="card-title">Custom Build & Fabrication</h3>
+          <p class="card-text">
+            Precision work in wood, metal, stone, and finish. Bespoke structures,
+            refined surfaces, and details that age well — not fast.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+          <h3 class="card-title">Preservation & Restoration</h3>
+          <p class="card-text">
+            We restore, reinforce, and bring legacy pieces forward without erasing
+            their story. Integrity first, shortcuts never.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+          <h3 class="card-title">Acquisition & Trade</h3>
+          <p class="card-text">
+            We source and place rare, durable, high-value goods — architectural,
+            structural, historic, or hand-built. Built to last, not built to flip.
+          </p>
+        </div>
+      </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-      © 2025 Morris Lane • 177 Polk Rd 14, Cove AR 71937
+      © 2025 Morris Lane<br />
+      177 Polk Rd 14, Cove AR 71937
     </footer>
   </div>
 </body>

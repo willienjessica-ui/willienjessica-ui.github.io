@@ -4,26 +4,158 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Morris Lane – Integrity • Craft • Legacy</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* PAGE COLORS + BASE */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000000;        /* deep black */
+      color: #d4af37;                    /* warm gold */
+      font-family: "Georgia", "Times New Roman", serif;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* limit total page width so it doesn't stretch super wide on desktop */
+    .page-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* HEADER / CREST BLOCK */
+    .crest-block {
+      margin-bottom: 40px;
+    }
+
+    .crest-block img {
+      display: block;
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto 24px auto;
+      box-shadow:
+        0 0 25px rgba(255, 215, 0, 0.4),
+        0 0 60px rgba(255, 191, 0, 0.15);
+      border-radius: 6px; /* tiny soften at the corners */
+    }
+
+    .brand-name {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin: 0 0 12px 0;
+      text-shadow:
+        0 0 10px rgba(255, 215, 0, 0.4),
+        0 0 30px rgba(255, 191, 0, 0.18);
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: #d4af37;
+      margin: 0 0 16px 0;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.35);
+    }
+
+    .contact-line {
+      font-size: 0.95rem;
+      color: #d4af37;
+      margin: 0;
+    }
+
+    .contact-line a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    /* GOLD DIVIDER BAR */
+    .gold-divider {
+      width: 100%;
+      border-top: 1px solid rgba(212,175,55,0.5);
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+      margin: 40px auto;
+      box-shadow:
+        0 10px 30px rgba(255,215,0,0.15),
+        0 20px 60px rgba(255,191,0,0.08);
+    }
+
+    /* OUR WORK SECTION */
+    .work-section h2 {
+      font-size: 1.3rem;
+      color: #d4af37;
+      margin: 0 0 16px;
+      text-decoration: underline;
+      text-decoration-color: rgba(212,175,55,0.7);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 6px;
+      text-shadow:
+        0 0 10px rgba(255,215,0,0.4),
+        0 0 30px rgba(255,191,0,0.15);
+    }
+
+    .work-section p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1rem;
+      color: #c9a13a;
+      line-height: 1.6;
+      text-shadow: 0 0 8px rgba(255,215,0,0.25);
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 50px;
+      font-size: 0.8rem;
+      color: #9c7c24;
+      line-height: 1.4;
+      text-shadow: 0 0 6px rgba(255,215,0,0.2);
+      border-top: 1px solid rgba(212,175,55,0.25);
+      padding-top: 20px;
+    }
+  </style>
 </head>
+
 <body>
-  <header class="hero">
-    <img src="assets/morrislane-crest.jpeg.png" alt="Morris Lane Crest" class="crest">
-    <h1>MORRIS LANE</h1>
-    <p class="tagline">Integrity • Craft • Legacy</p>
-    <p class="contact">
-      <strong>📞 (479) 234-8770</strong> |
-      <a href="mailto:info@MorrisLane.com">info@MorrisLane.com</a>
-    </p>
-  </header>
+  <div class="page-wrap">
 
-  <section class="work">
-    <h2>Our Work</h2>
-    <p>Design, build, trade, and preserve — every piece, every project, every promise.</p>
-  </section>
+    <!-- CREST + BRAND -->
+    <section class="crest-block">
+      <img src="assets/morrislane-crest.jpg" alt="Morris Lane Crest">
 
-  <footer class="site_footer">
-    <p>© 2025 Morris Lane • 177 Polk Rd 14, Cove AR 71937</p>
-  </footer>
+      <h1 class="brand-name">MORRIS LANE</h1>
+
+      <p class="tagline">Integrity &bull; Craft &bull; Legacy</p>
+
+      <p class="contact-line">
+        <span>📞 <a href="tel:+14792348770">(479) 234-8770</a></span>
+        &nbsp;|&nbsp;
+        <a href="mailto:info@MorrisLane.com">info@MorrisLane.com</a>
+      </p>
+    </section>
+
+    <!-- DIVIDER BAR -->
+    <div class="gold-divider"></div>
+
+    <!-- WORK / MISSION -->
+    <section class="work-section">
+      <h2>Our Work</h2>
+      <p>
+        Design, build, trade, and preserve — every piece, every project, every promise.
+      </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>© 2025 Morris Lane</div>
+      <div>177 Polk Rd 14, Cove AR 71937</div>
+    </footer>
+
+  </div>
 </body>
 </html>

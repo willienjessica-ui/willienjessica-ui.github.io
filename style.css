@@ -1,38 +1,132 @@
+/* GLOBAL LAYOUT */
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
-  background-color:#000;
-  color:#E6C869;
-  font-family:Arial,Helvetica,sans-serif;
-  margin:0;
-  text-align:center;
+  margin: 0;
+  background-color: #0a0a0a;          /* deep black */
+  color: #d4af37;                     /* warm gold */
+  font-family: "Georgia", "Times New Roman", serif;
+  text-align: center;
+  line-height: 1.5;
 }
 
-header.hero {
-  padding:60px 20px;
-  background-color:#111;
-  border-bottom:2px solid #C5A24A;
+/* HERO SECTION */
+.hero {
+  padding: 60px 20px 40px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-h1 {
-  font-size:2.5em;
-  color:#C5A24A;
-  margin-bottom:10px;
+.crest {
+  width: 280px;
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto 28px auto;
+
+  /* glow around the gold crest */
+  filter:
+    drop-shadow(0 0 12px rgba(255, 215, 0, 0.55))
+    drop-shadow(0 0 40px rgba(255, 191, 0, 0.18));
 }
 
-h2 {
-  color:#E6C869;
-  border-bottom:1px solid #C5A24A;
-  display:inline-block;
-  padding-bottom:5px;
+/* BRAND TEXT */
+.brand {
+  margin: 0;
+  font-size: clamp(2rem, 2.4rem, 2.6rem); /* scales nicely on phone+desktop */
+  letter-spacing: 0.06em;
+  color: #d4af37;
+  text-shadow:
+    0 0 8px rgba(255, 215, 0, 0.4),
+    0 0 24px rgba(255, 191, 0, 0.15);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-section,
-footer {
-  padding:40px 20px;
+.tagline {
+  margin: 10px 0 16px;
+  font-size: 1rem;
+  color: #c9a13a;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+  letter-spacing: 0.03em;
 }
 
-footer {
-  background-color:#111;
-  border-top:2px solid #C5A24A;
-  font-size:0.9em;
-  color:#E6C869;
+/* CONTACT LINE */
+.contact {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #b38f2a;
+}
+
+.contact .phone {
+  color: #d4af37;
+  font-weight: 600;
+}
+
+.contact .sep {
+  color: #8a6d1d;
+  padding: 0 4px;
+}
+
+.contact .email {
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact .email:hover {
+  text-decoration: underline;
+}
+
+/* GOLD DIVIDER BAR */
+.gold-bar {
+  width: 100%;
+  border-top: 1px solid rgba(212,175,55,0.4);
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+  box-shadow:
+    0 0 16px rgba(255, 215, 0, 0.15),
+    0 0 60px rgba(255, 191, 0, 0.07);
+  margin: 40px 0;
+}
+
+/* WORK SECTION */
+.work {
+  padding: 10px 20px 50px;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+.work h2 {
+  font-size: 1.3rem;
+  color: #d4af37;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(212,175,55,0.6);
+  margin: 0 0 20px 0;
+  text-shadow:
+    0 0 10px rgba(255,215,0,0.4),
+    0 0 30px rgba(255,191,0,0.15);
+}
+
+.work p {
+  color: #c9a13a;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-shadow: 0 0 8px rgba(255,215,0,0.25);
+}
+
+/* FOOTER */
+.site-footer {
+  border-top: 1px solid rgba(212,175,55,0.25);
+  padding: 20px 16px 40px;
+  font-size: 0.8rem;
+  color: #9c7c24;
+  background-color: #0a0a0a;
+  text-shadow: 0 0 6px rgba(255,215,0,0.2);
 }

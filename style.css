@@ -1,64 +1,119 @@
-/* RESET-ish */
-* {
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  margin: 0;
-  padding: 0;
+/* === Morris Lane 24K Gold Theme === */
+:root{
+  --gold-1:#8f6b00;
+  --gold-2:#b4880b;
+  --gold-3:#d4af37;     /* 24k core */
+  --gold-4:#f6e27a;
+  --gold-5:#ffe39f;
+  --gold-deep:#5a4300;
+  --bg-1:#070707;
+  --bg-2:#0e0e0e;
+  --ink:#f2f2f2;
+  --muted:#a7a7a7;
 }
 
-/* COLORS + THEME
-   black base, deep brown-gold shadows, warm gold text/glow
-*/
-:root {
-  --bg-deep: #000000;
-  --bg-panel: rgba(15, 10, 0, 0.6);
-  --line-gold: rgba(212,175,55,0.5);
-  --text-gold: #d4af37;
-  --text-dim: #c9a13a;
-  --text-fade: rgba(212,175,55,0.7);
-  --glow-outer: rgba(255,215,0,0.08);
-  --glow-mid: rgba(255,215,0,0.18);
-  --glow-hot: rgba(255,215,0,0.45);
-  --panel-border: rgba(212,175,55,0.4);
-  --panel-shadow-a: rgba(255,215,0,0.15);
-  --panel-shadow-b: rgba(255,215,0,0.05);
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #1a1a1a 0%, transparent 55%),
+    radial-gradient(900px 500px at 10% 120%, #121212 0%, transparent 60%),
+    radial-gradient(900px 500px at 90% 120%, #141414 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 
-body {
-  background-color: var(--bg-deep);
-  color: var(--text-gold);
-  font-family: "Georgia", "Times New Roman", serif;
-  text-align: center;
-  line-height: 1.5;
-  padding: 0 16px 80px;
+/* --- GOLD ENGINE --- */
+.gold {
+  background-image:
+    conic-gradient(from 140deg,
+      var(--gold-5) 0deg, var(--gold-4) 35deg,
+      var(--gold-3) 90deg, var(--gold-2) 140deg,
+      var(--gold-3) 200deg, var(--gold-5) 300deg,
+      var(--gold-4) 360deg);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter: drop-shadow(0 0 0.6px rgba(0,0,0,.35))
+          drop-shadow(0 4px 18px rgba(212,175,55,.12));
+  position:relative;
 }
 
-/* HERO */
-.hero {
-  max-width: 900px;
-  margin: 40px auto 32px;
-  position: relative;
-  text-align: center;
+/* Animated specular highlight (subtle, cinematic) */
+.gold.shine::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,.85) 50%, transparent 100%);
+  mix-blend-mode:soft-light;
+  transform: translateX(-120%) skewX(-12deg);
+  animation: sweep 3.8s cubic-bezier(.25,.1,.25,1) infinite;
+}
+@keyframes sweep{
+  0%   { transform: translateX(-120%) skewX(-12deg); opacity:.0}
+  15%  { opacity:.65}
+  40%  { transform: translateX(120%) skewX(-12deg); opacity:.0}
+  100% { transform: translateX(120%) skewX(-12deg); opacity:0}
 }
 
-.crest-frame {
-  position: relative;
-  display: inline-block;
-  background: radial-gradient(circle at 50% 40%, var(--glow-hot) 0%, rgba(0,0,0,0) 70%);
-  padding: 12px;
-  border-radius: 6px;
+/* Plate + frame for gold-on-black contrast */
+.card {
+  border-radius:20px;
+  padding:28px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);
   box-shadow:
-    0 0 40px 20px var(--glow-mid),
-    0 0 140px 60px var(--glow-outer);
+    inset 0 0 0.5px rgba(255,255,255,.35),
+    0 18px 40px rgba(0,0,0,.55);
 }
 
-.crest {
-  max-width: 360px;
-  width: 90vw;
-  height: auto;
-  display: block;
-  border-radius: 4px;
-  background-color: #000;
+.wrap{max-width:1100px;margin:0 auto;padding:56px 22px 48px}
+.header{display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:14px}
+.badge{
+  width:60px;height:60px;border-radius:16px;display:grid;place-items:center;
+  background:
+    linear-gradient(160deg, var(--gold-deep), var(--gold-2));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 10px 30px rgba(212,175,55,.18);
+  color:#0b0b0b;font-weight:800;letter-spacing:.5px
+}
+h1{font-size:56px;line-height:1.05;margin:10px 0 8px}
+.sub{color:var(--muted);font-size:18px;margin:0 0 26px}
+
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:26px 0 42px}
+.kpis .tile{text-align:center;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px 10px;background:rgba(255,255,255,.02)}
+.kpis .label{color:#bdbdbd;font-size:12px;margin-bottom:6px}
+.kpis .value{font-size:26px;font-weight:800}
+
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:4px}
+.btn{
+  padding:12px 18px;border-radius:14px;font-weight:700;letter-spacing:.3px;
+  border:1px solid rgba(255,255,255,.14);
+  background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
+  color:var(--ink); text-decoration:none;
+  box-shadow:0 10px 26px rgba(0,0,0,.35);
+}
+.btn.goldplate{
+  border:0;
+  background:
+    linear-gradient(180deg, var(--gold-5), var(--gold-3));
+  color:#111;
   box-shadow:
-    0 0 12px rgba(255,215,0,0.4),
-    0 20px 60px rgba(0,0,0,0.9
+    inset 0 1px 0 rgba(255,255,255,.65),
+    0 14px 36px rgba(212,175,55,.35);
+}
+
+.footer{margin-top:40px;color:#9b9b9b;font-size:14px;text-align:center}
+
+/* Responsive */
+@media (max-width: 860px){
+  h1{font-size:40px}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width: 520px){
+  .badge{width:52px;height:52px;border-radius:14px}
+  h1{font-size:34px}
+}

@@ -3,34 +3,49 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Morris Lane — Official Website</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      background: #0b0b0b;
-      color: #f4f4f4;
-      margin: 0;
-      padding: 3rem;
-      text-align: center;
-    }
-    h1 { font-size: 2.5rem; color: #d4af37; margin-bottom: 0.5rem; }
-    h2 { font-weight: 400; color: #999; margin-top: 0; }
-    .divider {
-      height: 2px; width: 100px;
-      background: #d4af37; margin: 1.5rem auto;
-    }
-    p { max-width: 600px; margin: 1rem auto; line-height: 1.5; color: #ccc; }
-    footer { margin-top: 3rem; font-size: 0.9rem; color: #777; }
-  </style>
+  <title>Morris Lane — 24K Edition</title>
+  <link rel="stylesheet" href="/style.css" />
+  <meta name="description" content="Morris Lane — veteran-owned workshop of AI, craft, and sovereign systems." />
 </head>
 <body>
-  <h1>Morris Lane</h1>
-  <h2>Veteran-Owned | Built for the Future</h2>
-  <div class="divider"></div>
-  <p>Welcome to Morris Lane — our command hub and creative headquarters.  
-  The AI-powered framework and full Next.js integration are being built right now.</p>
-  <footer>© <script>document.write(new Date().getFullYear());</script> Morris Lane LLC</footer>
+  <main class="wrap">
+    <div class="header">
+      <div class="badge">ML</div>
+    </div>
+
+    <h1 class="gold shine">Morris Lane</h1>
+    <p class="sub">Veteran-Owned • Built for the Future</p>
+
+    <section class="kpis">
+      <div class="tile">
+        <div class="label">Projects Active</div>
+        <div class="value gold">4</div>
+      </div>
+      <div class="tile">
+        <div class="label">AI Jobs Running</div>
+        <div class="value gold">132</div>
+      </div>
+      <div class="tile">
+        <div class="label">Conversion</div>
+        <div class="value gold">4.7%</div>
+      </div>
+      <div class="tile">
+        <div class="label">Uptime (30d)</div>
+        <div class="value gold">99.98%</div>
+      </div>
+    </section>
+
+    <section class="card" style="text-align:center">
+      <p style="margin:0;color:#cfcfcf">This is the 24K landing surface. The full command center (Next.js) is loading behind the scenes.</p>
+      <div class="cta-row">
+        <a class="btn goldplate" href="#">Enter Command Center</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </section>
+
+    <p class="footer">© <span id="y"></span> Morris Lane LLC — Arkansas ▸ Missouri • Veteran-Owned</p>
+  </main>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
-<!-- deploy refresh -->
-

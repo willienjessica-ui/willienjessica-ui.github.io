@@ -1,4 +1,4 @@
-/* === Morris Lane 24K Gold Theme === */
+/* === Morris Lane 24K Gold Theme (FINAL) === */
 :root{
   --gold-1:#8f6b00;
   --gold-2:#b4880b;
@@ -27,8 +27,8 @@ body{
   text-rendering:optimizeLegibility;
 }
 
-/* --- GOLD ENGINE --- */
-.gold {
+/* Gold text with animated specular sweep */
+.gold{
   background-image:
     conic-gradient(from 140deg,
       var(--gold-5) 0deg, var(--gold-4) 35deg,
@@ -42,8 +42,6 @@ body{
           drop-shadow(0 4px 18px rgba(212,175,55,.12));
   position:relative;
 }
-
-/* Animated specular highlight (subtle, cinematic) */
 .gold.shine::after{
   content:"";
   position:absolute; inset:0;
@@ -59,36 +57,59 @@ body{
   100% { transform: translateX(120%) skewX(-12deg); opacity:0}
 }
 
-/* Plate + frame for gold-on-black contrast */
+/* Layout */
+.wrap{max-width:1100px;margin:0 auto;padding:56px 22px 48px}
+.hero{display:flex;flex-direction:column;align-items:center;gap:18px;margin-bottom:12px}
+h1{font-size:56px;line-height:1.05;margin:10px 0 8px}
+.sub{color:var(--muted);font-size:18px;margin:0 0 10px;text-align:center}
+
+/* Crest plate + glow (JPEG friendly) */
+.crest{
+  width:120px;height:120px;border-radius:28px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(60% 60% at 50% 35%, rgba(255,255,255,.35), rgba(255,255,255,0) 60%),
+    linear-gradient(160deg, var(--gold-deep), var(--gold-2));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.55),
+    0 18px 40px rgba(212,175,55,.30);
+  display:grid;place-items:center;
+}
+.crest img{
+  width:86%;height:86%;object-fit:contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.55));
+}
+.crest::after{
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(80% 80% at 50% 35%, rgba(255,255,255,.15), rgba(0,0,0,.4) 70%);
+  mix-blend-mode:soft-light; pointer-events:none;
+  animation: crestGlow 6s ease-in-out infinite alternate;
+}
+@keyframes crestGlow{
+  0%   { opacity:.55; transform:scale(1);}
+  50%  { opacity:.85; transform:scale(1.03);}
+  100% { opacity:.55; transform:scale(1);}
+}
+
+/* Cards, tiles, buttons */
 .card {
   border-radius:20px;
   padding:28px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
   border:1px solid rgba(255,255,255,.08);
-  box-shadow:
-    inset 0 0 0.5px rgba(255,255,255,.35),
-    0 18px 40px rgba(0,0,0,.55);
+  box-shadow: inset 0 0 0.5px rgba(255,255,255,.35), 0 18px 40px rgba(0,0,0,.55);
 }
-
-.wrap{max-width:1100px;margin:0 auto;padding:56px 22px 48px}
-.header{display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:14px}
-.badge{
-  width:60px;height:60px;border-radius:16px;display:grid;place-items:center;
-  background:
-    linear-gradient(160deg, var(--gold-deep), var(--gold-2));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 10px 30px rgba(212,175,55,.18);
-  color:#0b0b0b;font-weight:800;letter-spacing:.5px
-}
-h1{font-size:56px;line-height:1.05;margin:10px 0 8px}
-.sub{color:var(--muted);font-size:18px;margin:0 0 26px}
-
-.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:26px 0 42px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:26px 0 34px}
 .kpis .tile{text-align:center;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px 10px;background:rgba(255,255,255,.02)}
 .kpis .label{color:#bdbdbd;font-size:12px;margin-bottom:6px}
 .kpis .value{font-size:26px;font-weight:800}
 
-.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:4px}
+.section{margin: 30px 0;}
+.section h2{margin:0 0 10px;font-size:22px;color:#e6c35a;letter-spacing:.2px}
+.section p{margin:6px 0;color:#cfcfcf}
+.list{display:grid;gap:10px}
+.card.soft{padding:18px}
+
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px}
 .btn{
   padding:12px 18px;border-radius:14px;font-weight:700;letter-spacing:.3px;
   border:1px solid rgba(255,255,255,.14);
@@ -98,12 +119,9 @@ h1{font-size:56px;line-height:1.05;margin:10px 0 8px}
 }
 .btn.goldplate{
   border:0;
-  background:
-    linear-gradient(180deg, var(--gold-5), var(--gold-3));
+  background: linear-gradient(180deg, var(--gold-5), var(--gold-3));
   color:#111;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.65),
-    0 14px 36px rgba(212,175,55,.35);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.65), 0 14px 36px rgba(212,175,55,.35);
 }
 
 .footer{margin-top:40px;color:#9b9b9b;font-size:14px;text-align:center}
@@ -114,6 +132,6 @@ h1{font-size:56px;line-height:1.05;margin:10px 0 8px}
   .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width: 520px){
-  .badge{width:52px;height:52px;border-radius:14px}
+  .crest{width:96px;height:96px;border-radius:22px}
   h1{font-size:34px}
 }

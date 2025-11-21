@@ -1,4 +1,4 @@
-/* style.css — Morris Lane centered layout */
+/* style.css — Morris Lane centered layout with store */
 
 /* Reset-ish */
 *,
@@ -24,11 +24,11 @@ body {
   flex-direction: column;
 }
 
-/* Let content breathe but use the full width */
+/* Main content area */
 .site-main {
   flex: 1;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px; /* a bit wider on big screens */
   margin: 0 auto;
   padding: 1.5rem 1.25rem 3rem;
 }
@@ -212,7 +212,7 @@ body {
   color: #f5e0a1;
 }
 
-/* Hero side panel — now just a centered highlight block under hero */
+/* Hero side panel — centered underneath */
 .hero-panel {
   display: flex;
   justify-content: center;
@@ -259,7 +259,7 @@ body {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.1rem;
 }
 
@@ -292,6 +292,37 @@ body {
   color: #f5e0a1;
 }
 
+/* Store-specific tweaks */
+.product-footer {
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f7e27b;
+}
+
+.product-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.product-buy {
+  font-size: 0.85rem;
+  padding-inline: 1rem;
+}
+
+.store-note {
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  color: #bdbdbd;
+}
+
 /* Two-column blocks */
 .two-column {
   display: grid;
@@ -314,6 +345,21 @@ body {
   border: 1px solid rgba(212, 175, 55, 0.3);
   background: radial-gradient(circle at top left, #302416 0, #101012 65%);
   font-size: 0.9rem;
+}
+
+.contact-box a {
+  color: #f7e27b;
+  text-decoration: none;
+}
+
+.contact-box a:hover {
+  text-decoration: underline;
+}
+
+.contact-note {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #c7c7c7;
 }
 
 /* Footer */
@@ -353,5 +399,10 @@ body {
 
   .two-column {
     grid-template-columns: 1fr;
+  }
+
+  .product-footer {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

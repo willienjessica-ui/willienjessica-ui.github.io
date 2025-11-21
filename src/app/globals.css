@@ -1,7 +1,297 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* globals.css */
 
-html, body {
-  @apply bg-background text-foreground;
+/* Reset-ish */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #050507;
+  color: #f7f7f7;
+}
+
+/* Layout */
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: radial-gradient(circle at top left, #3b2b10 0, #050507 55%);
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-crest {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  border: 2px solid #d4af37;
+  object-fit: cover;
+  background: radial-gradient(circle, #d4af37 0, #4b3a16 55%, #050507 100%);
+}
+
+.brand-name {
+  margin: 0;
+  font-size: 1.35rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.brand-tagline {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #e5c97a;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #f7f7f7;
+  position: relative;
+  padding-bottom: 0.2rem;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #d4af37, #f7e27b);
+  transition: width 0.22s ease-out;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+/* Hero */
+.hero-section {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(120deg, #fdf5be, #d4af37, #f7e27b);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: #d6d6d6;
+  max-width: 36rem;
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #d4af37, #f7e27b);
+  color: #201a09;
+  box-shadow: 0 0 20px rgba(244, 211, 94, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 28px rgba(244, 211, 94, 0.38);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: #d4af37;
+  color: #f7f7f7;
+}
+
+.btn-secondary:hover {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* Hero panel - gold frame */
+.hero-panel {
+  display: flex;
+  justify-content: center;
+}
+
+.gold-frame {
+  border-radius: 24px;
+  padding: 2px;
+  background: linear-gradient(135deg, #fdf5be, #d4af37, #f7e27b, #8c6b1f);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.65);
+}
+
+.gold-inner {
+  border-radius: 22px;
+  padding: 1.5rem 1.25rem;
+  background: radial-gradient(circle at top, #2b2310 0, #0b0b0d 55%);
+  max-width: 320px;
+}
+
+.gold-text {
+  margin: 0;
+  color: #f8f3da;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Sections */
+.section-block {
+  margin-top: 3rem;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+  border-left: 3px solid #d4af37;
+  padding-left: 0.5rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.1rem;
+}
+
+.info-card,
+.product-card {
+  border-radius: 18px;
+  padding: 1rem;
+  background: radial-gradient(circle at top left, #292018 0, #101013 65%);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+.info-card h4,
+.product-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  color: #f5e0a1;
+}
+
+.info-card p,
+.product-card p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #d0d0d0;
+}
+
+.product-meta {
+  font-size: 0.8rem;
+  color: #f5e0a1;
+}
+
+/* Two-column blocks */
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  font-size: 0.95rem;
+  color: #d0d0d0;
+}
+
+/* Contact */
+.bullet-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.contact-box {
+  border-radius: 18px;
+  padding: 1rem;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: radial-gradient(circle at top left, #302416 0, #101012 65%);
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+  padding: 0.75rem 1.25rem 1rem;
+  font-size: 0.8rem;
+  color: #b0b0b0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background: #050507;
+}
+
+.footer-contact {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+  }
+
+  .site-main {
+    padding: 1rem 0.75rem 2.5rem;
+  }
+
+  .main-nav {
+    display: none; /* we can add a mobile menu later */
+  }
 }

@@ -47,13 +47,22 @@ body {
   gap: 0.75rem;
 }
 
+/* BIGGER CREST LOGO */
 .brand-crest {
-  width: 56px;
-  height: 56px;
+  width: 110px;
+  height: 110px;
   border-radius: 999px;
   border: 2px solid #d4af37;
   object-fit: cover;
   background: radial-gradient(circle, #d4af37 0, #4b3a16 55%, #050507 100%);
+}
+
+/* On small phones, shrink just a bit but keep it prominent */
+@media (max-width: 480px) {
+  .brand-crest {
+    width: 90px;
+    height: 90px;
+  }
 }
 
 .brand-name {

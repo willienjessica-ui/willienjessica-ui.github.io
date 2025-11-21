@@ -1,89 +1,130 @@
-export default function Page() {
-  const stats = [
-    { label: "Projects Active", value: "4" },
-    { label: "AI Jobs Running", value: "132" },
-    { label: "Conversion Rate", value: "4.7%" },
-    { label: "Uptime (30 d)", value: "99.98%" },
-  ];
+// src/app/page.tsx
 
-  const projects = [
-    { name: "NeoDOS", detail: "Sovereign OS kernel + policy core", progress: 68 },
-    { name: "Lumos", detail: "Governance + oracle ledger", progress: 54 },
-    { name: "GigGrow", detail: "Map-driven job network", progress: 41 },
-    { name: "Trades & Sales", detail: "CNC + laser product line", progress: 37 },
-  ];
-
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white text-zinc-900">
-      {/* Header */}
-      <header className="border-b bg-white/90 backdrop-blur">
-        <div className="mx-auto max-w-6xl flex items-center justify-between px-4 py-3">
-          <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-lg bg-zinc-900 text-white grid place-items-center text-sm font-bold">
-              ML
+    <>
+      {/* HERO SECTION */}
+      <section className="hero-section">
+        <div className="hero-content">
+          <h2 className="hero-title">
+            Hand-built gear with a 24K attitude.
+          </h2>
+          <p className="hero-subtitle">
+            From laser-engraved novelties to serious custom builds, Morris Lane LLC
+            turns raw lumber, leather, and metal into products with a story.
+          </p>
+          <div className="hero-cta-row">
+            <a href="#shop" className="btn-primary">
+              View Signature Products
+            </a>
+            <a href="#contact" className="btn-secondary">
+              Request Custom Work
+            </a>
+          </div>
+        </div>
+        <div className="hero-panel">
+          <div className="gold-frame">
+            <div className="gold-inner">
+              <p className="gold-text">
+                Veteran-owned. Small-batch. Built to leave a mark.
+              </p>
             </div>
-            <div className="font-semibold tracking-tight">Morris Lane</div>
           </div>
-          <nav className="hidden md:flex items-center gap-5 text-sm text-zinc-600">
-            <a href="#projects" className="hover:text-zinc-900">Projects</a>
-            <a href="#updates" className="hover:text-zinc-900">Updates</a>
-            <a href="#contact" className="hover:text-zinc-900">Contact</a>
-          </nav>
-        </div>
-      </header>
-
-      {/* Hero */}
-      <section className="mx-auto max-w-6xl px-4 py-10">
-        <h1 className="text-4xl font-extrabold tracking-tight">
-          Build Once. Verify Forever.
-        </h1>
-        <p className="mt-4 text-zinc-600 text-lg max-w-2xl">
-          Veteran-built workshop of AI, CNC, and sovereign systems—rooted in Arkansas & Missouri.
-        </p>
-      </section>
-
-      {/* KPI Cards */}
-      <section className="mx-auto max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-4 px-4 pb-10">
-        {stats.map((s) => (
-          <div key={s.label} className="border rounded-xl p-4 text-center">
-            <div className="text-xs text-zinc-500">{s.label}</div>
-            <div className="text-2xl font-bold">{s.value}</div>
-          </div>
-        ))}
-      </section>
-
-      {/* Projects */}
-      <section id="projects" className="mx-auto max-w-6xl px-4 pb-16">
-        <h2 className="text-xl font-semibold mb-4">Projects</h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          {projects.map((p) => (
-            <div key={p.name} className="border rounded-xl p-4">
-              <div className="flex justify-between">
-                <div className="font-medium">{p.name}</div>
-                <div className="text-xs text-zinc-500">{p.progress}%</div>
-              </div>
-              <p className="text-sm text-zinc-600 mt-1">{p.detail}</p>
-              <div className="mt-2 h-2 bg-zinc-100 rounded">
-                <div
-                  className="h-2 bg-zinc-900 rounded"
-                  style={{ width: `${p.progress}%` }}
-                />
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t">
-        <div className="mx-auto max-w-6xl px-4 py-8 flex flex-col md:flex-row items-center justify-between text-sm text-zinc-600">
-          <div>© {new Date().getFullYear()} Morris Lane LLC</div>
-          <div className="flex gap-3">
-            <span className="border rounded px-2 py-0.5">Veteran-Owned</span>
-            <span className="border rounded px-2 py-0.5">Arkansas ▸ Missouri</span>
+      {/* SERVICES SECTION */}
+      <section id="services" className="section-block">
+        <h3 className="section-title">What We Do</h3>
+        <div className="card-grid">
+          <div className="info-card">
+            <h4>Custom Woodwork & Paddles</h4>
+            <p>
+              Precision-milled paddles and novelty pieces using white pine and
+              other select lumber. Designed for engraving, laser work, and CNC.
+            </p>
+          </div>
+          <div className="info-card">
+            <h4>Laser Engraving & CNC</h4>
+            <p>
+              Logos, crests, quotes, serial numbers, and more. Dialed-in templates
+              so every run is consistent, scalable, and shop-ready.
+            </p>
+          </div>
+          <div className="info-card">
+            <h4>Prototyping & 3D Printed Jigs</h4>
+            <p>
+              3D printed jigs, fixtures, and templates that hold your workpieces
+              rock-solid on the router or laser for fast repeat jobs.
+            </p>
           </div>
         </div>
-      </footer>
-    </main>
+      </section>
+
+      {/* FEATURED PRODUCTS / SHOP */}
+      <section id="shop" className="section-block">
+        <h3 className="section-title">Signature Pieces</h3>
+        <div className="card-grid">
+          <div className="product-card">
+            <h4>“Boomer Stick” Paddle</h4>
+            <p>4&quot; x 20&quot; novelty paddle, engraved text, ready for display or gifting.</p>
+            <p className="product-meta">Material: White Pine · Finish: Raw or sealed</p>
+          </div>
+          <div className="product-card">
+            <h4>“Ass Cracker – Millennial Edition”</h4>
+            <p>Laser-engraved gag-gift paddle, designed for laughs and wall-mounting.</p>
+            <p className="product-meta">Perfect for man caves, shops, and bars.</p>
+          </div>
+          <div className="product-card">
+            <h4>Custom Quote Paddle</h4>
+            <p>
+              Your text, your font, your joke. Built to spec with jigs that keep every cut identical.
+            </p>
+            <p className="product-meta">Bulk orders available.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT SECTION */}
+      <section id="about" className="section-block">
+        <h3 className="section-title">About Morris Lane LLC</h3>
+        <div className="two-column">
+          <p>
+            Morris Lane LLC is a veteran-owned workshop and creative lab, built on
+            precision, prepper-grade practicality, and a sense of humor. We run
+            CNC, laser, and 3D printing gear to turn raw materials into products
+            that feel premium, heavy in the hand, and ready to last.
+          </p>
+          <p>
+            The long game is simple: build an American family brand with products
+            that outlive trends, and document the craft so the next generation can
+            pick up where we leave off.
+          </p>
+        </div>
+      </section>
+
+      {/* CONTACT SECTION */}
+      <section id="contact" className="section-block">
+        <h3 className="section-title">Contact & Orders</h3>
+        <div className="two-column">
+          <div>
+            <p>
+              Ready to order or talk custom work? Reach out directly and include:
+            </p>
+            <ul className="bullet-list">
+              <li>Product name or idea</li>
+              <li>Quantity and deadline</li>
+              <li>Any logos, quotes, or artwork to engrave</li>
+            </ul>
+          </div>
+          <div className="contact-box">
+            <p><strong>Owner:</strong> Glenn Edwin Morris Jr.</p>
+            <p><strong>Phone:</strong> 1+ (417) 991-6154</p>
+            <p><strong>Email:</strong> Glennedwinmorrisjr@gmail.com</p>
+            <p><strong>Business:</strong> Morris Lane LLC</p>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

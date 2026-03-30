@@ -87,7 +87,7 @@
       
       <!-- HERO CAROUSEL / BANNER -->
       <section class="hero-carousel">
-        <div class="hero-slide active" style="background-image: url('assets/images/hero-craftsman.jpg');">
+        <div class="hero-slide active" style="background-image: url('assets/hero-bg.jpg');">
           <div class="hero-overlay"></div>
           <div class="hero-text-content">
             <h2 class="wealth-coded">The American Standard</h2>

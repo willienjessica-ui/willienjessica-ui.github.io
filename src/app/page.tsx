@@ -1,456 +1,283 @@
-"use client";
 
-import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { ShoppingCart, Search, Menu, Flag, ShieldCheck, Truck, Users, MessageSquare, Anchor, Star } from 'lucide-react';
 
-// --- Types ---
-interface Product {
-  id: string;
-  name: string;
-  category: string;
-  price: number | "Sourced";
-  description: string;
-  image?: string;
-  usa_made: boolean;
-}
-
-// --- Mock Data: Priority on American Made ---
-const PRODUCTS: Product[] = [
-  {
-    id: '1',
-    name: 'The Heritage Paddle',
-    category: 'USA MADE FIRST',
-    price: 45.00,
-    description: 'Select American White Pine. Veteran-crafted and fully customizable.',
-    usa_made: true
-  },
-  {
-    id: '2',
-    name: 'Tactical Mill Bit Set',
-    category: 'EXECUTIVE GEAR',
-    price: 129.00,
-    description: 'Industrial-grade hardened steel. American precision shop work.',
-    usa_made: true
-  },
-  {
-    id: '3',
-    name: 'American Watch Sourcing',
-    category: 'CURATED SOURCE',
-    price: "Sourced",
-    description: 'Direct access to rare, American-made or veteran-assembled timepieces.',
-    usa_made: true
-  },
-  {
-    id: '4',
-    name: 'Signature Leather Journal',
-    category: 'USA MADE FIRST',
-    price: 65.00,
-    description: 'Hand-stitched American leather. The Global Standard in quality.',
-    usa_made: true
-  },
-  {
-    id: '5',
-    name: 'Executive Field Watch',
-    category: 'USA MADE FIRST',
-    price: 850.00,
-    description: 'Automatic movement, sapphire crystal, 100% veteran-assembled in the USA.',
-    usa_made: true
-  },
-  {
-    id: '6',
-    name: 'USA Sourcing Mission',
-    category: 'EXECUTIVE CONCIERGE',
-    price: "Sourced",
-    description: 'Request any American-made product. We find the source and deliver the best.',
-    usa_made: true
-  }
-];
-
-export default function HomePage() {
-  const [cart, setCart] = useState<Product[]>([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const addToCart = (product: Product) => {
-    if (product.price === "Sourced") {
-      window.location.href = "#sourcing";
-      return;
-    }
-    setCart([...cart, product]);
-    setIsCartOpen(true);
-  };
-
-  const removeFromCart = (index: number) => {
-    const newCart = [...cart];
-    newCart.splice(index, 1);
-    setCart(newCart);
-  };
-
-  const cartTotal = cart.reduce((acc, item) => acc + (typeof item.price === 'number' ? item.price : 0), 0);
-
-  const handleCheckout = () => {
-    // High-Performance Paygate: Replace with real Stripe URL
-    const stripePaymentUrl = "https://buy.stripe.com/test_placeholder"; 
-    window.open(stripePaymentUrl, '_blank');
-  };
-
-  if (!isMounted) return null;
-
+// Main Component: The American Market Place Flagship - High-End Rustic / MAGA / Veteran-Owned
+export default function AmericanMarketPlace() {
   return (
-    <div className="site-wrapper" style={{ overflowX: 'hidden' }}>
-      {/* --- GLOBAL HEADER (Amazon-Killer Wrapper) --- */}
-      <header className="site-header" style={{ position: 'sticky', top: 0, zIndex: 1000 }}>
-        <div className="brand-block">
-          <img 
-            src="/crest.png" 
-            alt="Morris Lane Crest" 
-            style={{ width: '60px', height: '60px', borderRadius: '50%', border: '2px solid var(--gold)' }} 
-          />
-          <div className="hidden md:block">
-            <h1 className="brand-name" style={{ fontSize: '1.2rem' }}>Morris Lane</h1>
-            <p className="brand-tagline" style={{ fontSize: '0.7rem' }}>American Made First</p>
-          </div>
-        </div>
-
-        {/* SEARCH BAR: EMPHASIZING AMERICAN SOURCING */}
-        <div className="search-container" style={{ flex: 1, margin: '0 1rem', position: 'relative', display: 'flex' }}>
-          <input 
-            type="text" 
-            placeholder="Search American-made goods or request a custom USA source..." 
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            style={{
-              width: '100%',
-              padding: '0.7rem 1.2rem',
-              borderRadius: '4px 0 0 4px',
-              border: '1px solid var(--gold)',
-              background: 'white',
-              color: '#333',
-              fontSize: '0.9rem'
-            }}
-          />
-          <button style={{
-            background: 'var(--gold)',
-            border: 'none',
-            padding: '0 1.2rem',
-            borderRadius: '0 4px 4px 0',
-            fontWeight: '900',
-            cursor: 'pointer',
-            color: 'var(--navy)'
-          }}>
-            \ud83d\udd0d
-          </button>
-        </div>
-
-        {/* NAV & ACCOUNT */}
-        <nav className="main-nav" style={{ alignItems: 'center', gap: '1.5rem' }}>
-          <div 
-            onClick={() => setIsLoginOpen(true)}
-            style={{ cursor: 'pointer', textAlign: 'left' }}
-          >
-            <p style={{ margin: 0, fontSize: '0.7rem', opacity: 0.8 }}>Hello, Sign in</p>
-            <p style={{ margin: 0, fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--gold)' }}>Account & Lists</p>
-          </div>
-
-          <div className="hidden lg:block" style={{ textAlign: 'left', cursor: 'pointer' }}>
-            <p style={{ margin: 0, fontSize: '0.7rem', opacity: 0.8 }}>Returns</p>
-            <p style={{ margin: 0, fontSize: '0.85rem', fontWeight: 'bold' }}>& Orders</p>
-          </div>
-
-          <div 
-            className="cart-icon" 
-            onClick={() => setIsCartOpen(true)}
-            style={{ cursor: 'pointer', position: 'relative', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-          >
-             <span style={{ fontSize: '1.8rem' }}>\ud83d\uded2</span>
-             <span style={{
-               position: 'absolute',
-               top: '-5px',
-               right: '15px',
-               background: 'var(--gold)',
-               color: 'var(--navy)',
-               borderRadius: '50%',
-               width: '18px',
-               height: '18px',
-               fontSize: '0.7rem',
-               display: 'flex',
-               alignItems: 'center',
-               justifyContent: 'center',
-               fontWeight: 'bold'
-             }}>{cart.length}</span>
-             <span style={{ fontWeight: 'bold', fontSize: '0.85rem', marginTop: '10px' }}>Cart</span>
-          </div>
-        </nav>
-      </header>
-
-      {/* --- HERO SECTION --- */}
-      <section className="hero-section" style={{
-        padding: '100px 20px',
-        textAlign: 'center',
-        background: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/hero-bg.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        color: 'white',
-        borderBottom: '5px solid var(--crimson)'
-      }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '3.5rem', fontWeight: '900', textTransform: 'uppercase', marginBottom: '1rem', letterSpacing: '2px' }}>
-            The Global Standard
-          </h2>
-          <p style={{ fontSize: '1.5rem', fontWeight: '300', color: 'var(--gold)', marginBottom: '2rem' }}>
-             American Market Place
-          </p>
-          <a href="#marketplace" style={{
-            background: 'var(--gold)',
-            color: 'var(--navy)',
-            padding: '1rem 2.5rem',
-            textDecoration: 'none',
-            fontSize: '1.1rem',
-            fontWeight: '900',
-            borderRadius: '4px',
-            textTransform: 'uppercase',
-            boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
-          }}>
-            Explore the Collection
-          </a>
-        </div>
-      </section>
-
-      {/* --- PRODUCT GRID --- */}
-      <main id="marketplace" style={{ padding: '60px 20px', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-          <h3 style={{ fontSize: '2rem', color: 'var(--navy)', borderLeft: '10px solid var(--crimson)', paddingLeft: '1.5rem' }}>
-            Featured Collections
-          </h3>
-          <p style={{ color: '#666', fontWeight: 'bold' }}>Sort by: <span style={{ color: 'var(--gold)' }}>American Made First</span></p>
-        </div>
-
-        <div className="product-grid" style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', 
-          gap: '2.5rem' 
-        }}>
-          {PRODUCTS.map(product => (
-            <div key={product.id} className="product-card" style={{
-              background: 'white',
-              border: '1px solid #eee',
-              borderRadius: '8px',
-              padding: '1.5rem',
-              display: 'flex',
-              flexDirection: 'column',
-              boxShadow: '0 5px 15px rgba(0,0,0,0.05)',
-              position: 'relative'
-            }}>
-              {product.usa_made && (
-                <span style={{
-                  position: 'absolute',
-                  top: '10px',
-                  right: '10px',
-                  background: 'var(--crimson)',
-                  color: 'white',
-                  fontSize: '0.6rem',
-                  padding: '2px 8px',
-                  borderRadius: '10px',
-                  fontWeight: 'bold'
-                }}>MADE IN USA</span>
-              )}
-              <div style={{ height: '200px', background: '#f5f5f5', marginBottom: '1.5rem', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ color: '#ccc', fontSize: '0.8rem' }}>Image Placeholder</span>
+    <div className="bg-[#0b0c10] text-[#c5c6c7] font-sans selection:bg-red-800 selection:text-white">
+      {/* Header - High-End Red, White, Blue, Gold */}
+      <header className="bg-[#1f2833] border-b-[6px] border-red-800 shadow-2xl sticky top-0 z-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-24">
+            {/* Logo and Title */}
+            <div className="flex items-center space-x-4">
+              <div className="bg-[#0b0c10] p-1 rounded-full border-4 border-yellow-600 shadow-[0_0_15px_rgba(217,119,6,0.3)] transform hover:scale-110 transition-transform cursor-pointer">
+                <Image src="/american-eagle-crest.png" alt="American Eagle Crest" width={60} height={60} className="rounded-full" />
               </div>
-              <p style={{ color: 'var(--gold)', fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{product.category}</p>
-              <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: 'var(--navy)' }}>{product.name}</h4>
-              <p style={{ fontSize: '0.85rem', color: '#666', flex: 1, marginBottom: '1.5rem' }}>{product.description}</p>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: '1.1rem', fontWeight: '900', color: 'var(--navy)' }}>
-                  {typeof product.price === 'number' ? `$${product.price.toFixed(2)}` : product.price}
-                </span>
-                <button 
-                  onClick={() => addToCart(product)}
-                  style={{
-                    background: 'var(--navy)',
-                    color: 'white',
-                    border: 'none',
-                    padding: '0.6rem 1rem',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                    fontSize: '0.8rem',
-                    fontWeight: 'bold'
-                  }}
-                >
-                  {product.price === "Sourced" ? "Request Sourcing" : "Add to Cart"}
-                </button>
+              <div>
+                <h1 className="text-3xl font-black tracking-tighter uppercase text-white leading-none" style={{ fontFamily: 'Impact, sans-serif' }}>
+                  AMERICAN <span className="text-red-600">MARKET</span> PLACE
+                </h1>
+                <p className="text-xs text-yellow-500 font-black tracking-[0.2em] uppercase mt-1">THE STANDARD FOR AMERICAN GRIT & SOVEREIGNTY</p>
               </div>
             </div>
-          ))}
+
+            {/* Navigation - Desktop */}
+            <nav className="hidden xl:flex items-center space-x-8 uppercase text-sm font-black tracking-widest text-gray-400">
+              <a href="#" className="hover:text-white transition-colors">Sign In</a>
+              <a href="#" className="hover:text-white transition-colors">Sourcing Post</a>
+              <a href="#" className="hover:text-white transition-colors">The Registry</a>
+              <a href="#" className="flex items-center space-x-2 bg-red-800 hover:bg-red-700 text-white px-6 py-3 rounded-none skew-x-[-10deg] transition-all shadow-[4px_4px_0px_#451212]">
+                <span className="skew-x-[10deg] flex items-center">
+                  <ShoppingCart className="w-5 h-5 mr-2" />
+                  CART (0)
+                </span>
+              </a>
+            </nav>
+
+            {/* Mobile Menu Icon */}
+            <div className="xl:hidden">
+                <Menu className="w-8 h-8 text-white cursor-pointer" />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section - The "American Made First" Manifesto */}
+      <main className="relative min-h-[85vh] flex items-center overflow-hidden border-b-8 border-yellow-700">
+        {/* Cinematic Background */}
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/hero-bg.jpg" 
+            alt="Rustic American Flag over Weathered Barn Wood" 
+            layout="fill" 
+            objectFit="cover" 
+            className="opacity-40 grayscale-[20%]" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0b0c10] via-[#0b0c10]/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c10] via-transparent to-[#0b0c10]/40"></div>
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="max-w-4xl text-left">
+            <div className="inline-flex items-center space-x-2 bg-red-800/80 text-white px-4 py-1 mb-6 font-black tracking-widest skew-x-[-15deg] border-l-4 border-yellow-500">
+                <span className="skew-x-[15deg]">VETERAN OWNED & OPERATED</span>
+            </div>
+            <h2 className="text-7xl md:text-9xl font-black tracking-tighter text-white uppercase leading-[0.85]" style={{ fontFamily: 'Impact, sans-serif' }}>
+              AMERICAN <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-b from-red-600 to-red-900">MADE</span> <br />
+              <span className="text-yellow-600">FIRST.</span>
+            </h2>
+            <p className="mt-8 max-w-xl text-xl md:text-2xl text-gray-400 font-medium leading-relaxed border-l-4 border-red-800 pl-6">
+              The Hub for Blue-Collar Grit. We don&apos;t just sell goods; we source <span className="text-white font-bold underline decoration-yellow-600">American Sovereignty</span> for the country-strong.
+            </p>
+            
+            {/* Search Engine - The Center of the Empire */}
+            <div className="mt-12 relative max-w-2xl group">
+              <input
+                type="search"
+                placeholder="SEARCH FOR AMERICAN-BUILT TOOLS, GEAR & HARDWARE..."
+                className="w-full pl-14 pr-6 py-6 bg-[#1f2833] border-2 border-gray-700 text-white placeholder-gray-500 font-black tracking-widest text-sm focus:outline-none focus:ring-4 focus:ring-red-900 focus:border-red-600 transition-all shadow-[10px_10px_0px_#000]"
+              />
+              <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-red-600 group-focus-within:scale-125 transition-transform" />
+            </div>
+          </div>
+        </div>
+
+        {/* Floating "Live Mission" Counter */}
+        <div className="absolute bottom-10 right-10 hidden lg:block bg-yellow-600/10 border-2 border-yellow-600/30 p-6 backdrop-blur-md skew-x-[-5deg]">
+            <div className="skew-x-[5deg]">
+                <p className="text-xs font-black tracking-widest text-yellow-600 uppercase">Current Missions</p>
+                <p className="text-4xl font-black text-white">42 Active Sourcing Requests</p>
+            </div>
         </div>
       </main>
 
-      {/* --- SOURCING SECTION --- */}
-      <section id="sourcing" style={{ padding: '80px 20px', background: 'var(--navy)', color: 'white' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--gold)' }}>American Sourcing Concierge</h3>
-          <p style={{ fontSize: '1.1rem', marginBottom: '2.5rem', opacity: 0.9 }}>
-            Our mission is simple: If you need an American-made asset, we will find it. 
-            From custom machinery to rare heritage goods, our sourcing network specializes in USA manufacturers first.
-          </p>
-          <form style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-             <input type="text" placeholder="Your Name" style={{ padding: '1rem', borderRadius: '4px', border: 'none' }} />
-             <input type="email" placeholder="Your Email" style={{ padding: '1rem', borderRadius: '4px', border: 'none' }} />
-             <textarea placeholder="Describe the American asset you need sourced..." style={{ gridColumn: 'span 2', padding: '1rem', borderRadius: '4px', border: 'none', height: '120px' }}></textarea>
-             <button style={{
-               gridColumn: 'span 2',
-               background: 'var(--gold)',
-               color: 'var(--navy)',
-               padding: '1.2rem',
-               borderRadius: '4px',
-               border: 'none',
-               fontWeight: 'bold',
-               fontSize: '1rem',
-               textTransform: 'uppercase',
-               cursor: 'pointer'
-             }}>
-               Initiate Sourcing Mission
-             </button>
-          </form>
+      {/* The Sourcing Post - "The Fixer" Engine */}
+      <section className="bg-[#1f2833] py-20 relative border-b-4 border-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="flex justify-center mb-8">
+                <div className="h-1 w-24 bg-red-700"></div>
+                <Star className="mx-4 text-yellow-600 fill-yellow-600" />
+                <div className="h-1 w-24 bg-red-700"></div>
+            </div>
+            <h3 className="text-5xl font-black text-white uppercase tracking-tighter" style={{ fontFamily: 'Impact, sans-serif' }}>
+              THE SOURCING <span className="text-red-700">POST</span>
+            </h3>
+            <p className="mt-6 text-xl text-gray-400 max-w-3xl mx-auto italic font-medium">
+              &quot;Can&apos;t find it? We are the fixers. If it exists in this country, we find it. If it doesn&apos;t, we know the man who can build it.&quot;
+            </p>
+            <div className="mt-12 flex flex-col md:flex-row justify-center gap-6">
+                <button className="bg-red-800 hover:bg-red-700 text-white font-black py-5 px-12 text-lg tracking-widest transition-all shadow-[8px_8px_0px_#000] border-2 border-red-950">
+                    SUBMIT SOURCING MISSION
+                </button>
+                <button className="bg-transparent hover:bg-gray-700 text-white font-black py-5 px-12 text-lg tracking-widest transition-all border-2 border-white shadow-[8px_8px_0px_#000]">
+                    BECOME A SELLER
+                </button>
+            </div>
         </div>
       </section>
 
-      {/* --- FOOTER --- */}
-      <footer style={{ padding: '40px 20px', background: '#0a0e14', color: 'white', textAlign: 'center', borderTop: '1px solid #333' }}>
-        <div style={{ marginBottom: '2rem' }}>
-          <img src="/crest.png" alt="Crest" style={{ width: '40px', filter: 'grayscale(1)' }} />
+      {/* Product Categories - Blue Collar Grid */}
+      <section className="py-24 bg-[#0b0c10]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between mb-16 border-b-2 border-gray-800 pb-8">
+            <div>
+                <h3 className="text-4xl font-black text-white uppercase tracking-tighter" style={{ fontFamily: 'Impact, sans-serif' }}>
+                HARDWARE <span className="text-gray-600">&</span> GRIT
+                </h3>
+                <p className="text-yellow-600 font-bold tracking-widest uppercase mt-2">Signature American Drops</p>
+            </div>
+            <a href="#" className="text-red-600 font-black tracking-widest text-sm hover:underline">VIEW ALL INVENTORY →</a>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            {/* Product Card 1 */}
+            <div className="group bg-[#1f2833] border-4 border-gray-800 hover:border-red-800 transition-all relative">
+              <div className="absolute top-4 left-4 z-10 bg-blue-900 text-[10px] font-black text-white px-3 py-1 tracking-widest uppercase border-l-4 border-yellow-500 shadow-md">
+                MADE IN USA
+              </div>
+              <div className="aspect-square bg-gray-900 flex items-center justify-center p-8 grayscale group-hover:grayscale-0 transition-all overflow-hidden relative">
+                 <ShieldCheck className="w-24 h-24 text-gray-800 absolute opacity-20" />
+                 <span className="text-gray-600 font-black text-6xl opacity-10">IMG</span>
+              </div>
+              <div className="p-6">
+                <h4 className="text-xl font-black text-white uppercase tracking-tight">HERITAGE WOOD PADDLE</h4>
+                <p className="mt-2 text-sm text-gray-500 font-medium">Select American White Pine. Built for generations of country life.</p>
+                <div className="mt-6 flex items-center justify-between">
+                    <span className="text-2xl font-black text-yellow-600">$125.00</span>
+                    <button className="bg-red-800 p-3 hover:bg-red-700 transition-colors">
+                        <ShoppingCart className="w-5 h-5 text-white" />
+                    </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Product Card 2 */}
+            <div className="group bg-[#1f2833] border-4 border-gray-800 hover:border-red-800 transition-all relative">
+              <div className="absolute top-4 left-4 z-10 bg-yellow-700 text-[10px] font-black text-white px-3 py-1 tracking-widest uppercase border-l-4 border-white shadow-md">
+                VETERAN-OWNED
+              </div>
+              <div className="aspect-square bg-gray-900 flex items-center justify-center p-8 grayscale group-hover:grayscale-0 transition-all overflow-hidden relative">
+                 <Truck className="w-24 h-24 text-gray-800 absolute opacity-20" />
+                 <span className="text-gray-600 font-black text-6xl opacity-10">IMG</span>
+              </div>
+              <div className="p-6">
+                <h4 className="text-xl font-black text-white uppercase tracking-tight">TACTICAL MILL BIT SET</h4>
+                <p className="mt-2 text-sm text-gray-500 font-medium">Hardened American Steel for high-precision workshop excellence.</p>
+                <div className="mt-6 flex items-center justify-between">
+                    <span className="text-2xl font-black text-yellow-600">$89.99</span>
+                    <button className="bg-red-800 p-3 hover:bg-red-700 transition-colors">
+                        <ShoppingCart className="w-5 h-5 text-white" />
+                    </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Product Card 3 */}
+            <div className="group bg-[#1f2833] border-4 border-gray-800 hover:border-red-800 transition-all relative">
+              <div className="absolute top-4 left-4 z-10 bg-blue-900 text-[10px] font-black text-white px-3 py-1 tracking-widest uppercase border-l-4 border-yellow-500 shadow-md">
+                MADE IN USA
+              </div>
+              <div className="aspect-square bg-gray-900 flex items-center justify-center p-8 grayscale group-hover:grayscale-0 transition-all overflow-hidden relative">
+                 <Anchor className="w-24 h-24 text-gray-800 absolute opacity-20" />
+                 <span className="text-gray-600 font-black text-6xl opacity-10">IMG</span>
+              </div>
+              <div className="p-6">
+                <h4 className="text-xl font-black text-white uppercase tracking-tight">THE MORRIS LANE JOURNAL</h4>
+                <p className="mt-2 text-sm text-gray-500 font-medium">Hand-stitched American Leather. For the men who keep the record.</p>
+                <div className="mt-6 flex items-center justify-between">
+                    <span className="text-2xl font-black text-yellow-600">$65.00</span>
+                    <button className="bg-red-800 p-3 hover:bg-red-700 transition-colors">
+                        <ShoppingCart className="w-5 h-5 text-white" />
+                    </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Product Card 4 */}
+            <div className="group bg-[#1f2833] border-4 border-gray-800 hover:border-red-800 transition-all relative">
+              <div className="absolute top-4 left-4 z-10 bg-red-900 text-[10px] font-black text-white px-3 py-1 tracking-widest uppercase border-l-4 border-white shadow-md">
+                LIMITED DROP
+              </div>
+              <div className="aspect-square bg-gray-900 flex items-center justify-center p-8 grayscale group-hover:grayscale-0 transition-all overflow-hidden relative">
+                 <Flag className="w-24 h-24 text-gray-800 absolute opacity-20" />
+                 <span className="text-gray-600 font-black text-6xl opacity-10">IMG</span>
+              </div>
+              <div className="p-6">
+                <h4 className="text-xl font-black text-white uppercase tracking-tight">EXECUTIVE FIELD WATCH</h4>
+                <p className="mt-2 text-sm text-gray-500 font-medium">Veteran-Assembled. Precision timing for high-stakes missions.</p>
+                <div className="mt-6 flex items-center justify-between">
+                    <span className="text-2xl font-black text-yellow-600">$450.00</span>
+                    <button className="bg-red-800 p-3 hover:bg-red-700 transition-colors">
+                        <ShoppingCart className="w-5 h-5 text-white" />
+                    </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <p style={{ fontSize: '0.8rem', opacity: 0.6 }}>&copy; {new Date().getFullYear()} Morris Lane. American Made First. All Rights Reserved.</p>
+      </section>
+
+      {/* The American Registry Section */}
+      <section className="bg-red-950/20 py-24 border-y-8 border-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-16">
+            <div className="lg:w-1/2">
+                <h3 className="text-5xl font-black text-white uppercase tracking-tighter" style={{ fontFamily: 'Impact, sans-serif' }}>
+                    JOIN THE <span className="text-red-700 underline">AMERICAN</span> REGISTRY
+                </h3>
+                <p className="mt-6 text-xl text-gray-400 font-medium">
+                    This isn&apos;t just an account. It&apos;s your entrance into the network. Track your sourcing missions, access exclusive blue-collar drops, and join a community that values American production over corporate greed.
+                </p>
+                <div className="mt-10 flex space-x-4">
+                    <button className="bg-white text-black font-black px-10 py-4 uppercase tracking-widest hover:bg-gray-200 transition-all">JOIN THE RANK</button>
+                    <button className="border-2 border-white text-white font-black px-10 py-4 uppercase tracking-widest hover:bg-white hover:text-black transition-all">LOG IN</button>
+                </div>
+            </div>
+            <div className="lg:w-1/2 bg-[#1f2833] p-1 border-4 border-gray-800 shadow-[20px_20px_0px_#451212]">
+                <div className="border-2 border-gray-700 p-12 text-center">
+                    <ShieldCheck className="w-20 h-20 text-red-700 mx-auto mb-6" />
+                    <p className="text-sm font-black text-yellow-600 tracking-[0.3em] uppercase">Security Level: Direct</p>
+                    <p className="text-2xl font-black text-white mt-4 uppercase">100% SECURE TRANSACTIONS</p>
+                    <p className="mt-2 text-gray-500">PROCESSED EXCLUSIVELY VIA THE AMERICAN MARKET PLACE TREASURY</p>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#0b0c10] py-20 border-t-8 border-red-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="flex justify-center mb-10">
+                <Image src="/american-eagle-crest.png" alt="Logo" width={80} height={80} className="grayscale brightness-50" />
+            </div>
+            <h4 className="text-2xl font-black text-white uppercase tracking-widest mb-6">AMERICAN MARKET PLACE</h4>
+            <div className="flex justify-center space-x-8 text-xs font-black tracking-widest text-gray-600 uppercase mb-12">
+                <a href="#" className="hover:text-red-600 transition-colors">Mission</a>
+                <a href="#" className="hover:text-red-600 transition-colors">Privacy</a>
+                <a href="#" className="hover:text-red-600 transition-colors">Terms</a>
+                <a href="#" className="hover:text-red-600 transition-colors">Sourcing</a>
+                <a href="#" className="hover:text-red-600 transition-colors">Support</a>
+            </div>
+            <p className="text-[10px] font-black text-gray-700 uppercase tracking-widest">
+                © 2026 MORRIS LANE INDUSTRIES. ALL RIGHTS RESERVED. <br />
+                BUILT IN THE USA BY THE AMERICAN MARKET PLACE STRATEGISTS.
+            </p>
+            <p className="mt-6 text-[10px] text-gray-800 font-bold italic underline decoration-red-900/50">
+                &quot;In God We Trust. All Others Must Be Sourced.&quot;
+            </p>
+        </div>
       </footer>
 
-      {/* --- CART SLIDE-OUT --- */}
-      {isCartOpen && (
-        <div className="cart-drawer" style={{
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          width: '350px',
-          height: '100%',
-          background: 'white',
-          boxShadow: '-10px 0 30px rgba(0,0,0,0.2)',
-          zIndex: 2000,
-          padding: '2rem',
-          display: 'flex',
-          flexDirection: 'column'
-        }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-            <h4 style={{ margin: 0, color: 'var(--navy)' }}>Your Mission Cart</h4>
-            <button onClick={() => setIsCartOpen(false)} style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer' }}>\u00d7</button>
-          </div>
-          
-          <div style={{ flex: 1, overflowY: 'auto' }}>
-            {cart.length === 0 ? (
-              <p style={{ textAlign: 'center', marginTop: '3rem', color: '#999' }}>The cart is empty. Begin your mission.</p>
-            ) : (
-              cart.map((item, index) => (
-                <div key={index} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', paddingBottom: '1rem', borderBottom: '1px solid #eee' }}>
-                  <div>
-                    <p style={{ margin: 0, fontWeight: 'bold', fontSize: '0.9rem' }}>{item.name}</p>
-                    <p style={{ margin: 0, fontSize: '0.7rem', color: 'var(--gold)' }}>USA Made</p>
-                  </div>
-                  <div style={{ textAlign: 'right' }}>
-                    <p style={{ margin: 0, fontWeight: 'bold' }}>${typeof item.price === 'number' ? item.price.toFixed(2) : '0.00'}</p>
-                    <button onClick={() => removeFromCart(index)} style={{ background: 'none', border: 'none', color: 'var(--crimson)', fontSize: '0.7rem', cursor: 'pointer' }}>Remove</button>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
-
-          <div style={{ borderTop: '2px solid #eee', paddingTop: '1.5rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
-              <span style={{ fontWeight: 'bold' }}>Mission Subtotal:</span>
-              <span style={{ fontWeight: '900', fontSize: '1.2rem', color: 'var(--navy)' }}>${cartTotal.toFixed(2)}</span>
-            </div>
-            <button 
-              onClick={handleCheckout}
-              disabled={cart.length === 0}
-              style={{
-                width: '100%',
-                background: cart.length === 0 ? '#ccc' : 'var(--navy)',
-                color: 'white',
-                padding: '1.2rem',
-                borderRadius: '4px',
-                border: 'none',
-                fontWeight: 'bold',
-                cursor: cart.length === 0 ? 'not-allowed' : 'pointer'
-              }}
-            >
-              PROCEED TO SECURE TREASURY
-            </button>
-            <p style={{ fontSize: '0.65rem', textAlign: 'center', marginTop: '1rem', opacity: 0.6 }}>
-              \ud83d\udee1\ufe0f Securely processed by the Morris Lane Sourcing Network.
-            </p>
-          </div>
+      {/* Floating AI Strategist (Me) */}
+      <div className="fixed bottom-8 right-8 z-[100] group">
+        <div className="absolute -top-16 right-0 bg-[#1f2833] text-white px-4 py-2 rounded-none border-2 border-red-800 text-[10px] font-black tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl">
+            Sourcing Strategist Online
         </div>
-      )}
-
-      {/* --- LOGIN MODAL --- */}
-      {isLoginOpen && (
-        <div className="modal-overlay" style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          background: 'rgba(0,0,0,0.8)',
-          zIndex: 3000,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-          <div style={{ background: 'white', padding: '3rem', borderRadius: '8px', width: '400px', textAlign: 'center', position: 'relative' }}>
-             <button onClick={() => setIsLoginOpen(false)} style={{ position: 'absolute', top: '10px', right: '10px', background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer' }}>\u00d7</button>
-             <h3 style={{ marginBottom: '1rem', color: 'var(--navy)' }}>Executive Registry</h3>
-             <p style={{ fontSize: '0.85rem', color: '#666', marginBottom: '2rem' }}>Access your secure orders and sourcing missions.</p>
-             <form style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <input type="email" placeholder="Email" style={{ padding: '1rem', borderRadius: '4px', border: '1px solid #ddd' }} />
-                <input type="password" placeholder="Password" style={{ padding: '1rem', borderRadius: '4px', border: '1px solid #ddd' }} />
-                <button style={{ background: 'var(--gold)', color: 'var(--navy)', padding: '1rem', border: 'none', borderRadius: '4px', fontWeight: 'bold' }}>Sign In</button>
-             </form>
-             <p style={{ marginTop: '1.5rem', fontSize: '0.75rem' }}>Don't have a login? <span style={{ color: 'var(--gold)', fontWeight: 'bold', cursor: 'pointer' }}>Apply for Membership</span></p>
-          </div>
-        </div>
-      )}
-
-      {/* --- DEBBIE AI CHAT BUBBLE --- */}
-      <div className="debbie-bubble" style={{
-        position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        width: '60px',
-        height: '60px',
-        background: 'var(--navy)',
-        borderRadius: '50%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        boxShadow: '0 5px 20px rgba(0,0,0,0.3)',
-        cursor: 'pointer',
-        border: '2px solid var(--gold)',
-        zIndex: 4000
-      }}>
-         <span style={{ fontSize: '1.5rem' }}>\ud83d\udcbb</span>
-         <div style={{
-           position: 'absolute',
-           top: '-5px',
-           right: '-5px',
-           width: '15px',
-           height: '15px',
-           background: '#4CAF50',
-           borderRadius: '50%',
-           border: '2px solid white'
-         }}></div>
+        <button className="bg-red-800 p-1 rounded-full border-4 border-yellow-600 shadow-[0_0_20px_rgba(217,119,6,0.5)] transform hover:scale-110 active:scale-95 transition-all">
+          <Image src="/debbie_avatar.png" alt="Debbie AI" width={70} height={70} className="rounded-full" />
+        </button>
       </div>
     </div>
   );

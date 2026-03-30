@@ -1,0 +1,142 @@
+
+import Image from 'next/image';
+import { Eagle, Flag, ShieldCheck, Truck, Users, MessageSquare } from 'lucide-react';
+
+// Main Component: The American Market Place Flagship
+export default function AmericanMarketPlace() {
+  return (
+    <div className="bg-gray-900 text-white font-sans">
+      {/* Header */}
+      <header className="bg-gray-800 border-b-4 border-red-700 shadow-lg">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo and Title */}
+            <div className="flex items-center space-x-4">
+              <div className="bg-blue-900 p-2 rounded-md border-2 border-gray-600">
+                <Image src="/american-eagle-crest.png" alt="American Eagle Crest" width={48} height={48} />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold tracking-wider uppercase text-gray-100">American Market Place</h1>
+                <p className="text-sm text-yellow-400 font-semibold">THE STANDARD FOR AMERICAN GRIT</p>
+              </div>
+            </div>
+            {/* Navigation */}
+            <nav className="hidden md:flex items-center space-x-6">
+              <a href="#" className="text-gray-300 hover:text-white font-medium">Sign In</a>
+              <a href="#" className="text-gray-300 hover:text-white font-medium">My Orders</a>
+              <a href="#" className="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md transition-colors">
+                Cart (0)
+              </a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <main className="relative">
+        <div className="absolute inset-0">
+          <Image src="/hero-banner.jpg" alt="Rustic American Flag background" layout="fill" objectFit="cover" className="opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent"></div>
+        </div>
+
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+          <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white uppercase" style={{ textShadow: '2px 2px 4px #000' }}>
+            PRIORITY: <span className="text-yellow-400">AMERICAN MADE</span>
+          </h2>
+          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-300">
+            This is the hub for blue-collar sellers and country-strong buyers. If it's built with grit, you'll find it here.
+          </p>
+          <div className="mt-10">
+            <input
+              type="search"
+              placeholder="Search for American-made tools, gear, and hardware..."
+              className="w-full max-w-xl p-4 bg-gray-800 border-2 border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-700"
+            />
+          </div>
+        </div>
+      </main>
+
+      {/* The Sourcing Post */}
+      <section className="bg-gray-800/50 py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 className="text-3xl font-bold text-yellow-400 uppercase">THE SOURCING POST</h3>
+            <p className="mt-2 text-lg text-gray-300 max-w-3xl mx-auto">Can't find what you need? We are the fixers. If it exists, we find it. If it doesn't, we know the guy who can build it.</p>
+            <button className="mt-8 bg-red-700 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-md text-lg transition-colors">
+              SUBMIT A SOURCING REQUEST
+            </button>
+        </div>
+      </section>
+
+      {/* Featured Products */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 className="text-3xl font-bold text-center uppercase mb-12">HARDWARE & GRIT</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Product Card Example */}
+            <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden shadow-lg hover:border-yellow-400 transition-all">
+              <div className="p-2 bg-blue-900 text-center font-bold text-yellow-300">MADE IN USA</div>
+              <div className="p-6">
+                <h4 className="text-xl font-bold text-white">Heritage Wood Paddle</h4>
+                <p className="mt-2 text-gray-400">Select American White Pine. Built for generations.</p>
+                <div className="mt-4 text-2xl font-bold text-yellow-400">$125.00</div>
+                <button className="mt-6 w-full bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            {/* Repeat for other products */}
+            <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden shadow-lg hover:border-yellow-400 transition-all">
+              <div className="p-2 bg-blue-900 text-center font-bold text-yellow-300">VETERAN-OWNED</div>
+               <div className="p-6">
+                <h4 className="text-xl font-bold text-white">Tactical Mill Bit Set</h4>
+                <p className="mt-2 text-gray-400">Hardened American steel for high-precision work.</p>
+                <div className="mt-4 text-2xl font-bold text-yellow-400">$89.99</div>
+                <button className="mt-6 w-full bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden shadow-lg hover:border-yellow-400 transition-all">
+               <div className="p-2 bg-blue-900 text-center font-bold text-yellow-300">MADE IN USA</div>
+               <div className="p-6">
+                <h4 className="text-xl font-bold text-white">The Morris Lane Journal</h4>
+                <p className="mt-2 text-gray-400">Hand-stitched American leather. For plans that matter.</p>
+                <div className="mt-4 text-2xl font-bold text-yellow-400">$75.00</div>
+                <button className="mt-6 w-full bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+             <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden shadow-lg hover:border-yellow-400 transition-all">
+               <div className="p-2 bg-blue-900 text-center font-bold text-yellow-300">VETERAN-ASSEMBLED</div>
+               <div className="p-6">
+                <h4 className="text-xl font-bold text-white">Executive Field Watch</h4>
+                <p className="mt-2 text-gray-400">Reliable, rugged, and assembled on American soil.</p>
+                <div className="mt-4 text-2xl font-bold text-yellow-400">$250.00</div>
+                <button className="mt-6 w-full bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 border-t-2 border-red-700 mt-10">
+        <div className="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+          <p>&copy; 2026 Morris Lane. Built on American soil. All Rights Reserved.</p>
+        </div>
+      </footer>
+
+      {/* Debbie AI Concierge Widget */}
+      <div className="fixed bottom-5 right-5 flex items-center space-x-3 cursor-pointer">
+         <div className="bg-gray-800 p-3 rounded-lg shadow-lg text-right hidden sm:block">
+            <p className="font-bold text-white">Need something specific?</p>
+            <p className="text-sm text-yellow-400">I'm your private strategist.</p>
+        </div>
+        <Image src="/debbie_avatar.png" alt="Debbie AI Avatar" width={64} height={64} className="rounded-full border-4 border-red-700" />
+      </div>
+    </div>
+  );
+}

@@ -86,6 +86,13 @@ export default function HomePage() {
 
   const cartTotal = cart.reduce((acc, item) => acc + (typeof item.price === 'number' ? item.price : 0), 0);
 
+  const handleCheckout = () => {
+    // This is the Sovereign Paygate. 
+    // Once you provide the Stripe Link, we redirect here.
+    const stripePaymentUrl = "https://buy.stripe.com/test_placeholder"; // We replace this with your real link
+    window.open(stripePaymentUrl, '_blank');
+  };
+
   if (!isMounted) return null;
 
   return (
@@ -296,12 +303,31 @@ export default function HomePage() {
                 <span>Subtotal:</span>
                 <span>${cartTotal.toFixed(2)}</span>
               </div>
-              <button className="btn-primary" style={{ width: '100%', padding: '1rem', background: '#f3d078', color: '#111', border: '1px solid #a88734' }}>
-                Proceed to Checkout
+              <button 
+                onClick={handleCheckout}
+                className="btn-primary" 
+                style={{ 
+                  width: '100%', 
+                  padding: '1.2rem', 
+                  background: 'linear-gradient(135deg, var(--gold) 0%, #d4af37 100%)', 
+                  color: 'var(--navy)', 
+                  border: 'none',
+                  borderRadius: '8px',
+                  fontWeight: '900',
+                  fontSize: '1.1rem',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '10px'
+                }}
+              >
+                <span style={{ fontSize: '1.4rem' }}>🛡️</span> PROCEED TO SECURE CHECKOUT
               </button>
               <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-                <p style={{ fontSize: '0.75rem', color: '#666', margin: 0 }}>Secure payment processed via</p>
-                <p style={{ fontSize: '0.9rem', fontWeight: 'bold', color: '#6772e5', margin: 0 }}>Stripe</p>
+                <p style={{ fontSize: '0.75rem', color: '#666', margin: 0, fontWeight: '600' }}>Sovereign Standard Encrypted</p>
+                <p style={{ fontSize: '0.85rem', fontWeight: '900', color: '#6772e5', margin: 0 }}>SECURED BY STRIPE</p>
               </div>
             </div>
           )}

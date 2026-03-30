@@ -1,0 +1,4 @@
+#!/bin/bash
+git add src/app/page.tsx src/app/layout.tsx src/app/globals.css public/crest.png public/debbie_avatar.png
+git commit -m "Update to Sovereign Marketplace"
+git push origin main

@@ -89,7 +89,54 @@
       <section id="sourcing" class="sourcing-bar">
         <h2>Executive Sourcing</h2>
         <p>If it exists, we find it. We vet it. We deliver it. Period.</p>
-        <a href="mailto:glenn@morrislane.store?subject=Morris%20Lane%20Sourcing%20Request" class="btn-sovereign">Submit Sourcing Request</a>
+        <div class="sourcing-form-container">
+          <form id="sourcingForm" class="sourcing-form" onsubmit="event.preventDefault(); document.getElementById('sourcingForm').style.display='none'; document.getElementById('formSuccess').style.display='block';">
+            <input type="text" placeholder="What are you looking for?" required class="form-input">
+            <input type="email" placeholder="Your Email" required class="form-input">
+            <button type="submit" class="btn-sovereign">Submit Request</button>
+          </form>
+          <div id="formSuccess" class="success-msg" style="display:none; background: rgba(0,255,0,0.1); padding: 1rem; border-radius: 4px; border: 1px solid #4CAF50; color: #4CAF50; font-weight: bold;">
+            Sourcing Request Received. We're on it, Willie.
+          </div>
+        </div>
+      </section>
+
+      <!-- SOVEREIGN LEDGER (TRUST BUILDER) -->
+      <section id="ledger" class="ledger-section">
+        <h2 class="section-title">The Sovereign Ledger</h2>
+        <p class="section-subtitle">Real-time status of current global sourcing missions.</p>
+        <div class="ledger-table-container">
+          <table class="ledger-table">
+            <thead>
+              <tr>
+                <th>Item ID</th>
+                <th>Request Type</th>
+                <th>Origin</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ML-SRC-0942</td>
+                <td>Luxury Leather Set</td>
+                <td>Italy / USA</td>
+                <td><span class="status-tag status-sourced">SOURCED</span></td>
+              </tr>
+              <tr>
+                <td>ML-SRC-0943</td>
+                <td>Custom Titanium Gear</td>
+                <td>Switzerland</td>
+                <td><span class="status-tag status-progress">IN PROGRESS</span></td>
+              </tr>
+              <tr>
+                <td>ML-SRC-0944</td>
+                <td>Vintage Aviation Part</td>
+                <td>Germany</td>
+                <td><span class="status-tag status-shipping">SHIPPING</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <!-- ABOUT SECTION -->
@@ -129,18 +176,7 @@
     </div>
     <div class="debbie-input-area">
       <input type="text" class="debbie-input" placeholder="Ask Debbie anything...">
-      <button style="background: var(--accent-gold); border:none; border-radius:4px; padding:0.5rem 1rem; cursor:pointer; font-weight:700;">Send</button>
     </div>
   </div>
-
-  <script>
-    // Simple interactivity for the search bar
-    document.querySelector('.search-btn').addEventListener('click', () => {
-      const query = document.querySelector('.search-input').value;
-      if(query) {
-        alert('Searching for: ' + query + ' in the Sovereign Database...');
-      }
-    });
-  </script>
 </body>
 </html>

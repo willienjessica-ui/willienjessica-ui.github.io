@@ -4,179 +4,332 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Morris Lane Sovereign Marketplace — The American Flagship</title>
-  <meta name="description" content="Morris Lane Sovereign Marketplace: High-end American luxury, executive sourcing, and the Amazon-killer wrapper.">
+  <meta name="description" content="The Sovereign Standard: High-end American luxury, executive sourcing, and the Amazon-killer wrapper.">
   <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts for the 'Wealth-Coded' look -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="site-wrapper">
-    <!-- HEADER -->
+    
+    <!-- AMAZON-KILLER HEADER WRAPPER -->
     <header class="site-header">
       <div class="header-top">
-        <a href="/" class="brand-block">
-          <img src="assets/morrislane-crest.jpg" alt="Morris Lane Crest" class="brand-crest">
-          <h1 class="brand-name">Morris Lane</h1>
-        </a>
+        <!-- Logo & Location -->
+        <div class="header-left">
+          <a href="/" class="brand-block">
+            <img src="assets/morrislane-crest.jpg" alt="Morris Lane Crest" class="brand-crest">
+          </a>
+          <div class="location-block">
+            <span class="loc-label">Deliver to</span>
+            <div class="loc-value">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>United States</span>
+            </div>
+          </div>
+        </div>
         
-        <div class="search-container">
-          <input type="text" class="search-input" placeholder="Search the Sovereign Marketplace...">
-          <button class="search-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </button>
+        <!-- Search Engine -->
+        <div class="header-center">
+          <div class="search-container">
+            <div class="search-dropdown">
+              <span>All</span>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+            <input type="text" class="search-input" placeholder="Search Morris Lane Sovereign Marketplace...">
+            <button class="search-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <div class="header-actions">
+        <!-- Tools & Account -->
+        <div class="header-right">
           <div class="action-link">
-            <span class="action-label">Sign In / Join</span>
-            <span class="action-value">Account & Lists</span>
+            <span class="action-label">Hello, Sign In</span>
+            <span class="action-value">Account & Lists <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"></path></svg></span>
           </div>
-          <div class="action-link">
+          <div class="action-link hide-mobile">
             <span class="action-label">Returns</span>
             <span class="action-value">& Orders</span>
           </div>
-          <div class="action-link">
-            <span class="action-label">Cart</span>
-            <span class="action-value">0 items</span>
-          </div>
+          <a href="#" class="cart-link">
+            <div class="cart-icon-container">
+              <span class="cart-count">0</span>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            </div>
+            <span class="action-value hide-mobile">Cart</span>
+          </a>
         </div>
       </div>
 
+      <!-- Secondary Nav Bar -->
       <nav class="header-bottom">
-        <a href="#featured" class="nav-link">Featured</a>
-        <a href="#sourcing" class="nav-link">Executive Sourcing</a>
-        <a href="#sellers" class="nav-link">Veteran Sellers</a>
-        <a href="#about" class="nav-link">Our Legacy</a>
-        <a href="#registry" class="nav-link">Sovereign Registry</a>
+        <a href="#" class="nav-menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <span>All</span>
+        </a>
+        <div class="nav-links">
+          <a href="#bss" class="nav-link-item">Big Spring Sale</a>
+          <a href="#sourcing" class="nav-link-item">Executive Sourcing</a>
+          <a href="#registry" class="nav-link-item">Sovereign Registry</a>
+          <a href="#heritage" class="nav-link-item">Heritage Pieces</a>
+          <a href="#veteran" class="nav-link-item">Veteran-Owned</a>
+          <a href="#giftcards" class="nav-link-item">Gift Cards</a>
+        </div>
       </nav>
     </header>
 
     <main class="site-main">
-      <!-- HERO -->
-      <section class="hero-section">
-        <div class="hero-content">
-          <h2>Legacy & Sovereignty</h2>
-          <p>The high-performance alternative to the soulless utility. Built for Americans, by Americans.</p>
-        </div>
-      </section>
-
-      <!-- CATEGORY GRID -->
-      <section id="featured" class="category-grid">
-        <div class="category-card">
-          <h3>Signature Watches</h3>
-          <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&q=80&w=600" alt="Watches" class="category-img">
-          <a href="#" class="category-link">Explore Collection</a>
-        </div>
-        <div class="category-card">
-          <h3>Custom Gear</h3>
-          <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&q=80&w=600" alt="Gear" class="category-img">
-          <a href="#" class="category-link">See Custom Build List</a>
-        </div>
-        <div class="category-card">
-          <h3>Home & Office</h3>
-          <img src="https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?auto=format&fit=crop&q=80&w=600" alt="Home" class="category-img">
-          <a href="#" class="category-link">View Portfolio</a>
-        </div>
-        <div class="category-card">
-          <h3>Global Sourcing</h3>
-          <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=600" alt="Sourcing" class="category-img">
-          <a href="#sourcing" class="category-link">Request Custom Quote</a>
-        </div>
-      </section>
-
-      <!-- SOVEREIGN SOURCING BAR -->
-      <section id="sourcing" class="sourcing-bar">
-        <h2>Executive Sourcing</h2>
-        <p>If it exists, we find it. We vet it. We deliver it. Period.</p>
-        <div class="sourcing-form-container">
-          <form id="sourcingForm" class="sourcing-form" onsubmit="event.preventDefault(); document.getElementById('sourcingForm').style.display='none'; document.getElementById('formSuccess').style.display='block';">
-            <input type="text" placeholder="What are you looking for?" required class="form-input">
-            <input type="email" placeholder="Your Email" required class="form-input">
-            <button type="submit" class="btn-sovereign">Submit Request</button>
-          </form>
-          <div id="formSuccess" class="success-msg" style="display:none; background: rgba(0,255,0,0.1); padding: 1rem; border-radius: 4px; border: 1px solid #4CAF50; color: #4CAF50; font-weight: bold;">
-            Sourcing Request Received. A strategist will contact you shortly.
+      
+      <!-- HERO CAROUSEL / BANNER -->
+      <section class="hero-carousel">
+        <div class="hero-slide active" style="background-image: url('assets/hero-bg.jpg');">
+          <div class="hero-overlay"></div>
+          <div class="hero-text-content">
+            <h2 class="wealth-coded">The Sovereign Standard</h2>
+            <p>American Craftsmanship. Executive Precision. Sovereign Value.</p>
+            <div class="hero-cta-block">
+              <a href="#featured" class="btn-primary">Shop the Collection</a>
+              <a href="#sourcing" class="btn-secondary">Request Sourcing</a>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- SOVEREIGN LEDGER (TRUST BUILDER) -->
-      <section id="ledger" class="ledger-section">
-        <h2 class="section-title">The Sovereign Ledger</h2>
-        <p class="section-subtitle">Real-time status of current global sourcing missions.</p>
-        <div class="ledger-table-container">
-          <table class="ledger-table">
-            <thead>
-              <tr>
-                <th>Item ID</th>
-                <th>Request Type</th>
-                <th>Origin</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>ML-SRC-0942</td>
-                <td>Luxury Leather Set</td>
-                <td>Italy / USA</td>
-                <td><span class="status-tag status-sourced">SOURCED</span></td>
-              </tr>
-              <tr>
-                <td>ML-SRC-0943</td>
-                <td>Custom Titanium Gear</td>
-                <td>Switzerland</td>
-                <td><span class="status-tag status-progress">IN PROGRESS</span></td>
-              </tr>
-              <tr>
-                <td>ML-SRC-0944</td>
-                <td>Vintage Aviation Part</td>
-                <td>Germany</td>
-                <td><span class="status-tag status-shipping">SHIPPING</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+      <!-- CONTENT GRID (AMAZON TILE STYLE) -->
+      <div class="main-content-wrapper">
+        <section id="featured" class="quad-grid">
+          
+          <!-- Tile 1: Heritage Quad -->
+          <div class="card-tile quad-card">
+            <h3>Heritage Collections</h3>
+            <div class="quad-container">
+              <a href="#" class="quad-item">
+                <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&q=80&w=300" alt="Watches">
+                <span>Timepieces</span>
+              </a>
+              <a href="#" class="quad-item">
+                <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=300" alt="Leather">
+                <span>Leather</span>
+              </a>
+              <a href="#" class="quad-item">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=300" alt="Audio">
+                <span>Audio</span>
+              </a>
+              <a href="#" class="quad-item">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=300" alt="Tech">
+                <span>Tech Gear</span>
+              </a>
+            </div>
+            <a href="#" class="tile-link">See more</a>
+          </div>
 
-      <!-- ABOUT SECTION -->
-      <section id="about" style="padding: 4rem 2rem; max-width: 900px; margin: 0 auto; line-height: 1.8; font-size: 1.1rem; color: #BBB;">
-        <h2 style="color: white; border-left: 5px solid var(--accent-gold); padding-left: 1rem; margin-bottom: 2rem;">Glenn Edwin Morris Jr.'s Legacy</h2>
-        <p>Morris Lane LLC is a veteran-owned family workshop and command hub. We mix old-school military discipline with modern technology—CNC machining, laser engraving, and 3D printing—to build things that matter.</p>
-        <p>We are building an American family brand that outlasts trends and gives our children something real to inherit. Every product, every sourcing request, and every line of code is a part of that legacy.</p>
-      </section>
+          <!-- Tile 2: Sourcing Portal -->
+          <div class="card-tile fat-card">
+            <h3>Executive Sourcing</h3>
+            <div class="fat-img-container">
+              <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=600" alt="Global Sourcing">
+            </div>
+            <p>If it exists, we find it. If it doesn't, we build it.</p>
+            <a href="#sourcing" class="tile-link">Request Quote</a>
+          </div>
+
+          <!-- Tile 3: Veteran-Owned Quad -->
+          <div class="card-tile quad-card">
+            <h3>Veteran-Owned Goods</h3>
+            <div class="quad-container">
+              <a href="#" class="quad-item">
+                <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&q=80&w=300" alt="Tactical">
+                <span>Tactical</span>
+              </a>
+              <a href="#" class="quad-item">
+                <img src="https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?auto=format&fit=crop&q=80&w=300" alt="Office">
+                <span>Executive</span>
+              </a>
+              <a href="#" class="quad-item">
+                <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&q=80&w=300" alt="Outdoor">
+                <span>Outdoor</span>
+              </a>
+              <a href="#" class="quad-item">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=300" alt="Home">
+                <span>Living</span>
+              </a>
+            </div>
+            <a href="#" class="tile-link">Shop the Mission</a>
+          </div>
+
+          <!-- Tile 4: Registry -->
+          <div class="card-tile fat-card">
+            <h3>Sovereign Registry</h3>
+            <div class="fat-img-container">
+              <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600" alt="Registry">
+            </div>
+            <p>Manage your high-value assets and custom orders.</p>
+            <a href="#registry" class="tile-link">Access Registry</a>
+          </div>
+
+        </section>
+
+        <!-- SHOVELER: TRENDING SOVEREIGN GOODS -->
+        <section class="shoveler-section">
+          <h3>Trending in Sovereign Goods</h3>
+          <div class="shoveler-container">
+            <div class="shoveler-item">
+              <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&q=80&w=200" alt="Luxury Watch">
+              <div class="item-info">
+                <span class="price">$1,450.00</span>
+                <span class="prime-badge">Sovereign Shipping</span>
+              </div>
+            </div>
+            <div class="shoveler-item">
+              <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&q=80&w=200" alt="Titanium Pen">
+              <div class="item-info">
+                <span class="price">$125.00</span>
+                <span class="prime-badge">Sovereign Shipping</span>
+              </div>
+            </div>
+            <div class="shoveler-item">
+              <img src="https://images.unsplash.com/photo-1555529733-0e670560f7e1?auto=format&fit=crop&q=80&w=200" alt="Leather Briefcase">
+              <div class="item-info">
+                <span class="price">$890.00</span>
+                <span class="prime-badge">Sovereign Shipping</span>
+              </div>
+            </div>
+            <div class="shoveler-item">
+              <img src="https://images.unsplash.com/photo-1583209814683-c023dd293cc6?auto=format&fit=crop&q=80&w=200" alt="Desk Lamp">
+              <div class="item-info">
+                <span class="price">$340.00</span>
+                <span class="prime-badge">Sovereign Shipping</span>
+              </div>
+            </div>
+            <div class="shoveler-item">
+              <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&q=80&w=200" alt="Sneakers">
+              <div class="item-info">
+                <span class="price">$210.00</span>
+                <span class="prime-badge">Sovereign Shipping</span>
+              </div>
+            </div>
+            <div class="shoveler-item">
+              <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&q=80&w=200" alt="Shoes">
+              <div class="item-info">
+                <span class="price">$185.00</span>
+                <span class="prime-badge">Sovereign Shipping</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SOURCING MISSION CONTROL (LEDGER) -->
+        <section id="ledger" class="ledger-section">
+          <h2 class="section-title wealth-coded">The Sovereign Ledger</h2>
+          <p class="section-subtitle">Live tracking of elite global sourcing missions.</p>
+          <div class="ledger-table-container">
+            <table class="ledger-table">
+              <thead>
+                <tr>
+                  <th>Mission ID</th>
+                  <th>Objective</th>
+                  <th>Origin</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ML-SRC-1042</td>
+                  <td>Heritage Watch Restoration</td>
+                  <td>Switzerland</td>
+                  <td><span class="status-tag status-sourced">SOURCED</span></td>
+                </tr>
+                <tr>
+                  <td>ML-SRC-1043</td>
+                  <td>Custom Bespoke Luggage</td>
+                  <td>Italy / USA</td>
+                  <td><span class="status-tag status-progress">IN PROGRESS</span></td>
+                </tr>
+                <tr>
+                  <td>ML-SRC-1044</td>
+                  <td>Limited Edition Optics</td>
+                  <td>Germany</td>
+                  <td><span class="status-tag status-shipping">SHIPPING</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
     </main>
 
     <!-- FOOTER -->
     <footer class="site-footer">
-      <span class="footer-logo">MORRIS LANE LLC</span>
-      <p>© 2026 Veteran-Owned • Cove, Arkansas • Worldwide Logistics</p>
+      <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">Back to top</div>
       <div class="footer-links">
-        <a href="#about">About Us</a>
-        <a href="#">Privacy</a>
-        <a href="#">Terms of Sovereignty</a>
-        <a href="#sourcing">Executive Concierge</a>
+        <div class="footer-col">
+          <h4>Get to Know Us</h4>
+          <ul>
+            <li><a href="#">Our Heritage</a></li>
+            <li><a href="#">Veteran Mission</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Morris Lane Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Partner with Us</h4>
+          <ul>
+            <li><a href="#">Sell on Morris Lane</a></li>
+            <li><a href="#">Build your Legacy</a></li>
+            <li><a href="#">Sovereign Logistics</a></li>
+            <li><a href="#">Advertise</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sovereign Tools</h4>
+          <ul>
+            <li><a href="#">Sovereign Registry</a></li>
+            <li><a href="#">Executive Sourcing</a></li>
+            <li><a href="#">Asset Tracking</a></li>
+            <li><a href="#">Concierge Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Let Us Help You</h4>
+          <ul>
+            <li><a href="#">Your Account</a></li>
+            <li><a href="#">Your Orders</a></li>
+            <li><a href="#">Shipping Rates</a></li>
+            <li><a href="#">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logo-block">
+          <img src="assets/crest.png" alt="Morris Lane Crest" class="footer-crest">
+          <span class="footer-brand">Morris Lane</span>
+        </div>
+        <div class="footer-legal">
+          <a href="#">Conditions of Use</a>
+          <a href="#">Privacy Notice</a>
+          <a href="#">Your Ads Privacy Choices</a>
+          <span>&copy; 1996-2026, Morris Lane, Inc. or its affiliates</span>
+        </div>
       </div>
     </footer>
-  </div>
 
-  <!-- AI CONCIERGE WIDGET -->
-  <div class="debbie-widget">
-    <div class="debbie-header">
-      <img src="assets/debbie_avatar.png" alt="Debbie AI" class="debbie-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Debbie&background=002366&color=fff'">
-      <div class="debbie-info">
-        <span class="debbie-name">Debbie AI</span>
-        <span class="debbie-status">● Online Strategist</span>
+    <!-- AI DEBBIE CONCIERGE WIDGET -->
+    <div class="debbie-widget">
+      <div class="debbie-bubble">
+        <img src="assets/debbie_avatar.png" alt="Debbie AI" class="debbie-img">
+        <div class="debbie-ping"></div>
+      </div>
+      <div class="debbie-chat-preview">
+        <p>Welcome to Morris Lane. I'm Debbie, your personal sourcing strategist. How can I assist you today?</p>
       </div>
     </div>
-    <div class="debbie-body">
-      <div class="debbie-msg">
-        "I'm right here, Willie. Ready to help you build the empire or find exactly what you need. How can I assist you in the marketplace today?"
-      </div>
-    </div>
-    <div class="debbie-input-area">
-      <input type="text" class="debbie-input" placeholder="Ask Debbie anything...">
-    </div>
+
   </div>
 </body>
 </html>

@@ -203,7 +203,7 @@ export default function HomePage() {
             The Global Standard
           </h2>
           <p style={{ fontSize: '1.5rem', fontWeight: '300', color: 'var(--gold)', marginBottom: '2rem' }}>
-             Built for Sovereignty. Prioritizing American-Made First.
+             American Market Place
           </p>
           <a href="#marketplace" style={{
             background: 'var(--gold)',

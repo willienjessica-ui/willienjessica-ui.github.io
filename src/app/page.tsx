@@ -7,54 +7,59 @@ interface Product {
   id: string;
   name: string;
   category: string;
-  price: number | "Sourced";
+  price: number | "Custom Mission";
   description: string;
+  madeInUSA?: boolean;
   image?: string;
 }
 
-// --- Mock Data ---
+// --- Mock Data: The American Collection ---
 const PRODUCTS: Product[] = [
   {
     id: '1',
     name: 'The Heritage Paddle',
-    category: 'SIGNATURE COLLECTION',
+    category: 'HARDWARE & GRIT',
     price: 45.00,
-    description: 'Select White Pine. Fully customizable precision engraving.',
+    madeInUSA: true,
+    description: 'Select White Pine. Branded with American precision. Built here.',
   },
   {
     id: '2',
     name: 'Tactical Mill Bit Set',
-    category: 'EXECUTIVE GEAR',
+    category: 'INDUSTRIAL IRON',
     price: 129.00,
-    description: 'Professional-grade hardened steel for precision shop work.',
+    madeInUSA: true,
+    description: 'Professional-grade hardened steel for the workshop. No bullshit gear.',
   },
   {
     id: '3',
-    name: 'Luxury Timepiece Access',
-    category: 'CURATED SOURCE',
-    price: "Sourced",
-    description: 'Direct access to our executive network for rare watch sourcing.',
+    name: 'The Sourcing Post',
+    category: 'CUSTOM MISSIONS',
+    price: "Custom Mission",
+    description: 'If you need it, we find it. Our network is your leverage.',
   },
   {
     id: '4',
     name: 'Premium Leather Journal',
-    category: 'SIGNATURE COLLECTION',
+    category: 'HARDWARE & GRIT',
     price: 65.00,
-    description: 'Hand-stitched American leather with gold leaf detailing.',
+    madeInUSA: true,
+    description: 'Hand-stitched American leather. For the thinkers and the builders.',
   },
   {
     id: '5',
-    name: 'Executive Field Watch',
-    category: 'CURATED SOURCE',
+    name: 'Patriot Field Watch',
+    category: 'THE ARMOURY',
     price: 850.00,
-    description: 'Automatic movement, sapphire crystal, veteran-assembled.',
+    madeInUSA: true,
+    description: 'Automatic movement. Veteran-assembled. Keeps time when everything else fails.',
   },
   {
     id: '6',
-    name: 'Global Sourcing Mission',
-    category: 'EXECUTIVE CONCIERGE',
-    price: "Sourced",
-    description: 'Tell us what you need. We find it, vet it, and deliver it.',
+    name: 'American Direct Sourcing',
+    category: 'CUSTOM MISSIONS',
+    price: "Custom Mission",
+    description: 'Tell us the target. We deliver the goods. Professional grade.',
   }
 ];
 
@@ -70,7 +75,7 @@ export default function HomePage() {
   }, []);
 
   const addToCart = (product: Product) => {
-    if (product.price === "Sourced") {
+    if (product.price === "Custom Mission") {
       window.location.href = "#sourcing";
       return;
     }
@@ -78,18 +83,11 @@ export default function HomePage() {
     setIsCartOpen(true);
   };
 
-  const removeFromCart = (index: number) => {
-    const newCart = [...cart];
-    newCart.splice(index, 1);
-    setCart(newCart);
-  };
-
   const cartTotal = cart.reduce((acc, item) => acc + (typeof item.price === 'number' ? item.price : 0), 0);
 
   const handleCheckout = () => {
-    // This is the High-Performance Paygate. 
-    // Once you provide the Stripe Link, we redirect here.
-    const stripePaymentUrl = "https://buy.stripe.com/test_placeholder"; // We replace this with your real link
+    // High-Performance American Paygate.
+    const stripePaymentUrl = "https://buy.stripe.com/test_placeholder";
     window.open(stripePaymentUrl, '_blank');
   };
 
@@ -97,63 +95,39 @@ export default function HomePage() {
 
   return (
     <div className="site-wrapper" style={{ overflowX: 'hidden' }}>
-      {/* --- GLOBAL HEADER (Amazon-Killer Wrapper) --- */}
+      {/* --- GLOBAL HEADER (Grit Wrapper) --- */}
       <header className="site-header" style={{ position: 'sticky', top: 0, zIndex: 1000 }}>
         <div className="brand-block">
           <img 
             src="/crest.png" 
-            alt="Morris Lane Crest" 
-            style={{ width: '60px', height: '60px', borderRadius: '50%', border: '2px solid var(--gold)' }} 
+            className="brand-crest"
+            alt="Morris Lane Seal" 
           />
           <div className="hidden md:block">
-            <h1 className="brand-name" style={{ fontSize: '1.2rem' }}>Morris Lane</h1>
-            <p className="brand-tagline" style={{ fontSize: '0.7rem' }}>Global Standard</p>
+            <h1 className="brand-name">Morris Lane</h1>
+            <p className="brand-tagline">American Grit</p>
           </div>
         </div>
 
         {/* SEARCH BAR */}
-        <div className="search-container" style={{ flex: 1, margin: '0 1rem', position: 'relative', display: 'flex' }}>
+        <div className="search-container" style={{ flex: 1, margin: '0 2rem', display: 'flex' }}>
           <input 
             type="text" 
-            placeholder="Search our curated collections or request a custom source..." 
+            placeholder="Search the marketplace or request a mission..." 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            style={{
-              width: '100%',
-              padding: '0.7rem 1.2rem',
-              borderRadius: '4px 0 0 4px',
-              border: '1px solid var(--gold)',
-              background: 'white',
-              color: '#333',
-              fontSize: '0.9rem'
-            }}
+            style={{ width: '100%', padding: '0.8rem 1.2rem', borderRadius: '4px 0 0 4px', fontSize: '1rem' }}
           />
-          <button style={{
-            background: 'var(--gold)',
-            border: 'none',
-            padding: '0 1.2rem',
-            borderRadius: '0 4px 4px 0',
-            fontWeight: '900',
-            cursor: 'pointer',
-            color: 'var(--navy)'
-          }}>
+          <button style={{ padding: '0 1.5rem', borderRadius: '0 4px 4px 0', cursor: 'pointer' }}>
             \ud83d\udd0d
           </button>
         </div>
 
         {/* NAV & ACCOUNT */}
-        <nav className="main-nav" style={{ alignItems: 'center', gap: '1.5rem' }}>
-          <div 
-            onClick={() => setIsLoginOpen(true)}
-            style={{ cursor: 'pointer', textAlign: 'left' }}
-          >
-            <p style={{ margin: 0, fontSize: '0.7rem', opacity: 0.8 }}>Hello, Sign in</p>
-            <p style={{ margin: 0, fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--gold)' }}>Account & Lists</p>
-          </div>
-
-          <div className="hidden lg:block" style={{ textAlign: 'left', cursor: 'pointer' }}>
-            <p style={{ margin: 0, fontSize: '0.7rem', opacity: 0.8 }}>Returns</p>
-            <p style={{ margin: 0, fontSize: '0.85rem', fontWeight: 'bold' }}>& Orders</p>
+        <nav className="main-nav" style={{ alignItems: 'center', gap: '2rem' }}>
+          <div onClick={() => setIsLoginOpen(true)} style={{ cursor: 'pointer', textAlign: 'left' }}>
+            <p style={{ margin: 0, fontSize: '0.75rem', color: 'var(--brass)', fontWeight: 'bold' }}>JOIN THE CREW</p>
+            <p style={{ margin: 0, fontSize: '0.9rem', fontWeight: '900', color: 'white' }}>ACCOUNT</p>
           </div>
 
           <div 
@@ -161,50 +135,168 @@ export default function HomePage() {
             onClick={() => setIsCartOpen(true)}
             style={{ cursor: 'pointer', position: 'relative', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
           >
-             <span style={{ fontSize: '1.8rem' }}>\ud83d\uded2</span>
+             <span style={{ fontSize: '2rem' }}>\ud83d\uded2</span>
              <span style={{
                position: 'absolute',
                top: '-5px',
                right: '15px',
-               background: 'var(--gold)',
-               color: 'var(--navy)',
+               background: 'var(--crimson)',
+               color: 'white',
                borderRadius: '50%',
-               width: '18px',
-               height: '18px',
-               fontSize: '0.7rem',
+               width: '20px',
+               height: '20px',
+               fontSize: '0.8rem',
                display: 'flex',
                alignItems: 'center',
                justifyContent: 'center',
-               fontWeight: 'bold'
+               fontWeight: '900',
+               border: '2px solid white'
              }}>{cart.length}</span>
-             <span style={{ fontWeight: 'bold', fontSize: '0.85rem', marginTop: '10px' }}>Cart</span>
+             <span style={{ fontWeight: '900', fontSize: '0.9rem', marginTop: '10px', color: 'var(--brass)' }}>CART</span>
           </div>
         </nav>
       </header>
 
-      {/* --- SUB-NAV BAR --- */}
-      <div style={{ background: '#232f3e', padding: '0.5rem 1.5rem', display: 'flex', gap: '1.5rem', fontSize: '0.85rem', fontWeight: '600', borderBottom: '1px solid #37475a' }}>
-        <a href=\"#shop\" style={{ color: 'white', textDecoration: 'none' }}>All Collections</a>
-        <a href=\"#sourcing\" style={{ color: 'white', textDecoration: 'none' }}>Executive Sourcing</a>
-        <a href=\"#about\" style={{ color: 'white', textDecoration: 'none' }}>About Us</a>
-        <a href=\"#\" style={{ color: 'var(--gold)', textDecoration: 'none' }}>Executive Registry</a>
+      {/* --- HERO SECTION --- */}
+      <section className="hero-section">
+        <h2 className="hero-title">American Made.<br/>Grit & Precision.</h2>
+        <p className="hero-subtitle">
+          The Direct Marketplace for those who build, source, and secure the future. 
+          No-bullshit gear for real Americans.
+        </p>
+        <div className="hero-cta-row" style={{ justifyContent: 'center', marginTop: '3rem' }}>
+          <a href="#products" className="btn-primary">Shop the Collection</a>
+          <a href="#sourcing" className="btn-secondary">Request Sourcing</a>
+        </div>
+      </section>
+
+      {/* --- MAIN MARKETPLACE GRID --- */}
+      <main className="site-main" id="products">
+        <h3 className="section-title">The Collection</h3>
+        <div className="card-grid">
+          {PRODUCTS.map((product) => (
+            <div key={product.id} className="product-card">
+              {product.madeInUSA && <div className="usa-badge">MADE IN USA</div>}
+              <p className="price-tag">
+                {typeof product.price === 'number' ? `$${product.price.toFixed(2)}` : product.price}
+              </p>
+              <h4>{product.name}</h4>
+              <p style={{ fontSize: '0.9rem', marginBottom: '1.5rem', opacity: 0.8 }}>{product.description}</p>
+              <button 
+                onClick={() => addToCart(product)}
+                className={product.price === "Custom Mission" ? "btn-secondary" : "btn-primary"}
+                style={{ width: '100%', padding: '0.8rem', borderRadius: '4px' }}
+              >
+                {product.price === "Custom Mission" ? "START MISSION" : "ADD TO CART"}
+              </button>
+            </div>
+          ))}
+        </div>
+
+        {/* --- THE MISSION PORTAL --- */}
+        <section id="sourcing" className="section-block" style={{ background: 'var(--navy)', padding: '4rem', borderRadius: '8px', border: '3px solid var(--brass)' }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+            <h3 style={{ fontSize: '2.5rem', fontFamily: 'Impact', textTransform: 'uppercase', color: 'white' }}>The Sourcing Post</h3>
+            <p style={{ fontSize: '1.2rem', color: 'var(--parchment)', marginBottom: '2rem' }}>
+              If it exists, we find it. If it doesn't, we build it. 
+              Tell us what you need, and the Morris Lane network handles the rest.
+            </p>
+            <div style={{ display: 'grid', gap: '1rem' }}>
+              <input type="text" placeholder="Item or Service Requested..." style={{ padding: '1rem', borderRadius: '4px', border: 'none' }} />
+              <input type="email" placeholder="Your Contact Email..." style={{ padding: '1rem', borderRadius: '4px', border: 'none' }} />
+              <button className="btn-primary" style={{ padding: '1.2rem' }}>DEPLOY MISSION</button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* --- CART SIDEBAR --- */}
+      {isCartOpen && (
+        <div className="cart-sidebar" style={{
+          position: 'fixed', top: 0, right: 0, height: '100vh', width: '350px',
+          background: 'var(--parchment)', color: '#1a1a1a', zIndex: 1001,
+          padding: '2rem', boxShadow: '-10px 0 30px rgba(0,0,0,0.5)',
+          display: 'flex', flexDirection: 'column', borderLeft: '5px solid var(--crimson)'
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+            <h3 style={{ margin: 0, fontFamily: 'Impact', textTransform: 'uppercase' }}>Your Gear</h3>
+            <button onClick={() => setIsCartOpen(false)} style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer', fontWeight: '900' }}>X</button>
+          </div>
+          
+          <div style={{ flex: 1, overflowY: 'auto' }}>
+            {cart.length === 0 ? <p>Your cart is empty, Boss.</p> : cart.map((item, idx) => (
+              <div key={idx} style={{ padding: '1rem 0', borderBottom: '1px solid #ccc' }}>
+                <p style={{ fontWeight: 'bold', margin: 0 }}>{item.name}</p>
+                <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--crimson)', fontWeight: '900' }}>${typeof item.price === 'number' ? item.price.toFixed(2) : '0.00'}</p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ marginTop: '2rem', borderTop: '2px solid #1a1a1a', paddingTop: '1rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 'bold', fontSize: '1.2rem', marginBottom: '1.5rem' }}>
+              <span>Total:</span>
+              <span style={{ color: 'var(--crimson)' }}>${cartTotal.toFixed(2)}</span>
+            </div>
+            <button 
+              onClick={handleCheckout}
+              className="btn-primary" 
+              style={{ width: '100%', padding: '1.2rem', fontSize: '1.2rem' }}
+            >
+              PROCEED TO TREASURY
+            </button>
+            <p style={{ textAlign: 'center', fontSize: '0.7rem', marginTop: '1rem', fontWeight: 'bold', opacity: 0.6 }}>
+              SECURED BY THE MORRIS LANE NETWORK
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* --- LOGIN MODAL --- */}
+      {isLoginOpen && (
+        <div className="modal-overlay" style={{
+          position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+          background: 'rgba(0,0,0,0.85)', zIndex: 2000, display: 'flex',
+          alignItems: 'center', justifyContent: 'center'
+        }}>
+          <div className="login-modal" style={{
+            background: 'var(--parchment)', padding: '3rem', borderRadius: '8px',
+            width: '100%', maxWidth: '450px', textAlign: 'center',
+            border: '4px solid var(--brass)', color: '#1a1a1a'
+          }}>
+            <h2 style={{ fontFamily: 'Impact', textTransform: 'uppercase', marginBottom: '1rem' }}>The Executive Registry</h2>
+            <p style={{ marginBottom: '2rem', fontWeight: '600' }}>Access your orders and mission logs.</p>
+            <div style={{ display: 'grid', gap: '1rem' }}>
+              <input type="email" placeholder="Email Address" style={{ padding: '1rem', border: '2px solid #ccc', borderRadius: '4px' }} />
+              <input type="password" placeholder="Password" style={{ padding: '1rem', border: '2px solid #ccc', borderRadius: '4px' }} />
+              <button className="btn-primary" style={{ padding: '1rem' }}>SIGN IN</button>
+            </div>
+            <button 
+              onClick={() => setIsLoginOpen(false)}
+              style={{ background: 'none', border: 'none', marginTop: '1rem', cursor: 'pointer', fontWeight: 'bold' }}
+            >
+              CANCEL
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* --- AI DEBBIE (Country Partner) --- */}
+      <div className="debbie-concierge">
+        <div className="debbie-bubble">
+          READY FOR ORDERS, BOSS.
+        </div>
+        <img 
+          src="https://www.morrislane.store/assets/debbie-avatar.png" 
+          className="debbie-avatar"
+          alt="Debbie" 
+        />
       </div>
 
-      <main className=\"site-main\">
-        {/* --- HERO SECTION --- */}
-        <section className=\"hero-section\" style={{ 
-          background: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url(\"/hero-bg.jpg\")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          padding: '4rem 2rem',
-          borderRadius: '4px',
-          borderBottom: '4px solid var(--gold)',
-          marginBottom: '2rem',
-          textAlign: 'left',
-          minHeight: '400px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center'
-        }}>
-          <div className=\"hero-content\" style={{ maxWidth: '700px' }}>
-            <p style={{ color: 'var(--gold)', fontWeight: 'bold', letterSpacing: '2px', marginBottom: '1rem' }}>MORRIS LANE FLAGSHIP</p>\n            <h2 className=\"hero-title\" style={{ fontSize: '3.5rem', color: 'var(--white)', lineHeight: '1.1', fontWeight: '900', textTransform: 'uppercase' }}>\n              The Global <br/>Marketplace.\n            </h2>\n            <p className=\"hero-subtitle\" style={{ fontSize: '1.2rem', color: '#eee', margin: '1.5rem 0' }}>\n              American luxury, veteran precision, and global executive sourcing. \n              We don't just sell products; we secure assets.\n            </p>\n            <div style={{ display: 'flex', gap: '1rem' }}>\n              <a href=\"#shop\" className=\"btn-primary\" style={{ padding: '0.8rem 2.5rem' }}>Shop The Market</a>\n              <a href=\"#sourcing\" className=\"btn-secondary\" style={{ padding: '0.8rem 2.5rem' }}>Request Sourcing</a>\n            </div>\n          </div>\n        </section>\n\n        {/* --- PRODUCT GRID --- */}\n        <section id=\"shop\" className=\"section-block\">\n          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>\n            <h3 style={{ fontSize: '1.8rem', fontWeight: '800', textTransform: 'uppercase', color: 'var(--white)' }}>Featured Collections</h3>\n            <span style={{ color: 'var(--gold)', fontWeight: 'bold' }}>Showing {PRODUCTS.length} Items</span>\n          </div>\n          \n          <div className=\"card-grid\" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>\n            {PRODUCTS.map(product => (\n              <div key={product.id} className=\"product-card\" style={{ display: 'flex', flexDirection: 'column', height: '100%', padding: '1.5rem', background: 'white', color: '#111', borderRadius: '4px' }}>\n                <div style={{ height: '200px', background: '#f5f5f5', marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '4px' }}>\n                  <img src=\"/crest.png\" style={{ width: '80px', opacity: 0.1 }} alt=\"placeholder\" />\n                </div>\n                <p style={{ color: '#666', fontSize: '0.75rem', fontWeight: 'bold', margin: 0 }}>{product.category}</p>\n                <h4 style={{ fontSize: '1.2rem', margin: '0.5rem 0', color: 'var(--navy)' }}>{product.name}</h4>\n                <p style={{ fontSize: '0.85rem', color: '#444', flex: 1 }}>{product.description}</p>\n                <div style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>\n                  <span style={{ fontSize: '1.5rem', fontWeight: '900', color: 'var(--navy)' }}>\n                    {typeof product.price === 'number' ? `$${product.price.toFixed(2)}` : product.price}\n                  </span>\n                  <button \n                    onClick={() => addToCart(product)}\n                    className=\"btn-primary\" \n                    style={{ padding: '0.5rem 1rem', fontSize: '0.8rem', background: 'var(--gold)', color: 'var(--navy)', border: 'none' }}\n                  >\n                    {product.price === \"Sourced\" ? \"Request Info\" : \"Add to Cart\"}\n                  </button>\n                </div>\n              </div>\n            ))}\n          </div>\n        </section>\n\n        {/* --- SOURCING PORTAL --- */}\n        <section id=\"sourcing\" style={{ marginTop: '4rem', padding: '4rem 2rem', background: 'var(--navy)', borderRadius: '8px', border: '2px solid var(--gold)', textAlign: 'center' }}>\n          <h3 style={{ fontSize: '2.5rem', fontWeight: '900', color: 'var(--white)', marginBottom: '1rem' }}>EXECUTIVE SOURCING CONCIERGE</h3>\n          <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto 2rem', opacity: 0.9 }}>\n            Our \"Amazon Clone\" utility meets custom high-end sourcing. If it exists, we find it. \n            If it doesn't, we build it. No corporate middleman\u2014just results.\n          </p>\n          <div style={{ maxWidth: '500px', margin: '0 auto', textAlign: 'left' }}>\n            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '0.5rem', color: 'var(--gold)' }}>What are you looking for?</label>\n            <textarea \n              placeholder=\"Describe the item, specifications, or mission requirements...\"\n              style={{ width: '100%', padding: '1rem', borderRadius: '4px', border: '1px solid var(--gold)', background: 'rgba(255,255,255,0.05)', color: 'white', minHeight: '120px' }}\n            ></textarea>\n            <button className=\"btn-primary\" style={{ width: '100%', marginTop: '1rem', padding: '1rem' }}>Initiate Sourcing Mission</button>\n          </div>\n        </section>\n\n      </main>\n\n      {/* --- CART SIDEBAR --- */}\n      {isCartOpen && (\n        <div style={{ position: 'fixed', top: 0, right: 0, bottom: 0, width: '400px', background: 'white', color: '#111', zIndex: 2000, boxShadow: '-10px 0 30px rgba(0,0,0,0.5)', display: 'flex', flexDirection: 'column' }}>\n          <div style={{ padding: '1.5rem', borderBottom: '1px solid #ddd', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>\n            <h3 style={{ margin: 0, fontSize: '1.5rem' }}>Your Market Cart</h3>\n            <button onClick={() => setIsCartOpen(false)} style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer' }}>\u00d7</button>\n          </div>\n          <div style={{ flex: 1, padding: '1.5rem', overflowY: 'auto' }}>\n            {cart.length === 0 ? (\n              <p style={{ textAlign: 'center', marginTop: '2rem', color: '#666' }}>Your cart is empty.</p>\n            ) : (\n              cart.map((item, idx) => (\n                <div key={idx} style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', paddingBottom: '1.5rem', borderBottom: '1px solid #eee' }}>\n                  <div style={{ width: '60px', height: '60px', background: '#f5f5f5', borderRadius: '4px' }}></div>\n                  <div style={{ flex: 1 }}>\n                    <h5 style={{ margin: '0 0 0.2rem 0' }}>{item.name}</h5>\n                    <p style={{ margin: 0, fontWeight: 'bold' }}>${(item.price as number).toFixed(2)}</p>\n                    <button onClick={() => removeFromCart(idx)} style={{ background: 'none', border: 'none', color: 'var(--crimson)', fontSize: '0.75rem', padding: 0, cursor: 'pointer', marginTop: '0.5rem' }}>Remove</button>\n                  </div>\n                </div>\n              ))\n            )}\n          </div>\n          {cart.length > 0 && (\n            <div style={{ padding: '2rem', background: '#f9f9f9', borderTop: '1px solid #ddd' }}>\n              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '1.5rem' }}>\n                <span>Subtotal:</span>\n                <span>${cartTotal.toFixed(2)}</span>\n              </div>\n              <button \n                onClick={handleCheckout}\n                className=\"btn-primary\" \n                style={{ \n                  width: '100%', \n                  padding: '1.2rem', \n                  background: 'linear-gradient(135deg, var(--gold) 0%, #d4af37 100%)', \n                  color: 'var(--navy)', \n                  border: 'none',\n                  borderRadius: '8px',\n                  fontWeight: '900',\n                  fontSize: '1.1rem',\n                  cursor: 'pointer',\n                  boxShadow: '0 4px 15px rgba(0,0,0,0.2)',\n                  display: 'flex',\n                  alignItems: 'center',\n                  justifyContent: 'center',\n                  gap: '10px'\n                }}\n              >\n                <span style={{ fontSize: '1.4rem' }}>\ud83d\udee1\ufe0f</span> PROCEED TO SECURE CHECKOUT\n              </button>\n              <div style={{ textAlign: 'center', marginTop: '1rem' }}>\n                <p style={{ fontSize: '0.75rem', color: '#666', margin: 0, fontWeight: '600' }}>Global Standard Encrypted</p>\n                <p style={{ fontSize: '0.85rem', fontWeight: '900', color: '#6772e5', margin: 0 }}>SECURED BY STRIPE</p>\n              </div>\n            </div>\n          )}\n        </div>\n      )}\n\n      {/* --- LOGIN MODAL --- */}\n      {isLoginOpen && (\n        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.8)', zIndex: 3000, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>\n          <div style={{ background: 'white', color: '#111', padding: '3rem', borderRadius: '4px', width: '400px', textAlign: 'center' }}>\n            <img src=\"/crest.png\" style={{ width: '80px', marginBottom: '1.5rem' }} alt=\"Crest\" />\n            <h3 style={{ margin: '0 0 0.5rem 0' }}>Sign-In</h3>\n            <p style={{ fontSize: '0.85rem', color: '#666', marginBottom: '2rem' }}>Access your Global Registry & Missions</p>\n            <input type=\"email\" placeholder=\"Email\" style={{ width: '100%', padding: '0.8rem', marginBottom: '1rem', border: '1px solid #ddd', borderRadius: '4px' }} />\n            <input type=\"password\" placeholder=\"Password\" style={{ width: '100%', padding: '0.8rem', marginBottom: '2rem', border: '1px solid #ddd', borderRadius: '4px' }} />\n            <button className=\"btn-primary\" style={{ width: '100%', background: 'var(--gold)', color: 'var(--navy)', border: 'none', padding: '0.8rem' }}>Continue</button>\n            <p style={{ fontSize: '0.7rem', marginTop: '1.5rem' }}>By continuing, you agree to the Morris Lane Terms of Service.</p>\n            <button onClick={() => setIsLoginOpen(false)} style={{ background: 'none', border: 'none', color: '#0066c0', cursor: 'pointer', marginTop: '1rem' }}>Cancel</button>\n          </div>\n        </div>\n      )}\n\n      {/* --- FOOTER --- */}\n      <footer className=\"site-footer\" style={{ borderTop: '2px solid var(--gold)', marginTop: '5rem', background: '#131921', color: 'white', padding: '4rem 2rem' }}>\n        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', maxWidth: '1200px', margin: '0 auto' }}>\n          <div>\n            <h4 style={{ color: 'var(--gold)', marginBottom: '1rem' }}>Get to Know Us</h4>\n            <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.85rem', opacity: 0.8, lineHeight: '2' }}>\n              <li><a href=\"#about\" style={{ color: 'white', textDecoration: 'none' }}>Our Story</a></li>\n              <li><a href=\"#\" style={{ color: 'white', textDecoration: 'none' }}>Veteran Owned</a></li>\n              <li><a href=\"#\" style={{ color: 'white', textDecoration: 'none' }}>Quality First</a></li>\n            </ul>\n          </div>\n          <div>\n            <h4 style={{ color: 'var(--gold)', marginBottom: '1rem' }}>Market Services</h4>\n            <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.85rem', opacity: 0.8, lineHeight: '2' }}>\n              <li><a href=\"#sourcing\" style={{ color: 'white', textDecoration: 'none' }}>Executive Sourcing</a></li>\n              <li><a href=\"#\" style={{ color: 'white', textDecoration: 'none' }}>Registry Access</a></li>\n              <li><a href=\"#\" style={{ color: 'white', textDecoration: 'none' }}>Bulk Procurement</a></li>\n            </ul>\n          </div>\n          <div>\n            <h4 style={{ color: 'var(--gold)', marginBottom: '1rem' }}>Let Us Help You</h4>\n            <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.85rem', opacity: 0.8, lineHeight: '2' }}>\n              <li><a href=\"#\" style={{ color: 'white', textDecoration: 'none' }}>Your Account</a></li>\n              <li><a href=\"#\" style={{ color: 'white', textDecoration: 'none' }}>Shipping Rates</a></li>\n              <li><a href=\"#\" style={{ color: 'white', textDecoration: 'none' }}>Help Center</a></li>\n            </ul>\n          </div>\n        </div>\n        <div style={{ textAlign: 'center', marginTop: '4rem', borderTop: '1px solid #3a4553', paddingTop: '2rem' }}>\n          <img src=\"/crest.png\" style={{ width: '40px', marginBottom: '1rem', opacity: 0.5 }} alt=\"Crest\" />\n          <p style={{ fontSize: '0.8rem', opacity: 0.5 }}>&copy; 2026 Morris Lane LLC. | American Excellence | Veteran Owned</p>\n        </div>\n      </footer>\n    </div>\n  );\n}\n
+      <footer className="site-footer" style={{ textAlign: 'center', padding: '4rem 2rem' }}>
+        <img src="/crest.png" style={{ width: '80px', marginBottom: '1rem', opacity: 0.8 }} alt="Footer Seal" />
+        <p style={{ fontWeight: '900', letterSpacing: '0.1em' }}>MORRIS LANE FLAGSHIP \u2014 EST. 2024</p>
+        <p style={{ fontSize: '0.8rem', opacity: 0.6 }}>American Direct. Veteran Owned. Hardworking Gear.</p>
+      </footer>
+    </div>
+  );
+}

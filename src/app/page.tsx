@@ -40,7 +40,7 @@ export default function HomePage() {
             bottom: '5px',
             background: 'var(--gold)',
             border: 'none',
-            padding: '0-1.5rem',
+            padding: '0 1.5rem',
             borderRadius: '2px',
             fontWeight: '900',
             cursor: 'pointer',
@@ -55,23 +55,26 @@ export default function HomePage() {
           <a href="#shop" className="hidden lg:block">Market</a>
           <a href="#sourcing">Sourcing</a>
           <a href="#about">Our Legacy</a>
-          <div className="cart-icon" style={{ cursor: 'pointer', position: 'relative' }}>
-             <span style={{ fontSize: '1.5rem' }}>🛒</span>
-             <span style={{
-               position: 'absolute',
-               top: '-10px',
-               right: '-10px',
-               background: 'var(--crimson)',
-               color: 'white',
-               borderRadius: '50%',
-               width: '20px',
-               height: '20px',
-               fontSize: '0.7rem',
-               display: 'flex',
-               alignItems: 'center',
-               justifyContent: 'center',
-               border: '1px solid var(--gold)'
-             }}>0</span>
+          <div className="account-menu" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            <a href="#" style={{ color: 'var(--gold)', fontSize: '0.9rem', textDecoration: 'none', fontWeight: 'bold' }}>SIGN IN</a>
+            <div className="cart-icon" style={{ cursor: 'pointer', position: 'relative' }}>
+               <span style={{ fontSize: '1.5rem' }}>🛒</span>
+               <span style={{
+                 position: 'absolute',
+                 top: '-10px',
+                 right: '-10px',
+                 background: 'var(--crimson)',
+                 color: 'white',
+                 borderRadius: '50%',
+                 width: '20px',
+                 height: '20px',
+                 fontSize: '0.7rem',
+                 display: 'flex',
+                 alignItems: 'center',
+                 justifyContent: 'center',
+                 border: '1px solid var(--gold)'
+               }}>0</span>
+            </div>
           </div>
         </nav>
       </header>
@@ -82,14 +85,14 @@ export default function HomePage() {
           background: 'linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url("/hero-bg.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          padding: '6rem 2rem',
+          padding: '8rem 2rem',
           borderRadius: '8px',
           border: '1px solid var(--gold)',
           marginBottom: '3rem',
           textAlign: 'center'
         }}>
           <div className="hero-content">
-            <h2 className="hero-title" style={{ fontSize: '4.5rem', color: 'var(--white)', lineHeight: '1' }}>
+            <h2 className="hero-title" style={{ fontSize: '4.5rem', color: 'var(--white)', lineHeight: '1', fontWeight: '900' }}>
               AMERICAN <span style={{ color: 'var(--gold)' }}>EXCELLENCE.</span>
             </h2>
             <p className="hero-subtitle" style={{ fontSize: '1.5rem', color: '#eee', maxWidth: '800px', margin: '1.5rem auto' }}>
@@ -138,17 +141,36 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* LEGACY SECTION */}
+        <section id="about" className="section-block" style={{ marginTop: '5rem', padding: '4rem', background: 'rgba(0,0,0,0.4)', borderRadius: '12px', border: '1px solid rgba(212, 175, 55, 0.1)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+            <div>
+              <h3 className="section-title" style={{ border: 'none', padding: '0', fontSize: '2.5rem', textAlign: 'left', margin: '0' }}>Our Legacy</h3>
+              <p style={{ fontSize: '1.2rem', color: '#ccc', lineHeight: '1.8', marginTop: '2rem' }}>
+                Heritage and Innovation. Founded on the values of the American spirit, Morris Lane is more than a marketplace. It is a commitment to quality, integrity, and the pursuit of sovereignty.
+              </p>
+              <p style={{ fontSize: '1.2rem', color: '#ccc', lineHeight: '1.8', marginTop: '1rem' }}>
+                From our signature collections to our executive sourcing network, we serve those who lead with precision and purpose. Veteran-owned and globally connected, we are the standard for modern luxury.
+              </p>
+            </div>
+            <div style={{ position: 'relative' }}>
+              <div style={{ position: 'absolute', top: '-20px', left: '-20px', width: '100%', height: '100%', border: '2px solid var(--gold)', zIndex: 0 }}></div>
+              <img src="/hero-bg.jpg" alt="Legacy" style={{ width: '100%', height: 'auto', display: 'block', position: 'relative', zIndex: 1 }} />
+            </div>
+          </div>
+        </section>
+
         {/* SOURCING SECTION */}
-        <section id=\"sourcing\" className=\"section-block\" style={{ background: 'var(--navy)', padding: '5rem 2rem', borderRadius: '8px', border: '1px solid var(--gold)', marginTop: '4rem' }}>
+        <section id="sourcing" className="section-block" style={{ background: 'var(--navy)', padding: '5rem 2rem', borderRadius: '8px', border: '1px solid var(--gold)', marginTop: '4rem' }}>
           <div style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto' }}>
-            <h3 className=\"section-title\" style={{ border: 'none', padding: '0', marginBottom: '1.5rem', fontSize: '2.5rem' }}>Executive Sourcing Concierge</h3>
+            <h3 className="section-title" style={{ border: 'none', padding: '0', marginBottom: '1.5rem', fontSize: '2.5rem' }}>Executive Sourcing Concierge</h3>
             <p style={{ fontSize: '1.3rem', color: '#ccc', lineHeight: '1.6' }}>
               If a product exists, we can source it. If it doesn't, we can build it. 
               Our global network of artisans and suppliers is at your disposal. 
               Skip the middleman and secure exactly what you require.
             </p>
             <div style={{ marginTop: '3rem' }}>
-               <a href=\"mailto:Glennedwinmorrisjr@gmail.com\" className=\"btn-primary\" style={{ padding: '1.2rem 4rem', fontSize: '1.1rem' }}>
+               <a href="mailto:support@morrislane.store" className="btn-primary" style={{ padding: '1.2rem 4rem', fontSize: '1.1rem' }}>
                  Initiate Sourcing Request
                </a>
             </div>
@@ -156,74 +178,74 @@ export default function HomePage() {
         </section>
 
         {/* FEATURED ITEMS */}
-        <section id=\"shop\" className=\"section-block\" style={{ marginTop: '4rem' }}>
+        <section id="shop" className="section-block" style={{ marginTop: '4rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem' }}>
-            <h3 className=\"section-title\" style={{ margin: 0 }}>Featured Flagship Products</h3>
-            <a href=\"#\" style={{ color: 'var(--gold)', textDecoration: 'none', fontWeight: 'bold' }}>View All Products →</a>
+            <h3 className="section-title" style={{ margin: 0 }}>Featured Flagship Products</h3>
+            <a href="#" style={{ color: 'var(--gold)', textDecoration: 'none', fontWeight: 'bold' }}>View All Products →</a>
           </div>
-          <div className=\"card-grid\">
+          <div className="card-grid">
             {/* ITEM 1 */}
-            <div className=\"product-card\">
+            <div className="product-card">
               <div style={{ height: '300px', background: '#111', marginBottom: '1.5rem', borderRadius: '4px', border: '1px solid #222' }}></div>
               <p style={{ color: 'var(--gold)', fontSize: '0.85rem', fontWeight: 'bold', letterSpacing: '1px' }}>SIGNATURE COLLECTION</p>
               <h4 style={{ fontSize: '1.4rem' }}>The Heritage Paddle</h4>
               <p style={{ opacity: 0.8 }}>Select White Pine. Fully customizable precision engraving.</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2rem' }}>
                 <span style={{ fontSize: '1.8rem', fontWeight: '900', color: 'var(--white)' }}>$45.00</span>
-                <button className=\"btn-primary\" style={{ padding: '0.7rem 1.5rem' }}>Add to Cart</button>
+                <button className="btn-primary" style={{ padding: '0.7rem 1.5rem' }}>Add to Cart</button>
               </div>
             </div>
             {/* ITEM 2 */}
-            <div className=\"product-card\">
+            <div className="product-card">
               <div style={{ height: '300px', background: '#111', marginBottom: '1.5rem', borderRadius: '4px', border: '1px solid #222' }}></div>
               <p style={{ color: 'var(--gold)', fontSize: '0.85rem', fontWeight: 'bold', letterSpacing: '1px' }}>EXECUTIVE GEAR</p>
               <h4 style={{ fontSize: '1.4rem' }}>Tactical Mill Bit Set</h4>
               <p style={{ opacity: 0.8 }}>Professional-grade hardened steel for precision shop work.</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2rem' }}>
                 <span style={{ fontSize: '1.8rem', fontWeight: '900', color: 'var(--white)' }}>$129.00</span>
-                <button className=\"btn-primary\" style={{ padding: '0.7rem 1.5rem' }}>Add to Cart</button>
+                <button className="btn-primary" style={{ padding: '0.7rem 1.5rem' }}>Add to Cart</button>
               </div>
             </div>
             {/* ITEM 3 */}
-            <div className=\"product-card\">
+            <div className="product-card">
               <div style={{ height: '300px', background: '#111', marginBottom: '1.5rem', borderRadius: '4px', border: '1px solid #222' }}></div>
               <p style={{ color: 'var(--gold)', fontSize: '0.85rem', fontWeight: 'bold', letterSpacing: '1px' }}>CURATED SOURCE</p>
               <h4 style={{ fontSize: '1.4rem' }}>Luxury Timepiece Access</h4>
               <p style={{ opacity: 0.8 }}>Direct access to our executive network for rare watch sourcing.</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2rem' }}>
                 <span style={{ fontSize: '1.8rem', fontWeight: '900', color: 'var(--white)' }}>CONTACT</span>
-                <button className=\"btn-secondary\" style={{ padding: '0.7rem 1.5rem' }}>Request Source</button>
+                <button className="btn-secondary" style={{ padding: '0.7rem 1.5rem' }}>Request Source</button>
               </div>
             </div>
           </div>
         </section>
 
         {/* AI DEBBIE CONCIERGE WIDGET */}
-        <div className=\"debbie-concierge\" style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.5))' }}>
-          <div className=\"debbie-bubble\" style={{ fontSize: '0.9rem', padding: '1rem 1.5rem', maxWidth: '250px' }}>
-            \"Welcome to Morris Lane. I'm Debbie, your personal sourcing strategist. How can I assist you today?\"
+        <div className="debbie-concierge" style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.5))' }}>
+          <div className="debbie-bubble" style={{ fontSize: '0.9rem', padding: '1rem 1.5rem', maxWidth: '250px' }}>
+            "Welcome to Morris Lane. I'm Debbie, your personal sourcing strategist. How can I assist you today?"
           </div>
           <img 
-            src=\"/debbie-avatar.png\" 
-            alt=\"Debbie AI\" 
-            className=\"debbie-avatar\" 
+            src="/debbie-avatar.png" 
+            alt="Debbie AI" 
+            className="debbie-avatar" 
             style={{ border: '2px solid var(--gold)', width: '70px', height: '70px' }}
           />
         </div>
       </main>
 
-      <footer className=\"site-footer\" style={{ borderTop: '1px solid rgba(212, 175, 55, 0.2)', paddingTop: '4rem' }}>
+      <footer className="site-footer" style={{ borderTop: '1px solid rgba(212, 175, 55, 0.2)', paddingTop: '4rem' }}>
         <div style={{ marginBottom: '2rem' }}>
-          <img src=\"/crest.png\" alt=\"Crest\" style={{ width: '40px', opacity: 0.5 }} />
+          <img src="/crest.png" alt="Crest" style={{ width: '40px', opacity: 0.5 }} />
           <h2 style={{ fontSize: '1.2rem', color: 'var(--gold)', marginTop: '1rem' }}>MORRIS LANE</h2>
           <p style={{ opacity: 0.5, fontSize: '0.9rem' }}>The Sovereign Standard for American Luxury & Sourcing.</p>
         </div>
         <p style={{ fontSize: '0.8rem', opacity: 0.6 }}>&copy; 2026 Morris Lane LLC. All Rights Reserved. | Veteran Owned & Operated.</p>
         <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem', fontSize: '0.8rem', opacity: 0.7 }}>
-          <a href=\"#\" style={{ color: 'white' }}>Shipping</a>
-          <a href=\"#\" style={{ color: 'white' }}>Terms of Service</a>
-          <a href=\"#\" style={{ color: 'white' }}>Privacy</a>
-          <a href=\"#\" style={{ color: 'white' }}>Contact</a>
+          <a href="#" style={{ color: 'white' }}>Shipping</a>
+          <a href="#" style={{ color: 'white' }}>Terms of Service</a>
+          <a href="#" style={{ color: 'white' }}>Privacy</a>
+          <a href="#" style={{ color: 'white' }}>Contact</a>
         </div>
       </footer>
     </div>

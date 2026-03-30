@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Morris Lane Sovereign Marketplace",
+  title: "Morris Lane Global Marketplace",
   description: "American luxury, veteran-owned. Sourcing and custom builds.",
 };
 
@@ -19,7 +19,7 @@ export default function RootLayout({
         {/* Floating Debbie Concierge */}
         <div className="debbie-concierge">
           <div className="debbie-bubble">
-            Ready to build your legacy today, Willie?
+            Ready to expand the empire today, Willie?
           </div>
           <img 
             src="/debbie_avatar.png" 

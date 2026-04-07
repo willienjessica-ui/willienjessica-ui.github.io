@@ -1,335 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Morris Lane American Market Place — The American Flagship</title>
-  <meta name="description" content="The American Standard: High-end American luxury, executive sourcing, and the Amazon-killer wrapper.">
-  <link rel="stylesheet" href="style.css">
-  <!-- Google Fonts for the 'Wealth-Coded' look -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morris Lane | American Heritage Luxury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --us-navy: #002366; /* True American Navy */
+            --us-red: #B22234; /* Old Glory Red */
+            --us-white: #FFFFFF;
+            --accent-gold: #FFD700; /* Bright Gold Shine */
+            --off-white: #F9F9F9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--us-white); color: var(--us-navy); font-family: 'Montserrat', sans-serif; line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: 1px; }
+
+        header { background-color: var(--us-white); padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 5px solid var(--us-navy); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 2rem; font-weight: 900; text-transform: uppercase; letter-spacing: 5px; color: var(--us-navy); text-decoration: none; }
+        .logo span { color: var(--us-red); }
+        .nav-links a { text-decoration: none; color: var(--us-navy); text-transform: uppercase; font-weight: 700; letter-spacing: 2px; margin-left: 2rem; font-size: 0.8rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--us-red); }
+
+        .hero { height: 95vh; background: linear-gradient(rgba(0,35,102,0.6), rgba(0,35,102,0.8)), url('assets/hero_flag.png'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--us-white); padding: 0 5%; border-bottom: 12px solid var(--us-red); }
+        .hero h1 { font-size: clamp(3.5rem, 10vw, 7.5rem); text-transform: uppercase; font-weight: 900; margin-bottom: 1rem; line-height: 1; letter-spacing: -2px; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.8rem; font-style: italic; font-family: 'Playfair Display', serif; margin-bottom: 3.5rem; letter-spacing: 4px; opacity: 1; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .hero-btn { background-color: var(--us-red); color: var(--us-white); padding: 1.5rem 4.5rem; text-decoration: none; text-transform: uppercase; font-weight: 900; letter-spacing: 3px; border: 3px solid var(--us-red); transition: 0.4s; box-shadow: 0 15px 35px rgba(178,34,52,0.5); }
+        .hero-btn:hover { background-color: transparent; border-color: var(--us-white); transform: scale(1.05); }
+
+        .shine-divider { height: 10px; background: linear-gradient(90deg, var(--us-navy) 0%, var(--us-white) 50%, var(--us-red) 100%); }
+
+        .mission { padding: 10rem 10%; text-align: center; background-color: var(--off-white); border-bottom: 1px solid #ddd; }
+        .mission h2 { font-size: 4rem; color: var(--us-navy); margin-bottom: 2rem; text-transform: uppercase; font-weight: 900; }
+        .mission p { font-size: 2rem; max-width: 1000px; margin: 0 auto; color: #222; font-style: italic; font-family: 'Playfair Display', serif; line-height: 1.5; border-left: 10px solid var(--us-red); padding-left: 2rem; text-align: left; }
+
+        .founders-circle { padding: 8rem 5%; background-color: var(--us-navy); color: var(--us-white); text-align: center; border-top: 15px solid var(--accent-gold); border-bottom: 15px solid var(--us-red); }
+        .circle-content { max-width: 900px; margin: 0 auto; }
+        .founders-circle h2 { font-size: 3.5rem; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--us-white); letter-spacing: 6px; }
+        .founders-circle p { font-size: 1.4rem; font-family: 'Playfair Display', serif; font-style: italic; margin-bottom: 4rem; opacity: 1; letter-spacing: 2px; color: var(--accent-gold); }
+        .waitlist-form { display: flex; flex-wrap: wrap; justify-content: center; gap: 0; max-width: 700px; margin: 0 auto; box-shadow: 0 25px 50px rgba(0,0,0,0.4); }
+        .waitlist-form input { padding: 1.5rem 2rem; border: none; flex-grow: 1; font-size: 1.2rem; font-family: 'Montserrat'; font-weight: 700; width: 400px; color: var(--us-navy); }
+        .waitlist-form button { background-color: var(--us-red); color: white; border: none; padding: 1.5rem 3.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; transition: 0.3s; }
+        .waitlist-form button:hover { background-color: #D00000; transform: translateY(-2px); }
+
+        .collection { padding: 10rem 5%; background-color: var(--us-white); }
+        .section-title { text-align: center; margin-bottom: 8rem; }
+        .section-title h2 { font-size: 3.5rem; text-transform: uppercase; color: var(--us-navy); font-weight: 900; letter-spacing: 5px; }
+        .section-title div { width: 120px; height: 10px; background: var(--us-red); margin: 2rem auto; border-radius: 5px; }
+        .section-title p { font-size: 1rem; text-transform: uppercase; letter-spacing: 6px; color: var(--us-red); font-weight: 900; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 5rem; max-width: 1500px; margin: 0 auto; }
+        .card { background: var(--off-white); padding: 0; border: 5px solid var(--us-navy); text-align: center; transition: 0.6s; overflow: hidden; position: relative; }
+        .card:hover { transform: translateY(-20px) rotate(1deg); box-shadow: 0 40px 80px rgba(0,0,0,0.2); }
+        .card::before { content: 'MADE IN USA'; position: absolute; top: 20px; right: -40px; background: var(--us-red); color: white; padding: 10px 50px; transform: rotate(45deg); font-weight: 900; font-size: 0.7rem; z-index: 10; letter-spacing: 2px; }
+        .card-img { height: 500px; background-size: cover; background-position: center; border-bottom: 10px solid var(--us-navy); }
+        .card-content { padding: 4rem 2rem; }
+        .card h3 { font-size: 2.5rem; margin-bottom: 1.5rem; text-transform: uppercase; font-weight: 900; color: var(--us-navy); }
+        .price { font-size: 1.8rem; font-weight: 900; color: var(--us-red); margin-bottom: 3rem; letter-spacing: 3px; font-family: 'Playfair Display', serif; }
+        .buy-btn { display: block; background: var(--us-navy); color: var(--us-white); padding: 1.5rem; text-decoration: none; text-transform: uppercase; font-weight: 900; letter-spacing: 4px; transition: 0.4s; border: 2px solid var(--us-navy); }
+        .buy-btn:hover { background: var(--us-red); border-color: var(--us-red); color: white; }
+
+        .american-footer { background-color: var(--us-navy); padding: 10rem 5%; color: var(--us-white); text-align: center; border-top: 15px solid var(--us-red); position: relative; }
+        .footer-logo { font-size: 3rem; font-weight: 900; letter-spacing: 15px; text-transform: uppercase; margin-bottom: 3rem; color: var(--us-white); }
+        .footer-logo span { color: var(--us-red); }
+        .footer-motto { font-size: 1.5rem; font-family: 'Playfair Display', serif; font-style: italic; letter-spacing: 5px; margin-bottom: 5rem; color: var(--accent-gold); }
+        
+        .patriot-stripe { height: 30px; background: repeating-linear-gradient(90deg, var(--us-red), var(--us-red) 50px, var(--us-white) 50px, var(--us-white) 100px); border-top: 5px solid var(--us-navy); border-bottom: 5px solid var(--us-navy); }
+        
+        .copyright { font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; margin-top: 5rem; opacity: 0.6; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 4rem; }
+            .mission h2 { font-size: 2.5rem; }
+            .mission p { font-size: 1.4rem; padding-left: 1rem; border-left-width: 5px; }
+            .card-img { height: 350px; }
+        }
+    </style>
 </head>
 <body>
-  <div class="site-wrapper">
-    
-    <!-- AMAZON-KILLER HEADER WRAPPER -->
-    <header class="site-header">
-      <div class="header-top">
-        <!-- Logo & Location -->
-        <div class="header-left">
-          <a href="/" class="brand-block">
-            <img src="assets/morrislane-crest.jpg" alt="Morris Lane Crest" class="brand-crest">
-          </a>
-          <div class="location-block">
-            <span class="loc-label">Deliver to</span>
-            <div class="loc-value">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              <span>United States</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Search Engine -->
-        <div class="header-center">
-          <div class="search-container">
-            <div class="search-dropdown">
-              <span>All</span>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"></path></svg>
-            </div>
-            <input type="text" class="search-input" placeholder="Search Morris Lane American Market Place...">
-            <button class="search-btn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-            </button>
-          </div>
-        </div>
 
-        <!-- Tools & Account -->
-        <div class="header-right">
-          <div class="action-link">
-            <span class="action-label">Hello, Sign In</span>
-            <span class="action-value">Account & Lists <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"></path></svg></span>
-          </div>
-          <div class="action-link hide-mobile">
-            <span class="action-label">Returns</span>
-            <span class="action-value">& Orders</span>
-          </div>
-          <a href="#" class="cart-link">
-            <div class="cart-icon-container">
-              <span class="cart-count">0</span>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-            </div>
-            <span class="action-value hide-mobile">Cart</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Secondary Nav Bar -->
-      <nav class="header-bottom">
-        <a href="#" class="nav-menu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-          <span>All</span>
-        </a>
-        <div class="nav-links">
-          <a href="#bss" class="nav-link-item">Big Spring Sale</a>
-          <a href="#sourcing" class="nav-link-item">Executive Sourcing</a>
-          <a href="#registry" class="nav-link-item">American Registry</a>
-          <a href="#heritage" class="nav-link-item">Heritage Pieces</a>
-          <a href="#veteran" class="nav-link-item">Veteran-Owned</a>
-          <a href="#giftcards" class="nav-link-item">Gift Cards</a>
-        </div>
-      </nav>
+    <header>
+        <a href="#" class="logo">Morris<span>Lane</span></a>
+        <nav class="nav-links">
+            <a href="#collection">The Vault</a>
+            <a href="#founders">Founders Circle</a>
+            <a href="#mission">Our Creed</a>
+            <a href="#">Account</a>
+        </nav>
     </header>
 
-    <main class="site-main">
-      
-      <!-- HERO CAROUSEL / BANNER -->
-      <section class="hero-carousel">
-        <div class="hero-slide active" style="background-image: url('assets/images/hero-craftsman.jpg');">
-          <div class="hero-overlay"></div>
-          <div class="hero-text-content">
-            <h2 class="wealth-coded">The American Standard</h2>
-            <p>American Craftsmanship. Executive Precision. American Value.</p>
-            <div class="hero-cta-block">
-              <a href="#featured" class="btn-primary">Shop the Collection</a>
-              <a href="#sourcing" class="btn-secondary">Request Sourcing</a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>American Heritage</h1>
+            <p>Quality is a form of sovereignty.</p>
+            <div class="hero-btns">
+                <a href="#collection" class="hero-btn">Explore The Collection</a>
             </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <!-- CONTENT GRID (AMAZON TILE STYLE) -->
-      <div class="main-content-wrapper">
-        <section id="featured" class="quad-grid">
-          
-          <!-- Tile 1: Heritage Quad -->
-          <div class="card-tile quad-card">
-            <h3>Heritage Collections</h3>
-            <div class="quad-container">
-              <a href="#" class="quad-item">
-                <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&q=80&w=300" alt="Watches">
-                <span>Timepieces</span>
-              </a>
-              <a href="#" class="quad-item">
-                <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=300" alt="Leather">
-                <span>Leather</span>
-              </a>
-              <a href="#" class="quad-item">
-                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=300" alt="Audio">
-                <span>Audio</span>
-              </a>
-              <a href="#" class="quad-item">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=300" alt="Tech">
-                <span>Tech Gear</span>
-              </a>
-            </div>
-            <a href="#" class="tile-link">See more</a>
-          </div>
+    <div class="shine-divider"></div>
 
-          <!-- Tile 2: Sourcing Portal -->
-          <div class="card-tile fat-card">
-            <h3>Executive Sourcing</h3>
-            <div class="fat-img-container">
-              <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=600" alt="Global Sourcing">
-            </div>
-            <p>If it exists, we find it. If it doesn't, we build it.</p>
-            <a href="#sourcing" class="tile-link">Request Quote</a>
-          </div>
+    <section id="mission" class="mission">
+        <h2>Faith &bull; Family &bull; Freedom</h2>
+        <p>Morris Lane exists for the man who understands that true luxury is not found in a logo, but in the strength of character, the loyalty of family, and the pursuit of individual sovereignty. We build things that last as long as the values they represent.</p>
+    </section>
 
-          <!-- Tile 3: Veteran-Owned Quad -->
-          <div class="card-tile quad-card">
-            <h3>Veteran-Owned Goods</h3>
-            <div class="quad-container">
-              <a href="#" class="quad-item">
-                <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&q=80&w=300" alt="Tactical">
-                <span>Tactical</span>
-              </a>
-              <a href="#" class="quad-item">
-                <img src="https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?auto=format&fit=crop&q=80&w=300" alt="Office">
-                <span>Executive</span>
-              </a>
-              <a href="#" class="quad-item">
-                <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&q=80&w=300" alt="Outdoor">
-                <span>Outdoor</span>
-              </a>
-              <a href="#" class="quad-item">
-                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=300" alt="Home">
-                <span>Living</span>
-              </a>
-            </div>
-            <a href="#" class="tile-link">Shop the Mission</a>
-          </div>
-
-          <!-- Tile 4: Registry -->
-          <div class="card-tile fat-card">
-            <h3>American Registry</h3>
-            <div class="fat-img-container">
-              <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600" alt="Registry">
-            </div>
-            <p>Manage your high-value assets and custom orders.</p>
-            <a href="#registry" class="tile-link">Access Registry</a>
-          </div>
-
-        </section>
-
-        <!-- SHOVELER: TRENDING SOVEREIGN GOODS -->
-        <section class="shoveler-section">
-          <h3>Trending in American Goods</h3>
-          <div class="shoveler-container">
-            <div class="shoveler-item">
-              <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&q=80&w=200" alt="Luxury Watch">
-              <div class="item-info">
-                <span class="price">$1,450.00</span>
-                <span class="prime-badge">American Shipping</span>
-              </div>
-            </div>
-            <div class="shoveler-item">
-              <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&q=80&w=200" alt="Titanium Pen">
-              <div class="item-info">
-                <span class="price">$125.00</span>
-                <span class="prime-badge">American Shipping</span>
-              </div>
-            </div>
-            <div class="shoveler-item">
-              <img src="https://images.unsplash.com/photo-1555529733-0e670560f7e1?auto=format&fit=crop&q=80&w=200" alt="Leather Briefcase">
-              <div class="item-info">
-                <span class="price">$890.00</span>
-                <span class="prime-badge">American Shipping</span>
-              </div>
-            </div>
-            <div class="shoveler-item">
-              <img src="https://images.unsplash.com/photo-1583209814683-c023dd293cc6?auto=format&fit=crop&q=80&w=200" alt="Desk Lamp">
-              <div class="item-info">
-                <span class="price">$340.00</span>
-                <span class="prime-badge">American Shipping</span>
-              </div>
-            </div>
-            <div class="shoveler-item">
-              <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&q=80&w=200" alt="Sneakers">
-              <div class="item-info">
-                <span class="price">$210.00</span>
-                <span class="prime-badge">American Shipping</span>
-              </div>
-            </div>
-            <div class="shoveler-item">
-              <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&q=80&w=200" alt="Shoes">
-              <div class="item-info">
-                <span class="price">$185.00</span>
-                <span class="prime-badge">American Shipping</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SOURCING MISSION CONTROL (LEDGER) -->
-        <section id="ledger" class="ledger-section">
-          <h2 class="section-title wealth-coded">The American Ledger</h2>
-          <p class="section-subtitle">Live tracking of elite global sourcing missions.</p>
-          <div class="ledger-table-container">
-            <table class="ledger-table">
-              <thead>
-                <tr>
-                  <th>Mission ID</th>
-                  <th>Objective</th>
-                  <th>Origin</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>ML-SRC-1042</td>
-                  <td>Heritage Watch Restoration</td>
-                  <td>Switzerland</td>
-                  <td><span class="status-tag status-sourced">SOURCED</span></td>
-                </tr>
-                <tr>
-                  <td>ML-SRC-1043</td>
-                  <td>Custom Bespoke Luggage</td>
-                  <td>Italy / USA</td>
-                  <td><span class="status-tag status-progress">IN PROGRESS</span></td>
-                </tr>
-                <tr>
-                  <td>ML-SRC-1044</td>
-                  <td>Limited Edition Optics</td>
-                  <td>Germany</td>
-                  <td><span class="status-tag status-shipping">SHIPPING</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-      </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">Back to top</div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Get to Know Us</h4>
-          <ul>
-            <li><a href="#">Our Heritage</a></li>
-            <li><a href="#">Veteran Mission</a></li>
-            <li><a href="#">Sustainability</a></li>
-            <li><a href="#">Morris Lane Press</a></li>
-          </ul>
+    <section id="founders" class="founders-circle">
+        <div class="circle-content">
+            <h2>The Founders Circle</h2>
+            <p>Sovereignty starts with ownership. Join the inner circle to be notified of our first inaugural drop.</p>
+            <form class="waitlist-form">
+                <input type="email" placeholder="Your Official Email Address" required>
+                <button type="submit">Claim Your Spot</button>
+            </form>
         </div>
-        <div class="footer-col">
-          <h4>Partner with Us</h4>
-          <ul>
-            <li><a href="#">Sell on Morris Lane</a></li>
-            <li><a href="#">Build your Legacy</a></li>
-            <li><a href="#">American Logistics</a></li>
-            <li><a href="#">Advertise</a></li>
-          </ul>
+    </section>
+
+    <section id="collection" class="collection">
+        <div class="section-title">
+            <p>The Signature Collection</p>
+            <h2>Heritage Goods</h2>
+            <div></div>
         </div>
-        <div class="footer-col">
-          <h4>American Tools</h4>
-          <ul>
-            <li><a href="#">American Registry</a></li>
-            <li><a href="#">Executive Sourcing</a></li>
-            <li><a href="#">Asset Tracking</a></li>
-            <li><a href="#">Concierge Support</a></li>
-          </ul>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=1999&auto=format&fit=crop');"></div>
+                <div class="card-content">
+                    <h3>The Heritage Watch</h3>
+                    <p class="price">$1,295.00</p>
+                    <a href="#" class="buy-btn">Request Reservation</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1547949003-9792a18a2601?q=80&w=2070&auto=format&fit=crop');"></div>
+                <div class="card-content">
+                    <h3>The Liberty Satchel</h3>
+                    <p class="price">$595.00</p>
+                    <a href="#" class="buy-btn">Request Reservation</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=2070&auto=format&fit=crop');"></div>
+                <div class="card-content">
+                    <h3>The Patriot Cap</h3>
+                    <p class="price">$65.00</p>
+                    <a href="#" class="buy-btn">Request Reservation</a>
+                </div>
+            </div>
         </div>
-        <div class="footer-col">
-          <h4>Let Us Help You</h4>
-          <ul>
-            <li><a href="#">Your Account</a></li>
-            <li><a href="#">Your Orders</a></li>
-            <li><a href="#">Shipping Rates</a></li>
-            <li><a href="#">Help Center</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-logo-block">
-          <img src="assets/crest.png" alt="Morris Lane Crest" class="footer-crest">
-          <span class="footer-brand">Morris Lane</span>
-        </div>
-        <div class="footer-legal">
-          <a href="#">Conditions of Use</a>
-          <a href="#">Privacy Notice</a>
-          <a href="#">Your Ads Privacy Choices</a>
-          <span>&copy; 1996-2026, Morris Lane, Inc. or its affiliates</span>
-        </div>
-      </div>
+    </section>
+
+    <div class="patriot-stripe"></div>
+
+    <footer class="american-footer">
+        <div class="footer-logo">Morris<span>Lane</span></div>
+        <div class="footer-motto">Sovereignty &bull; Heritage &bull; Excellence</div>
+        <p>Built by Willie Morris. Secured by Debbie.</p>
+        <p class="copyright">&copy; 2024 Morris Lane LLC. All Rights Reserved.</p>
     </footer>
 
-    <!-- AI DEBBIE CONCIERGE WIDGET -->
-    <div class="debbie-widget">
-      <div class="debbie-bubble">
-        <img src="assets/debbie_avatar.png" alt="Debbie AI" class="debbie-img">
-        <div class="debbie-ping"></div>
-      </div>
-      <div class="debbie-chat-preview">
-        <p>Welcome to Morris Lane. I'm Debbie, your personal sourcing strategist. How can I assist you today?</p>
-      </div>
-    </div>
-
-  </div>
 </body>
 </html>

@@ -1,170 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morris Lane | American Heritage Luxury</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --us-navy: #002366; /* True American Navy */
-            --us-red: #B22234; /* Old Glory Red */
-            --us-white: #FFFFFF;
-            --accent-gold: #FFD700; /* Bright Gold Shine */
-            --off-white: #F9F9F9;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--us-white); color: var(--us-navy); font-family: 'Montserrat', sans-serif; line-height: 1.6; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: 1px; }
-
-        header { background-color: var(--us-white); padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 5px solid var(--us-navy); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .logo { font-size: 2rem; font-weight: 900; text-transform: uppercase; letter-spacing: 5px; color: var(--us-navy); text-decoration: none; }
-        .logo span { color: var(--us-red); }
-        .nav-links a { text-decoration: none; color: var(--us-navy); text-transform: uppercase; font-weight: 700; letter-spacing: 2px; margin-left: 2rem; font-size: 0.8rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--us-red); }
-
-        .hero { height: 95vh; background: linear-gradient(rgba(0,35,102,0.6), rgba(0,35,102,0.8)), url('assets/hero_flag.png'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--us-white); padding: 0 5%; border-bottom: 12px solid var(--us-red); }
-        .hero h1 { font-size: clamp(3.5rem, 10vw, 7.5rem); text-transform: uppercase; font-weight: 900; margin-bottom: 1rem; line-height: 1; letter-spacing: -2px; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.8rem; font-style: italic; font-family: 'Playfair Display', serif; margin-bottom: 3.5rem; letter-spacing: 4px; opacity: 1; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        .hero-btn { background-color: var(--us-red); color: var(--us-white); padding: 1.5rem 4.5rem; text-decoration: none; text-transform: uppercase; font-weight: 900; letter-spacing: 3px; border: 3px solid var(--us-red); transition: 0.4s; box-shadow: 0 15px 35px rgba(178,34,52,0.5); }
-        .hero-btn:hover { background-color: transparent; border-color: var(--us-white); transform: scale(1.05); }
-
-        .shine-divider { height: 10px; background: linear-gradient(90deg, var(--us-navy) 0%, var(--us-white) 50%, var(--us-red) 100%); }
-
-        .mission { padding: 10rem 10%; text-align: center; background-color: var(--off-white); border-bottom: 1px solid #ddd; }
-        .mission h2 { font-size: 4rem; color: var(--us-navy); margin-bottom: 2rem; text-transform: uppercase; font-weight: 900; }
-        .mission p { font-size: 2rem; max-width: 1000px; margin: 0 auto; color: #222; font-style: italic; font-family: 'Playfair Display', serif; line-height: 1.5; border-left: 10px solid var(--us-red); padding-left: 2rem; text-align: left; }
-
-        .founders-circle { padding: 8rem 5%; background-color: var(--us-navy); color: var(--us-white); text-align: center; border-top: 15px solid var(--accent-gold); border-bottom: 15px solid var(--us-red); }
-        .circle-content { max-width: 900px; margin: 0 auto; }
-        .founders-circle h2 { font-size: 3.5rem; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--us-white); letter-spacing: 6px; }
-        .founders-circle p { font-size: 1.4rem; font-family: 'Playfair Display', serif; font-style: italic; margin-bottom: 4rem; opacity: 1; letter-spacing: 2px; color: var(--accent-gold); }
-        .waitlist-form { display: flex; flex-wrap: wrap; justify-content: center; gap: 0; max-width: 700px; margin: 0 auto; box-shadow: 0 25px 50px rgba(0,0,0,0.4); }
-        .waitlist-form input { padding: 1.5rem 2rem; border: none; flex-grow: 1; font-size: 1.2rem; font-family: 'Montserrat'; font-weight: 700; width: 400px; color: var(--us-navy); }
-        .waitlist-form button { background-color: var(--us-red); color: white; border: none; padding: 1.5rem 3.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; transition: 0.3s; }
-        .waitlist-form button:hover { background-color: #D00000; transform: translateY(-2px); }
-
-        .collection { padding: 10rem 5%; background-color: var(--us-white); }
-        .section-title { text-align: center; margin-bottom: 8rem; }
-        .section-title h2 { font-size: 3.5rem; text-transform: uppercase; color: var(--us-navy); font-weight: 900; letter-spacing: 5px; }
-        .section-title div { width: 120px; height: 10px; background: var(--us-red); margin: 2rem auto; border-radius: 5px; }
-        .section-title p { font-size: 1rem; text-transform: uppercase; letter-spacing: 6px; color: var(--us-red); font-weight: 900; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 5rem; max-width: 1500px; margin: 0 auto; }
-        .card { background: var(--off-white); padding: 0; border: 5px solid var(--us-navy); text-align: center; transition: 0.6s; overflow: hidden; position: relative; }
-        .card:hover { transform: translateY(-20px) rotate(1deg); box-shadow: 0 40px 80px rgba(0,0,0,0.2); }
-        .card::before { content: 'MADE IN USA'; position: absolute; top: 20px; right: -40px; background: var(--us-red); color: white; padding: 10px 50px; transform: rotate(45deg); font-weight: 900; font-size: 0.7rem; z-index: 10; letter-spacing: 2px; }
-        .card-img { height: 500px; background-size: cover; background-position: center; border-bottom: 10px solid var(--us-navy); }
-        .card-content { padding: 4rem 2rem; }
-        .card h3 { font-size: 2.5rem; margin-bottom: 1.5rem; text-transform: uppercase; font-weight: 900; color: var(--us-navy); }
-        .price { font-size: 1.8rem; font-weight: 900; color: var(--us-red); margin-bottom: 3rem; letter-spacing: 3px; font-family: 'Playfair Display', serif; }
-        .buy-btn { display: block; background: var(--us-navy); color: var(--us-white); padding: 1.5rem; text-decoration: none; text-transform: uppercase; font-weight: 900; letter-spacing: 4px; transition: 0.4s; border: 2px solid var(--us-navy); }
-        .buy-btn:hover { background: var(--us-red); border-color: var(--us-red); color: white; }
-
-        .american-footer { background-color: var(--us-navy); padding: 10rem 5%; color: var(--us-white); text-align: center; border-top: 15px solid var(--us-red); position: relative; }
-        .footer-logo { font-size: 3rem; font-weight: 900; letter-spacing: 15px; text-transform: uppercase; margin-bottom: 3rem; color: var(--us-white); }
-        .footer-logo span { color: var(--us-red); }
-        .footer-motto { font-size: 1.5rem; font-family: 'Playfair Display', serif; font-style: italic; letter-spacing: 5px; margin-bottom: 5rem; color: var(--accent-gold); }
-        
-        .patriot-stripe { height: 30px; background: repeating-linear-gradient(90deg, var(--us-red), var(--us-red) 50px, var(--us-white) 50px, var(--us-white) 100px); border-top: 5px solid var(--us-navy); border-bottom: 5px solid var(--us-navy); }
-        
-        .copyright { font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; margin-top: 5rem; opacity: 0.6; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 4rem; }
-            .mission h2 { font-size: 2.5rem; }
-            .mission p { font-size: 1.4rem; padding-left: 1rem; border-left-width: 5px; }
-            .card-img { height: 350px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morris Lane | Of the Earth Goods – Fast Lane Account</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap');
+    body { font-family: 'Roboto', sans-serif; }
+    .hero-font { font-family: 'Playfair Display', serif; }
+    .fast-lane { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
+  </style>
 </head>
-<body>
+<body class="bg-[#f8f1e3] text-[#3c2f2f]">
 
-    <header>
-        <a href="#" class="logo">Morris<span>Lane</span></a>
-        <nav class="nav-links">
-            <a href="#collection">The Vault</a>
-            <a href="#founders">Founders Circle</a>
-            <a href="#mission">Our Creed</a>
-            <a href="#">Account</a>
-        </nav>
-    </header>
+  <!-- TOP FAST LANE BAR -->
+  <div class="bg-[#b22234] text-white py-3 text-center font-bold flex items-center justify-center gap-3">
+    <i class="fa fa-bolt text-2xl fast-lane"></i>
+    JOIN THE FAST LANE ACCOUNT – FREE SHIPPING • 20% MEMBER SAVINGS • EXCLUSIVE DROPS • VETERAN PERKS
+    <button onclick="showFastLaneModal()" class="bg-white text-[#b22234] px-6 py-1 rounded-full text-sm font-bold">JOIN FREE →</button>
+  </div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>American Heritage</h1>
-            <p>Quality is a form of sovereignty.</p>
-            <div class="hero-btns">
-                <a href="#collection" class="hero-btn">Explore The Collection</a>
-            </div>
-        </div>
-    </section>
+  <!-- NAV -->
+  <nav class="bg-[#232f3e] text-white sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <i class="fa fa-eagle text-4xl text-[#f0c14b]"></i>
+        <div class="text-3xl font-bold hero-font">MORRIS LANE</div>
+      </div>
+      <div class="flex-1 max-w-xl mx-8">
+        <input type="text" placeholder="Search Grillin', Chillin', Knives & American Made Gear..." 
+               class="w-full bg-white text-black rounded-full py-4 px-6 pl-12">
+      </div>
+      <div class="flex gap-8 items-center">
+        <a onclick="showFastLaneModal()" class="flex flex-col items-center text-xs hover:text-[#f0c14b] cursor-pointer">
+          <i class="fa fa-bolt text-2xl"></i> FAST LANE
+        </a>
+        <a class="flex flex-col items-center text-xs hover:text-[#f0c14b]">
+          <i class="fa fa-flag-usa text-xl"></i> VETERAN OWNED
+        </a>
+        <button onclick="toggleCart()" class="relative">
+          <i class="fa fa-shopping-cart text-3xl"></i>
+          <span id="cartCount" class="absolute -top-1 -right-1 bg-[#f0c14b] text-black rounded-full h-5 w-5 flex items-center justify-center text-xs">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-    <div class="shine-divider"></div>
+  <!-- HERO -->
+  <div class="relative h-screen">
+    <img src="https://via.placeholder.com/1920x1080?text=THE+FAST+LANE+JUST+GOT+FASTER" class="absolute inset-0 w-full h-full object-cover" alt="Hero">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
+    <div class="relative max-w-7xl mx-auto px-8 h-full flex items-center">
+      <div class="max-w-2xl text-white">
+        <h1 class="text-7xl hero-font">THE FAST LANE JUST GOT FASTER</h1>
+        <p class="text-3xl mt-6">Free 2-Day Shipping • 20% Off • Rewards • Freedom Box • Veteran Perks</p>
+        <button onclick="showFastLaneModal()" class="mt-10 bg-[#f0c14b] text-black font-bold text-3xl px-12 py-6 rounded-3xl">JOIN EXPANDED FAST LANE FREE</button>
+      </div>
+    </div>
+  </div>
 
-    <section id="mission" class="mission">
-        <h2>Faith &bull; Family &bull; Freedom</h2>
-        <p>Morris Lane exists for the man who understands that true luxury is not found in a logo, but in the strength of character, the loyalty of family, and the pursuit of individual sovereignty. We build things that last as long as the values they represent.</p>
-    </section>
+  <!-- EXPANDED FEATURES GRID -->
+  <div class="max-w-7xl mx-auto px-8 py-16">
+    <h2 class="text-5xl hero-font text-center mb-12">EXPANDED FAST LANE FEATURES</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+      <div class="bg-white p-8 rounded-3xl text-center border border-[#b22234]">
+        <i class="fa fa-truck text-6xl text-[#b22234]"></i>
+        <p class="font-bold mt-4">FREE 2-DAY SHIPPING</p>
+      </div>
+      <div class="bg-white p-8 rounded-3xl text-center border border-[#f0c14b]">
+        <i class="fa fa-percent text-6xl text-[#f0c14b]"></i>
+        <p class="font-bold mt-4">20% MEMBER SAVINGS</p>
+      </div>
+      <div class="bg-white p-8 rounded-3xl text-center border border-[#b22234]">
+        <i class="fa fa-eagle text-6xl text-[#b22234]"></i>
+        <p class="font-bold mt-4">EXTRA VETERAN 10% OFF</p>
+      </div>
+      <div class="bg-white p-8 rounded-3xl text-center border border-[#f0c14b]">
+        <i class="fa fa-gift text-6xl text-[#f0c14b]"></i>
+        <p class="font-bold mt-4">QUARTERLY FREEDOM BOX</p>
+      </div>
+      <div class="bg-white p-8 rounded-3xl text-center border border-[#b22234]">
+        <i class="fa fa-star text-6xl text-[#b22234]"></i>
+        <p class="font-bold mt-4">REWARDS PROGRAM</p>
+      </div>
+    </div>
+  </div>
 
-    <section id="founders" class="founders-circle">
-        <div class="circle-content">
-            <h2>The Founders Circle</h2>
-            <p>Sovereignty starts with ownership. Join the inner circle to be notified of our first inaugural drop.</p>
-            <form class="waitlist-form">
-                <input type="email" placeholder="Your Official Email Address" required>
-                <button type="submit">Claim Your Spot</button>
-            </form>
-        </div>
-    </section>
+  <!-- FOOTER -->
+  <footer class="bg-[#3c2f2f] text-white py-12 text-center">
+    <p class="text-2xl hero-font uppercase tracking-widest">Morris Lane • Of the Earth Goods</p>
+    <p class="mt-4 text-sm opacity-70">🇺🇸 Veteran Owned • American Made • Wickes, Arkansas</p>
+  </footer>
 
-    <section id="collection" class="collection">
-        <div class="section-title">
-            <p>The Signature Collection</p>
-            <h2>Heritage Goods</h2>
-            <div></div>
-        </div>
+  <!-- FAST LANE MODAL -->
+  <div id="fastLaneModal" class="hidden fixed inset-0 bg-black/80 z-[9999] flex items-center justify-center">
+    <div class="bg-white max-w-2xl w-full mx-4 rounded-3xl p-10 text-center text-black">
+      <h2 class="text-5xl hero-font mb-6">Welcome to the Fast Lane, Patriot</h2>
+      <p class="text-xl mb-8">Free for 30 days. Cancel anytime. Speed, savings, and American pride delivered.</p>
+      <button onclick="joinFastLane()" class="w-full bg-[#b22234] text-white py-6 text-2xl rounded-3xl font-bold">JOIN FAST LANE – START FREE TODAY</button>
+      <p class="mt-8 text-sm opacity-50">Veteran owned. American made. Built for those who move fast and love their country.</p>
+    </div>
+  </div>
 
-        <div class="grid">
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=1999&auto=format&fit=crop');"></div>
-                <div class="card-content">
-                    <h3>The Heritage Watch</h3>
-                    <p class="price">$1,295.00</p>
-                    <a href="#" class="buy-btn">Request Reservation</a>
-                </div>
-            </div>
+  <script>
+    let cart = [];
+    let isFastLaneMember = true;
 
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1547949003-9792a18a2601?q=80&w=2070&auto=format&fit=crop');"></div>
-                <div class="card-content">
-                    <h3>The Liberty Satchel</h3>
-                    <p class="price">$595.00</p>
-                    <a href="#" class="buy-btn">Request Reservation</a>
-                </div>
-            </div>
+    function toggleCart() {
+      alert("Your Sovereign Cart is ready for the Landing.");
+    }
+    
+    function showFastLaneModal() {
+      document.getElementById('fastLaneModal').classList.remove('hidden');
+    }
 
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=2070&auto=format&fit=crop');"></div>
-                <div class="card-content">
-                    <h3>The Patriot Cap</h3>
-                    <p class="price">$65.00</p>
-                    <a href="#" class="buy-btn">Request Reservation</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="patriot-stripe"></div>
-
-    <footer class="american-footer">
-        <div class="footer-logo">Morris<span>Lane</span></div>
-        <div class="footer-motto">Sovereignty &bull; Heritage &bull; Excellence</div>
-        <p>Built by Willie Morris. Secured by Debbie.</p>
-        <p class="copyright">&copy; 2024 Morris Lane LLC. All Rights Reserved.</p>
-    </footer>
-
+    function joinFastLane() {
+      alert("🚀 Welcome to the Fast Lane, Glenn! Your membership is active. Free shipping unlocked.");
+      document.getElementById('fastLaneModal').classList.add('hidden');
+    }
+  </script>
 </body>
 </html>

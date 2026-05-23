@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Morris Lane | American Industrial Commerce</title>
-  <meta name="description" content="Morris Lane is a veteran-owned American industrial commerce brand for rugged goods, Fast Lane membership, Digital Steel tools, and the future Morris Lane metaverse marketplace.">
-  <meta property="og:title" content="Morris Lane | American Industrial Commerce">
-  <meta property="og:description" content="Veteran-owned marketplace for rugged goods, Fast Lane perks, future Digital Steel tools, and the long-range Morris Lane metaverse mall.">
+  <title>Morris Lane | Sovereign Digital Commerce</title>
+  <meta name="description" content="Morris Lane is a veteran-owned digital marketplace. American-made laser patterns, SVG files, CNC designs, AI tools, and Digital Steel infrastructure — governed by Debbie, the sovereign AI.">
+  <meta property="og:title" content="Morris Lane | Sovereign Digital Commerce">
+  <meta property="og:description" content="Veteran-owned digital marketplace for maker files, AI tools, and sovereign-AI commerce infrastructure.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.morrislane.store/">
   <meta property="og:image" content="https://www.morrislane.store/assets/debbie-digital.png">
@@ -17,7 +17,7 @@
     "@type": "Store",
     "name": "Morris Lane",
     "url": "https://www.morrislane.store/",
-    "description": "Veteran-owned American industrial commerce brand for rugged goods, Fast Lane membership, Digital Steel tools, and future marketplace infrastructure.",
+    "description": "Veteran-owned digital marketplace for American-made maker files, AI tools, and sovereign-AI commerce infrastructure.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Cove",
@@ -129,6 +129,19 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .brand-initials {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--red), var(--navy-deep));
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
     }
 
     .brand-name {
@@ -583,6 +596,34 @@
 
     .product-object.digital {
       background: radial-gradient(circle at 70% 20%, #1c9df5, #071a33 48%, #020a14);
+    }
+
+    .product-object.svg {
+      background: linear-gradient(135deg, #1c2735, #0a1f44);
+      position: relative;
+    }
+
+    .product-object.svg::before {
+      content: "";
+      position: absolute;
+      inset: 25%;
+      border: 2px solid rgba(248, 250, 252, 0.4);
+      border-radius: 6px;
+      transform: rotate(8deg);
+    }
+
+    .product-object.cnc {
+      background: linear-gradient(135deg, #4a3520, #7a4a24);
+    }
+
+    .product-object.embroidery {
+      background: repeating-linear-gradient(45deg, #b11226, #b11226 6px, #7a0d1a 6px, #7a0d1a 12px);
+      opacity: 0.85;
+    }
+
+    .product-card.coming-soon .badge {
+      background: rgba(2, 10, 20, 0.78);
+      border: 1px solid rgba(176, 141, 87, 0.5);
     }
 
     .badge {
@@ -1277,8 +1318,10 @@
 
     @media (max-width: 680px) {
       .trustbar-inner {
-        justify-content: flex-start;
-        gap: 10px 14px;
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        justify-content: start;
+        gap: 6px 16px;
         min-height: auto;
         padding-top: 8px;
         padding-bottom: 8px;
@@ -1288,6 +1331,10 @@
       .trustbar span + span {
         border-left: 0;
         padding-left: 0;
+      }
+
+      .trustbar span:last-child {
+        grid-column: 1 / -1;
       }
 
       .site-header {
@@ -1300,13 +1347,27 @@
 
       .search {
         order: 2;
+        width: calc(100vw - 44px);
+        max-width: calc(100vw - 44px);
+      }
+
+      .search input {
+        min-width: 0;
       }
 
       .header-actions {
         order: 3;
-        margin: 0 -22px;
-        padding: 10px 18px 18px;
+        margin: 0;
+        padding: 10px 0 18px;
         background: rgba(2, 10, 20, 0.26);
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        justify-content: stretch;
+        align-items: stretch;
+        gap: 2px;
+        overflow: visible;
+        width: calc(100vw - 44px);
+        max-width: calc(100vw - 44px);
       }
 
       .brand-name {
@@ -1319,8 +1380,19 @@
 
       .header-actions a,
       .cart-button {
-        min-width: 62px;
-        font-size: 0.66rem;
+        min-width: 0;
+        padding-left: 4px;
+        padding-right: 4px;
+        font-size: 0.62rem;
+      }
+
+      .header-actions .cart-button {
+        display: inline-flex !important;
+        visibility: visible !important;
+      }
+
+      .header-actions a[href="#wishlist"] {
+        display: none;
       }
 
       .hero {
@@ -1424,24 +1496,25 @@
   <div class="trustbar">
     <div class="trustbar-inner">
       <span>Veteran Owned</span>
-      <span>American Made / American Designed</span>
-      <span>Fast Shipping Lane</span>
-      <span>Secure Checkout Build</span>
+      <span>American Made Files</span>
+      <span>Instant Download</span>
+      <span>DNA-Stamped</span>
+      <span>Sovereign-AI Governed</span>
     </div>
   </div>
 
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="#top" aria-label="Morris Lane home">
-        <span class="brand-mark"><img src="assets/debbie-ceo.png" alt="Debbie Morris Lane commerce system"></span>
+        <span class="brand-mark"><span class="brand-initials">ML</span></span>
         <span>
           <strong class="brand-name">Morris Lane</strong>
-          <span class="brand-sub">American Industrial Commerce</span>
+          <span class="brand-sub">Sovereign Digital Commerce</span>
         </span>
       </a>
 
       <form class="search" action="#products" onsubmit="return false" role="search">
-        <input id="siteSearch" type="search" placeholder="Search rugged goods, tools, Fast Lane, Digital Steel">
+        <input id="siteSearch" type="search" placeholder="Search maker files, AI tools, Fast Lane, Digital Steel">
         <button type="button" id="searchButton" aria-label="Search">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
         </button>
@@ -1451,12 +1524,12 @@
         <a href="#account"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>Account</a>
         <a href="#orders"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"></path><path d="M9 7h6"></path><path d="M9 11h6"></path></svg>Orders</a>
         <a href="#fast-lane"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-9 12h8l-1 8 9-12h-8z"></path></svg>Fast Lane</a>
-        <a href="#wishlist"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>Wishlist</a>
-        <button class="cart-button" type="button" id="openCart">
+        <a class="cart-button" href="#cart" id="openCart" role="button">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6l1.6-8.4H5.1"></path></svg>
           Cart
           <span class="cart-count" id="cartCount">0</span>
-        </button>
+        </a>
+        <a href="#wishlist"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>Wishlist</a>
       </nav>
     </div>
   </header>
@@ -1464,10 +1537,10 @@
   <section class="hero" id="top">
     <div class="hero-inner">
       <div>
-        <h1>Commerce First. Metaverse Next.</h1>
-        <p class="hero-copy">Morris Lane starts as a real American marketplace, then expands into vendor storefront deeds, 3D districts, and Debbie-governed commerce zones.</p>
+        <h1>Digital Commerce. Sovereign Stack.</h1>
+        <p class="hero-copy">Morris Lane is a veteran-owned digital marketplace for maker files, AI tools, and Digital Steel infrastructure. Every product DNA-stamped. Every transaction governed by Debbie. Built in Arkansas, owned by us.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#products">Shop The Store</a>
+          <a class="button primary" href="#products">Browse Digital Goods</a>
           <a class="button secondary" href="#fast-lane">Join Fast Lane</a>
           <a class="button outline" href="#roadmap">See The Roadmap</a>
         </div>
@@ -1475,10 +1548,10 @@
 
       <div class="hero-stack">
         <div class="hero-debbie" aria-label="Debbie Morris Lane metaverse command visual">
-          <img src="assets/debbie-digital.png" alt="Debbie digital commerce command visual">
+          <img src="assets/debbie-ceo.png" alt="Debbie sovereign AI commerce command visual">
           <div class="hero-signal">
             <strong>Debbie Command Layer</strong>
-            <span>AI storefront support, Digital Steel infrastructure, and future Digital HOA enforcement.</span>
+            <span>AI storefront support, DNA-stamped provenance, and future Digital HOA enforcement.</span>
           </div>
         </div>
         <aside class="hero-panel" aria-label="Morris Lane build phases">
@@ -1496,15 +1569,15 @@
   <section class="category-rail" aria-label="Store categories">
     <div class="category-inner">
       <button class="category active" data-filter="all"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="M4 10h16"></path></svg>All</button>
-      <button class="category" data-filter="outdoor"><svg viewBox="0 0 24 24"><path d="M12 3v18"></path><path d="m5 11 7-8 7 8"></path><path d="m6 17 6-7 6 7"></path></svg>Outdoor</button>
-      <button class="category" data-filter="grilling"><svg viewBox="0 0 24 24"><path d="M6 12h12"></path><path d="M8 12a4 4 0 0 0 8 0"></path><path d="M9 18h6"></path><path d="M12 18v3"></path><path d="M8 4c1 1 1 2 0 3"></path><path d="M12 4c1 1 1 2 0 3"></path><path d="M16 4c1 1 1 2 0 3"></path></svg>Grilling</button>
-      <button class="category" data-filter="leather"><svg viewBox="0 0 24 24"><path d="M5 4h14l-2 16H7z"></path><path d="M9 8h6"></path></svg>Leather</button>
-      <button class="category" data-filter="workshop"><svg viewBox="0 0 24 24"><path d="M14 7 7 14"></path><path d="m5 19 4-4"></path><path d="m15 6 3-3 3 3-3 3z"></path><path d="M14 14 20 20"></path></svg>Workshop</button>
-      <button class="category" data-filter="patriot"><svg viewBox="0 0 24 24"><path d="M5 4v16"></path><path d="M5 4h14l-2 4 2 4H5"></path></svg>Patriot Gear</button>
-      <button class="category" data-filter="tech"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"></rect><path d="M9 2v4"></path><path d="M15 2v4"></path><path d="M9 18v4"></path><path d="M15 18v4"></path><path d="M2 9h4"></path><path d="M18 9h4"></path><path d="M2 15h4"></path><path d="M18 15h4"></path></svg>Tech</button>
-      <button class="category" data-filter="ai"><svg viewBox="0 0 24 24"><rect x="7" y="8" width="10" height="9" rx="3"></rect><path d="M12 4v4"></path><path d="M8 13h.01"></path><path d="M16 13h.01"></path><path d="M9 20h6"></path></svg>AI Tools</button>
-      <button class="category" data-filter="digital"><svg viewBox="0 0 24 24"><path d="M12 2 4 7v10l8 5 8-5V7z"></path><path d="M12 22V12"></path><path d="m4 7 8 5 8-5"></path></svg>Digital Steel</button>
-      <button class="category" data-filter="survival"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m14.5 9.5-5 5"></path><path d="m9.5 9.5 5 5"></path></svg>Survival</button>
+      <button class="category" data-filter="laser"><svg viewBox="0 0 24 24"><path d="M12 3v18"></path><path d="m5 11 7-8 7 8"></path><path d="m6 17 6-7 6 7"></path></svg>Laser Patterns</button>
+      <button class="category" data-filter="svg"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="m8 12 3 3 5-7"></path></svg>SVG Files</button>
+      <button class="category" data-filter="cnc"><svg viewBox="0 0 24 24"><path d="M14 7 7 14"></path><path d="m5 19 4-4"></path><path d="m15 6 3-3 3 3-3 3z"></path><path d="M14 14 20 20"></path></svg>CNC Designs</button>
+      <button class="category" data-filter="embroidery"><svg viewBox="0 0 24 24"><path d="M5 4h14l-2 16H7z"></path><path d="M9 8h6"></path><path d="M8 12h8"></path></svg>Embroidery</button>
+      <button class="category" data-filter="digital ai"><svg viewBox="0 0 24 24"><rect x="7" y="8" width="10" height="9" rx="3"></rect><path d="M12 4v4"></path><path d="M8 13h.01"></path><path d="M16 13h.01"></path><path d="M9 20h6"></path></svg>AI Tools</button>
+      <button class="category" data-filter="prompts"><svg viewBox="0 0 24 24"><path d="M5 5h14v10H8l-3 3z"></path><path d="M9 9h6"></path><path d="M9 12h4"></path></svg>Prompts</button>
+      <button class="category" data-filter="template"><svg viewBox="0 0 24 24"><path d="M6 2h12v20H6z"></path><path d="M9 7h6"></path><path d="M9 11h6"></path><path d="M9 15h4"></path></svg>Templates</button>
+      <button class="category" data-filter="automation"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"></rect><path d="M9 2v4"></path><path d="M15 2v4"></path><path d="M9 18v4"></path><path d="M15 18v4"></path><path d="M2 9h4"></path><path d="M18 15h4"></path></svg>Automation</button>
+      <button class="category" data-filter="inventor"><svg viewBox="0 0 24 24"><path d="M12 2 4 7v10l8 5 8-5V7z"></path><path d="M12 22V12"></path><path d="m4 7 8 5 8-5"></path></svg>Inventor</button>
     </div>
   </section>
 
@@ -1512,76 +1585,145 @@
     <section class="section tight" id="products">
       <div class="section-head">
         <div>
-          <h2>Featured Products</h2>
+          <h2>What Morris Lane Sells</h2>
         </div>
-        <p id="productStatus">Showing the first Morris Lane product lanes. Checkout is staged until payment wiring is verified.</p>
+        <p id="productStatus">Two product lanes launching soon: Maker Files for craftspeople, and Digital Steel for AI-driven commerce. Every product DNA-stamped at the source.</p>
       </div>
 
       <div class="product-grid" id="productGrid">
-        <article class="product-card" data-category="grilling outdoor" data-name="Morris Lane 24 pellet grill">
+        <article class="product-card coming-soon" data-category="maker laser" data-name="patriot laser pattern pack">
           <div class="product-media">
-            <span class="badge">Grilling</span>
+            <span class="badge">Coming Soon</span>
             <div class="product-object"></div>
           </div>
           <div class="product-body">
-            <span class="product-category">Outdoor / Grilling</span>
-            <h3 class="product-title">Morris Lane 24 Pellet Grill</h3>
-            <div class="rating">***** <span class="muted">(128)</span></div>
-            <p class="product-copy">Hero product lane for backyard cooking, future bundles, and American-made accessory drops.</p>
+            <span class="product-category">Maker Files / Laser</span>
+            <h3 class="product-title">Patriot Laser Pattern Pack</h3>
+            <p class="product-copy">Curated American-themed SVG patterns for laser cutters and engravers. DNA-stamped, instant download, personal license included.</p>
             <div class="product-foot">
-              <div><div class="price">$649.00</div><span class="shipping">Fast Lane shipping lane</span></div>
-              <button class="button primary small add-cart" data-item="Morris Lane 24 Pellet Grill" data-price="649">Add to Cart</button>
+              <div><div class="price">Coming Soon</div><span class="shipping">Join waitlist for launch pricing</span></div>
+              <a class="button primary small" href="#waitlist">Notify Me</a>
             </div>
           </div>
         </article>
 
-        <article class="product-card" data-category="leather patriot" data-name="heritage leather tool roll">
+        <article class="product-card coming-soon" data-category="maker svg" data-name="sovereign svg vault">
           <div class="product-media">
-            <span class="badge">Leather</span>
-            <div class="product-object wood"></div>
+            <span class="badge">Coming Soon</span>
+            <div class="product-object svg"></div>
           </div>
           <div class="product-body">
-            <span class="product-category">Leather / Patriot Gear</span>
-            <h3 class="product-title">Heritage Leather Tool Roll</h3>
-            <div class="rating">***** <span class="muted">(96)</span></div>
-            <p class="product-copy">Workshop-ready leather goods lane for maker kits, heirloom tools, and branded carry products.</p>
+            <span class="product-category">Maker Files / SVG</span>
+            <h3 class="product-title">Sovereign SVG Vault</h3>
+            <p class="product-copy">Subscription access to a growing library of original SVG designs — patriotic, faith-rooted, maker-focused. New drops monthly.</p>
             <div class="product-foot">
-              <div><div class="price">$89.00</div><span class="shipping">Member pricing ready</span></div>
-              <button class="button primary small add-cart" data-item="Heritage Leather Tool Roll" data-price="89">Add to Cart</button>
+              <div><div class="price">Coming Soon</div><span class="shipping">Fast Lane members get first access</span></div>
+              <a class="button primary small" href="#waitlist">Notify Me</a>
             </div>
           </div>
         </article>
 
-        <article class="product-card" data-category="workshop survival" data-name="ml10 operator multi-tool">
+        <article class="product-card coming-soon" data-category="maker cnc" data-name="cnc design library">
           <div class="product-media">
-            <span class="badge">Tools</span>
-            <div class="product-object tool"></div>
+            <span class="badge">Coming Soon</span>
+            <div class="product-object cnc"></div>
           </div>
           <div class="product-body">
-            <span class="product-category">Workshop / Survival</span>
-            <h3 class="product-title">ML10 Operator Multi-Tool</h3>
-            <div class="rating">***** <span class="muted">(215)</span></div>
-            <p class="product-copy">Compact tool lane for preparedness, truck kits, field work, and premium American utility.</p>
+            <span class="product-category">Maker Files / CNC</span>
+            <h3 class="product-title">CNC Design Library</h3>
+            <p class="product-copy">Production-ready CNC files for woodworkers and small fabricators. Tested toolpaths, real-world dimensions, commercial license available.</p>
             <div class="product-foot">
-              <div><div class="price">$79.00</div><span class="shipping">Stock model staged</span></div>
-              <button class="button primary small add-cart" data-item="ML10 Operator Multi-Tool" data-price="79">Add to Cart</button>
+              <div><div class="price">Coming Soon</div><span class="shipping">Commercial licensing on launch</span></div>
+              <a class="button primary small" href="#waitlist">Notify Me</a>
             </div>
           </div>
         </article>
 
-        <article class="product-card" data-category="workshop tech" data-name="pro series 41 tool chest">
+        <article class="product-card coming-soon" data-category="maker embroidery" data-name="embroidery file collection">
           <div class="product-media">
-            <span class="badge">Workshop</span>
-            <div class="product-object tool"></div>
+            <span class="badge">Coming Soon</span>
+            <div class="product-object embroidery"></div>
           </div>
           <div class="product-body">
-            <span class="product-category">Workshop / Tech</span>
-            <h3 class="product-title">Pro Series 41 Tool Chest</h3>
-            <div class="rating">****. <span class="muted">(74)</span></div>
-            <p class="product-copy">High-ticket industrial goods lane for future supplier products and local inventory sync.</p>
+            <span class="product-category">Maker Files / Embroidery</span>
+            <h3 class="product-title">Embroidery File Collection</h3>
+            <p class="product-copy">Digitized embroidery files in multiple formats. Veteran-themed, faith-themed, and Americana designs from a Cove, Arkansas studio.</p>
             <div class="product-foot">
-              <div><div class="price">$499.00</div><span class="shipping">Vendor lane ready</span></div>
-              <button class="button primary small add-cart" data-item="Pro Series 41 Tool Chest" data-price="499">Add to Cart</button>
+              <div><div class="price">Coming Soon</div><span class="shipping">Multi-format download</span></div>
+              <a class="button primary small" href="#waitlist">Notify Me</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-head" style="margin-top: 48px;">
+        <div>
+          <h2>Digital Steel Tools</h2>
+        </div>
+        <p>AI-powered tools and templates for makers, contractors, and small business operators. Built on the same sovereign AI infrastructure that runs Morris Lane.</p>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card coming-soon" data-category="digital ai prompts" data-name="sovereign prompt pack">
+          <div class="product-media">
+            <span class="badge">Coming Soon</span>
+            <div class="product-object digital"></div>
+          </div>
+          <div class="product-body">
+            <span class="product-category">Digital Steel / Prompts</span>
+            <h3 class="product-title">Sovereign Prompt Pack v1</h3>
+            <p class="product-copy">Battle-tested prompt templates for small business operators. Marketing, ops, customer support, and inventory workflows in one downloadable pack.</p>
+            <div class="product-foot">
+              <div><div class="price">Coming Soon</div><span class="shipping">Launch SKU candidate</span></div>
+              <a class="button primary small" href="#waitlist">Notify Me</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card coming-soon" data-category="digital ai template" data-name="debbie business templates">
+          <div class="product-media">
+            <span class="badge">Coming Soon</span>
+            <div class="product-object digital"></div>
+          </div>
+          <div class="product-body">
+            <span class="product-category">Digital Steel / Templates</span>
+            <h3 class="product-title">Debbie Business Templates</h3>
+            <p class="product-copy">Operational templates pulled from real Morris Lane infrastructure — SOPs, governance checklists, vendor onboarding flows.</p>
+            <div class="product-foot">
+              <div><div class="price">Coming Soon</div><span class="shipping">For solo operators and teams</span></div>
+              <a class="button primary small" href="#waitlist">Notify Me</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card coming-soon" data-category="digital ai automation" data-name="neodas commerce starter">
+          <div class="product-media">
+            <span class="badge">Coming Soon</span>
+            <div class="product-object digital"></div>
+          </div>
+          <div class="product-body">
+            <span class="product-category">Digital Steel / Automation</span>
+            <h3 class="product-title">NeoDas Commerce Starter</h3>
+            <p class="product-copy">Sovereign AI commerce automation kit. Mechanical-policy receipts, audit trails, and Debbie-governed workflows for your own business.</p>
+            <div class="product-foot">
+              <div><div class="price">Coming Soon</div><span class="shipping">Enterprise tier in development</span></div>
+              <a class="button primary small" href="#waitlist">Notify Me</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card coming-soon" data-category="digital ai inventor" data-name="inventor toolkit">
+          <div class="product-media">
+            <span class="badge">Coming Soon</span>
+            <div class="product-object digital"></div>
+          </div>
+          <div class="product-body">
+            <span class="product-category">Digital Steel / Inventor</span>
+            <h3 class="product-title">Inventor Toolkit</h3>
+            <p class="product-copy">Provisional patent prep, prior art search workflows, and invention disclosure templates. From a 35-claim patent holder.</p>
+            <div class="product-foot">
+              <div><div class="price">Coming Soon</div><span class="shipping">Veteran-built, inventor-tested</span></div>
+              <a class="button primary small" href="#waitlist">Notify Me</a>
             </div>
           </div>
         </article>
@@ -1594,10 +1736,10 @@
           <h2>Fast Lane Membership</h2>
           <p class="hero-copy">More perks, faster access, and a clear membership economy for Morris Lane buyers.</p>
           <ul>
-            <li><span class="check">+</span><span>Exclusive member pricing and early product drops.</span></li>
-            <li><span class="check">+</span><span>Shipping benefits staged for the live checkout build.</span></li>
-            <li><span class="check">+</span><span>Veteran perks, loyalty rewards, and bundle access.</span></li>
-            <li><span class="check">+</span><span>Future reward rails without turning the store into a crypto pitch.</span></li>
+            <li><span class="check">+</span><span>First access to new digital drops before public launch.</span></li>
+            <li><span class="check">+</span><span>Member-only pricing on Maker Files and Digital Steel tools.</span></li>
+            <li><span class="check">+</span><span>Veteran perks, founder pricing locked in for life.</span></li>
+            <li><span class="check">+</span><span>Exclusive bundles unavailable to non-members.</span></li>
           </ul>
           <div class="hero-actions">
             <a class="button secondary" href="#waitlist">Join Fast Lane</a>
@@ -1614,10 +1756,10 @@
           <h2>Digital Steel / NeoDas</h2>
           <p class="hero-copy">The future tech division: AI tools, digital assets, patent vaults, private infrastructure, and Debbie-powered commerce automation.</p>
           <ul>
-            <li><span class="check">+</span><span>Digital products and AI business systems.</span></li>
-            <li><span class="check">+</span><span>NeoDas and Debbie infrastructure pages.</span></li>
-            <li><span class="check">+</span><span>Automation templates, product drafting, and inventory review.</span></li>
-            <li><span class="check">+</span><span>Built as a division of Morris Lane, not the whole store.</span></li>
+            <li><span class="check">+</span><span>AI-powered prompt packs and business templates.</span></li>
+            <li><span class="check">+</span><span>NeoDas infrastructure for sovereign commerce.</span></li>
+            <li><span class="check">+</span><span>Debbie governance receipts on every transaction.</span></li>
+            <li><span class="check">+</span><span>For builders who want owned tools, not rented dependencies.</span></li>
           </ul>
           <div class="hero-actions">
             <a class="button outline" href="#roadmap">Explore Digital Steel</a>
@@ -1634,30 +1776,51 @@
         <div>
           <h2>Four Morris Lane Divisions</h2>
         </div>
-        <p>Build the rugged marketplace first, then layer membership, Digital Steel, and the inventor ecosystem into one American industrial platform.</p>
+        <p>Build real digital commerce first, then layer membership, Digital Steel, and the inventor ecosystem into one American industrial platform.</p>
       </div>
       <div class="systems-grid">
         <article class="system-card">
-          <h3>Main Store</h3>
-          <p>Outdoor, grilling, leather, apparel, tools, survival, veteran-owned products, and workshop goods.</p>
+          <h3>Maker Files Store</h3>
+          <p>Laser patterns, SVG files, CNC designs, embroidery files. American-made digital goods from a Cove, Arkansas workshop.</p>
         </article>
         <article class="system-card">
-          <h3>Fast Lane</h3>
-          <p>Membership, early access, discounts, shipping benefits, loyalty rewards, and exclusive product drops.</p>
+          <h3>Fast Lane Membership</h3>
+          <p>Member pricing, first access, veteran perks, and exclusive bundles for active Morris Lane buyers.</p>
         </article>
-        <article class="system-card image-card">
-          <img src="assets/debbie-ceo.png" alt="Debbie commerce command visual">
-          <div>
-            <h3>Digital Steel</h3>
-            <p>NeoDas, Debbie tools, digital assets, automation templates, and AI business systems.</p>
-          </div>
+        <article class="system-card">
+          <h3>Digital Steel / NeoDas</h3>
+          <p>AI tools, prompts, templates, and sovereign commerce automation built on Morris Lane's own infrastructure.</p>
         </article>
-        <article class="system-card image-card">
-          <img src="assets/debbie-digital.png" alt="Debbie patent and inventor ecosystem visual">
-          <div>
-            <h3>Inventor Ecosystem</h3>
-            <p>Invention intake, blueprint marketplace, AI prototyping, licensing support, and fabrication network concepts.</p>
-          </div>
+        <article class="system-card">
+          <h3>Inventor Ecosystem</h3>
+          <p>Invention disclosure workflows, prior art tools, and patent prep from a 35-claim provisional holder.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section dna-strip">
+      <div class="section-head">
+        <div>
+          <h2>What "DNA-Stamped" Means</h2>
+        </div>
+        <p>Every file Morris Lane sells carries a cryptographic provenance stamp from Debbie, our sovereign AI. You know where it came from, who made it, and that it's authentic.</p>
+      </div>
+      <div class="systems-grid">
+        <article class="system-card">
+          <h3>Verified Provenance</h3>
+          <p>Each file is signed at creation. Buyers can verify the source. Resellers can't strip the mark.</p>
+        </article>
+        <article class="system-card">
+          <h3>Veteran-Made</h3>
+          <p>Designed and stamped from Cove, Arkansas. A disabled veteran-owned operation, not a marketplace reseller.</p>
+        </article>
+        <article class="system-card">
+          <h3>Sovereign-AI Governed</h3>
+          <p>Debbie audits every transaction. Customer support, fraud protection, and quality enforcement run on our own AI infrastructure.</p>
+        </article>
+        <article class="system-card">
+          <h3>Patent-Protected Stack</h3>
+          <p>Built on a 35-claim provisional patent for sovereign AI commerce. The infrastructure is novel and protected.</p>
         </article>
       </div>
     </section>
@@ -1666,20 +1829,20 @@
       <div class="section">
         <div class="section-head">
           <div>
-            <h2>Roadmap To The Metaverse Mall</h2>
+            <h2>The Build Roadmap</h2>
           </div>
-          <p>The metaverse is the end game. The current build has to earn it: real commerce first, then vendor storefronts, then programmable districts with Debbie governance.</p>
+          <p>Real digital commerce first. Then sovereign storefronts, then governance, then the 3D mall. We build the bottom of the pyramid before claiming the top.</p>
         </div>
         <div class="road-grid">
           <article class="road-card">
             <strong>Phase 1</strong>
-            <h3>Correct Static Storefront</h3>
-            <p>Red, white, blue, navy, steel, product lanes, Fast Lane CTA, Digital Steel teaser, and honest static GitHub Pages deployment.</p>
+            <h3>Digital Storefront Foundation</h3>
+            <p>Red, white, blue, navy, steel, maker file lanes, Fast Lane CTA, Digital Steel teaser, and Founders List capture.</p>
           </article>
           <article class="road-card">
             <strong>Phase 2</strong>
             <h3>Marketplace Prototype</h3>
-            <p>Next.js storefront, product detail pages, cart state, category search, product data, and checkout plumbing before live payment claims.</p>
+            <p>Next.js storefront, product detail pages, cart state, category search, product data, and checkout plumbing before the first public product drop.</p>
           </article>
           <article class="road-card">
             <strong>Phase 3</strong>
@@ -1699,7 +1862,7 @@
           <article class="road-card">
             <strong>End Game</strong>
             <h3>Full Metaverse Mall</h3>
-            <p>3D storefront slots around the Morris Lane anchor tenant, vendor interiors, digital products, physical goods, and district-level commerce automation.</p>
+            <p>3D storefront slots around the Morris Lane anchor tenant, vendor interiors, digital goods, AI tools, and district-level commerce automation.</p>
           </article>
         </div>
       </div>
@@ -1771,22 +1934,22 @@
 
     <section class="section waitlist" id="waitlist">
       <div>
-        <h2>Get On The Morris Lane Build List</h2>
-        <p class="hero-copy" style="color:#344252">Use this first static storefront to collect demand before checkout, membership, vendor slots, and the metaverse mall go live.</p>
+        <h2>Join The Founders List</h2>
+        <p class="hero-copy" style="color:#344252">Be first in line when Morris Lane goes live. Founders pricing locks at launch — early supporters pay less, forever.</p>
       </div>
       <form class="waitlist-form" onsubmit="return false">
-        <h3 style="margin:0;font-size:1.4rem;">Join The List</h3>
-        <p style="color:#c8d3df;margin:8px 0 0;">No payment is taken on this static page. This captures intent for the next build phase.</p>
+        <h3 style="margin:0;font-size:1.4rem;">Founders List</h3>
+        <p style="color:#c8d3df;margin:8px 0 0;">Choose the lane you want first access to.</p>
         <div class="form-row">
           <input id="leadEmail" type="email" placeholder="Email address">
           <select id="leadInterest">
+            <option>Maker Files (laser, SVG, CNC, embroidery)</option>
+            <option>Digital Steel (AI tools, prompts, automation)</option>
             <option>Fast Lane membership</option>
-            <option>Main Store products</option>
-            <option>Digital Steel / NeoDas</option>
-            <option>Inventor ecosystem</option>
-            <option>Future metaverse vendor slot</option>
+            <option>Inventor toolkit</option>
+            <option>Future vendor storefront slot</option>
           </select>
-          <button class="button primary" type="button" id="leadButton">Save Interest</button>
+          <button class="button primary" type="button" id="leadButton">Join Founders List</button>
           <p id="leadStatus" style="min-height:22px;margin:0;color:#ffced3;"></p>
         </div>
       </form>
@@ -1797,27 +1960,27 @@
     <div class="footer-inner">
       <div>
         <div class="brand" style="margin-bottom:14px;">
-          <span class="brand-mark"><img src="assets/debbie-ceo.png" alt="Debbie Morris Lane commerce system"></span>
+          <span class="brand-mark"><span class="brand-initials">ML</span></span>
           <span>
             <strong class="brand-name" style="font-size:1.8rem;">Morris Lane</strong>
-            <span class="brand-sub">Veteran Owned</span>
+            <span class="brand-sub">Veteran-Owned Digital Commerce</span>
           </span>
         </div>
-        <p>American industrial commerce from Cove, Arkansas: rugged goods first, AI infrastructure next, metaverse marketplace as the long-range platform.</p>
+        <p>American-made digital goods from Cove, Arkansas: maker files first, AI infrastructure next, metaverse marketplace as the long-range platform.</p>
       </div>
       <div>
         <h4>Shop</h4>
         <a href="#products">All Products</a>
-        <a href="#products">Outdoor</a>
-        <a href="#products">Grilling</a>
-        <a href="#products">Workshop</a>
+        <a href="#products">Maker Files</a>
+        <a href="#products">AI Tools</a>
         <a href="#digital-steel">Digital Steel</a>
+        <a href="#products">Inventor Tools</a>
       </div>
       <div id="account">
         <h4>Customer</h4>
         <a href="#waitlist">Contact</a>
-        <a href="#roadmap">Shipping Build</a>
-        <a href="#roadmap">Returns Build</a>
+        <a href="#products">Download Access</a>
+        <a href="#waitlist">Product Drops</a>
         <a href="#orders">Orders Roadmap</a>
         <a href="#wishlist">Wishlist Roadmap</a>
       </div>
@@ -1833,12 +1996,12 @@
         <h4>Contact</h4>
         <p>support@morrislane.store</p>
         <p>Cove, Arkansas</p>
-        <p>Veteran-owned American commerce.</p>
+        <p>Veteran-owned, sovereign-AI governed.</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>2026 Morris Lane. Static storefront build for www.morrislane.store.</span>
-      <span>Gold remains trim only. Red, white, blue, navy, black steel.</span>
+      <span>2026 Morris Lane LLC. Cove, Arkansas. Veteran-owned, sovereign-AI governed.</span>
+      <span>American-made digital goods. DNA-stamped at the source.</span>
     </div>
   </footer>
 
@@ -1856,8 +2019,8 @@
         <span>Preview total</span>
         <span id="cartTotal">$0.00</span>
       </div>
-      <a class="button primary" style="width:100%;margin-top:16px;" href="mailto:support@morrislane.store?subject=Morris%20Lane%20checkout%20request">Request Checkout Link</a>
-      <p class="cart-note">Live payment is not claimed on this static GitHub Pages build. Checkout goes live only after Stripe and order records are verified.</p>
+      <a class="button primary" style="width:100%;margin-top:16px;" href="#waitlist">Join The Founders List</a>
+      <p class="cart-note">Checkout launches with the first product drop. Join the Founders List to be first in line.</p>
     </div>
   </aside>
 
@@ -1898,7 +2061,9 @@
         card.style.display = show ? "" : "none";
         if (show) visible += 1;
       });
-      productStatus.textContent = `Showing ${visible} Morris Lane product lane${visible === 1 ? "" : "s"}. Checkout is staged until payment wiring is verified.`;
+      productStatus.textContent = visible === products.length && !query && activeFilter === "all"
+        ? "Two product lanes launching soon: Maker Files for craftspeople, and Digital Steel for AI-driven commerce. Every product DNA-stamped at the source."
+        : `Showing ${visible} Morris Lane digital product tile${visible === 1 ? "" : "s"}. Every product is DNA-stamped at the source.`;
     }
 
     categories.forEach((button) => {
@@ -1923,7 +2088,7 @@
       let total = 0;
       cartItems.innerHTML = cart.map((item) => {
         total += item.price;
-        return `<div class="cart-item"><div><strong>${item.name}</strong><span>Static cart preview</span></div><strong>${money(item.price)}</strong></div>`;
+        return `<div class="cart-item"><div><strong>${item.name}</strong><span>Founders List preview</span></div><strong>${money(item.price)}</strong></div>`;
       }).join("");
       cartTotal.textContent = money(total);
     }
@@ -1944,7 +2109,10 @@
       });
     });
 
-    openCart.addEventListener("click", () => setCartOpen(true));
+    openCart.addEventListener("click", (event) => {
+      event.preventDefault();
+      setCartOpen(true);
+    });
     closeCart.addEventListener("click", () => setCartOpen(false));
     overlay.addEventListener("click", () => setCartOpen(false));
 
@@ -1957,7 +2125,7 @@
       }
       const key = "morrisLaneLead";
       localStorage.setItem(key, JSON.stringify({ email, interest, savedAt: new Date().toISOString() }));
-      leadStatus.textContent = "Saved locally. Next phase wires this to email/CRM.";
+      leadStatus.textContent = "Saved. Founders List backend wiring comes next.";
     });
 
     renderCart();

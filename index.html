@@ -9,7 +9,7 @@
   <meta property="og:description" content="Veteran-owned marketplace for rugged goods, Fast Lane perks, future Digital Steel tools, and the long-range Morris Lane metaverse mall.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.morrislane.store/">
-  <meta property="og:image" content="https://www.morrislane.store/assets/hero_flag.png">
+  <meta property="og:image" content="https://www.morrislane.store/assets/debbie-digital.png">
   <meta name="theme-color" content="#071A33">
   <script type="application/ld+json">
   {
@@ -243,8 +243,8 @@
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(90deg, rgba(2, 10, 20, 0.98) 0%, rgba(2, 10, 20, 0.88) 48%, rgba(2, 10, 20, 0.52) 100%),
-        url("assets/hero_flag.png") center right / cover no-repeat;
+        radial-gradient(circle at 78% 22%, rgba(25, 85, 155, 0.22), transparent 34%),
+        linear-gradient(135deg, var(--navy-deep) 0%, #07182d 48%, var(--steel) 100%);
       color: var(--white);
     }
 
@@ -263,7 +263,7 @@
       display: grid;
       grid-template-columns: minmax(0, 0.96fr) minmax(300px, 0.58fr);
       gap: 40px;
-      align-items: end;
+      align-items: center;
       min-height: 630px;
     }
 
@@ -292,6 +292,56 @@
       flex-wrap: wrap;
       gap: 14px;
       margin-top: 32px;
+    }
+
+    .hero-stack {
+      display: grid;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .hero-debbie {
+      min-height: 342px;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: #020a14;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-debbie img {
+      width: 100%;
+      height: 100%;
+      min-height: 342px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .hero-signal {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      padding: 14px;
+      border-radius: 6px;
+      background: rgba(2, 10, 20, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .hero-signal strong {
+      display: block;
+      color: #ffced3;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-signal span {
+      display: block;
+      margin-top: 5px;
+      color: #d8e0ea;
+      font-size: 0.94rem;
     }
 
     .button {
@@ -1017,6 +1067,10 @@
         max-width: 640px;
       }
 
+      .hero-debbie {
+        max-width: 640px;
+      }
+
       .category-inner {
         grid-template-columns: repeat(10, minmax(112px, 1fr));
       }
@@ -1105,6 +1159,11 @@
         word-break: break-word;
       }
 
+      .hero-debbie,
+      .hero-debbie img {
+        min-height: 280px;
+      }
+
       .hero-actions {
         flex-direction: column;
         align-items: stretch;
@@ -1173,7 +1232,7 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="#top" aria-label="Morris Lane home">
-        <span class="brand-mark"><img src="assets/morrislane-crest.jpg" alt="Morris Lane eagle crest"></span>
+        <span class="brand-mark"><img src="assets/debbie-ceo.png" alt="Debbie Morris Lane commerce system"></span>
         <span>
           <strong class="brand-name">Morris Lane</strong>
           <span class="brand-sub">American Industrial Commerce</span>
@@ -1204,8 +1263,8 @@
   <section class="hero" id="top">
     <div class="hero-inner">
       <div>
-        <h1>American Industrial Commerce</h1>
-        <p class="hero-copy">Veteran-owned marketplace for rugged goods, Fast Lane perks, Digital Steel tools, and the long-range Morris Lane metaverse mall.</p>
+        <h1>Commerce First. Metaverse Next.</h1>
+        <p class="hero-copy">Morris Lane starts as a real American marketplace, then expands into vendor storefront deeds, 3D districts, and Debbie-governed commerce zones.</p>
         <div class="hero-actions">
           <a class="button primary" href="#products">Shop The Store</a>
           <a class="button secondary" href="#fast-lane">Join Fast Lane</a>
@@ -1213,14 +1272,23 @@
         </div>
       </div>
 
-      <aside class="hero-panel" aria-label="Morris Lane build phases">
-        <p class="hero-panel-title">Build order</p>
-        <div class="phase-list">
-          <div class="phase"><strong>Now</strong><span>Static brand storefront, categories, featured products, Fast Lane lead capture.</span></div>
-          <div class="phase"><strong>Next</strong><span>Marketplace prototype with cart state, product pages, search, and checkout wiring.</span></div>
-          <div class="phase"><strong>End Game</strong><span>3D metaverse mall, vendor storefront deeds, Digital HOA governance, and AI-audited commerce zones.</span></div>
+      <div class="hero-stack">
+        <div class="hero-debbie" aria-label="Debbie Morris Lane metaverse command visual">
+          <img src="assets/debbie-digital.png" alt="Debbie digital commerce command visual">
+          <div class="hero-signal">
+            <strong>Debbie Command Layer</strong>
+            <span>AI storefront support, Digital Steel infrastructure, and future Digital HOA enforcement.</span>
+          </div>
         </div>
-      </aside>
+        <aside class="hero-panel" aria-label="Morris Lane build phases">
+          <p class="hero-panel-title">Blueprint build order</p>
+          <div class="phase-list">
+            <div class="phase"><strong>Now</strong><span>Pre-metaverse storefront, category lanes, Fast Lane capture, and real product demand.</span></div>
+            <div class="phase"><strong>Next</strong><span>Marketplace prototype with cart state, product pages, search, checkout wiring, and vendor prep.</span></div>
+            <div class="phase"><strong>End Game</strong><span>3D metaverse mall, storefront deed slots, Digital HOA districts, and AI-audited fee routing.</span></div>
+          </div>
+        </aside>
+      </div>
     </div>
   </section>
 
@@ -1399,7 +1467,7 @@
           <div>
             <h2>Roadmap To The Metaverse Mall</h2>
           </div>
-          <p>The metaverse is the end game. The first job is making Morris Lane a credible commerce brand with real products, search, cart, and member demand.</p>
+          <p>The metaverse is the end game. The current build has to earn it: real commerce first, then vendor storefronts, then programmable districts with Debbie governance.</p>
         </div>
         <div class="road-grid">
           <article class="road-card">
@@ -1414,23 +1482,23 @@
           </article>
           <article class="road-card">
             <strong>Phase 3</strong>
-            <h3>Commerce Backend</h3>
-            <p>Shopify Headless or Medusa, Stripe, order records, customer accounts, email receipts, inventory, and fulfillment workflows.</p>
+            <h3>Storefront Deed Layer</h3>
+            <p>Base testnet contract, deed slots, mint page, on-chain counters, vendor dashboard access, and Supabase deed sync before any mainnet launch.</p>
           </article>
           <article class="road-card">
             <strong>Phase 4</strong>
-            <h3>Fast Lane Economy</h3>
-            <p>Membership pricing, exclusive drops, veteran perks, member-only bundles, loyalty points, and shipping benefit logic.</p>
+            <h3>Vendor Commerce Splits</h3>
+            <p>Stripe Connect onboarding, vendor products, platform fee routing, order records, payout status, and support flows Debbie can answer.</p>
           </article>
           <article class="road-card">
             <strong>Phase 5</strong>
-            <h3>Digital Steel Products</h3>
-            <p>AI tools, NeoDas pages, Debbie assistant products, digital downloads, patent vault previews, and automation assets.</p>
+            <h3>Digital HOA Districts</h3>
+            <p>District configs, public rules, quality scoring, treasury ledger, appeals, Debbie governance receipts, and transparent enforcement history.</p>
           </article>
           <article class="road-card">
             <strong>End Game</strong>
-            <h3>Metaverse + Digital HOA</h3>
-            <p>3D storefront mall, vendor slots, deed-backed access, district rules, programmable fee routing, and AI-audited governance receipts.</p>
+            <h3>Full Metaverse Mall</h3>
+            <p>3D storefront slots around the Morris Lane anchor tenant, vendor interiors, digital products, physical goods, and district-level commerce automation.</p>
           </article>
         </div>
       </div>
@@ -1464,7 +1532,7 @@
     <div class="footer-inner">
       <div>
         <div class="brand" style="margin-bottom:14px;">
-          <span class="brand-mark"><img src="assets/morrislane-crest.jpg" alt="Morris Lane eagle crest"></span>
+          <span class="brand-mark"><img src="assets/debbie-ceo.png" alt="Debbie Morris Lane commerce system"></span>
           <span>
             <strong class="brand-name" style="font-size:1.8rem;">Morris Lane</strong>
             <span class="brand-sub">Veteran Owned</span>

@@ -886,6 +886,193 @@
       margin: 12px 0 0;
     }
 
+    .metaverse-lab {
+      background: #f2f6fa;
+    }
+
+    .metaverse-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(340px, 0.68fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .mall-map {
+      min-height: 520px;
+      border-radius: 8px;
+      padding: 24px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 50% 18%, rgba(28, 157, 245, 0.22), transparent 30%),
+        linear-gradient(145deg, #020a14, #081b32 58%, #080a0d);
+      border: 1px solid rgba(7, 26, 51, 0.14);
+      box-shadow: var(--shadow);
+      display: grid;
+      align-content: center;
+      gap: 18px;
+    }
+
+    .mall-map h3,
+    .deed-panel h3,
+    .hoa-panel h3 {
+      margin: 0;
+      font-size: 1.26rem;
+    }
+
+    .mall-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .mall-slot {
+      min-height: 82px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.06);
+      display: grid;
+      place-items: center;
+      padding: 10px;
+      text-align: center;
+      color: #d8e0ea;
+      font-size: 0.76rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .mall-slot.anchor {
+      grid-column: span 3;
+      min-height: 116px;
+      background: linear-gradient(135deg, var(--red), #071a33);
+      color: var(--white);
+      box-shadow: 0 18px 45px rgba(177, 18, 38, 0.28);
+    }
+
+    .mall-slot.available {
+      border-color: rgba(28, 157, 245, 0.42);
+    }
+
+    .mall-slot.locked {
+      opacity: 0.5;
+    }
+
+    .map-legend {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: #c7d1dd;
+      font-size: 0.86rem;
+    }
+
+    .map-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .legend-key {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .legend-key.anchor { background: var(--red); }
+    .legend-key.available { background: #1c9df5; }
+
+    .deed-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .deed-panel,
+    .hoa-panel {
+      border-radius: 8px;
+      padding: 24px;
+      background: #fff;
+      border: 1px solid #d7dee7;
+      box-shadow: 0 12px 30px rgba(7, 26, 51, 0.08);
+    }
+
+    .flow-list {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .flow-list li {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      color: #3f4c5c;
+    }
+
+    .flow-list strong {
+      color: var(--navy-deep);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .flow-step {
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: var(--red);
+      font-size: 0.86rem;
+      font-weight: 950;
+    }
+
+    .hoa-panel {
+      background:
+        radial-gradient(circle at 85% 12%, rgba(28, 157, 245, 0.2), transparent 28%),
+        var(--navy-deep);
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .hoa-panel p {
+      color: #c7d1dd;
+    }
+
+    .governance-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .governance-cell {
+      min-height: 150px;
+      border-radius: 8px;
+      padding: 18px;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .governance-cell strong {
+      display: block;
+      color: #ffced3;
+      margin-bottom: 8px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .governance-cell span {
+      color: #d8e0ea;
+      font-size: 0.94rem;
+    }
+
     .waitlist {
       display: grid;
       grid-template-columns: minmax(0, 0.86fr) minmax(320px, 0.55fr);
@@ -1077,9 +1264,14 @@
 
       .product-grid,
       .systems-grid,
+      .governance-grid,
       .road-grid,
       .footer-inner {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .metaverse-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1195,9 +1387,18 @@
 
       .product-grid,
       .systems-grid,
+      .governance-grid,
       .road-grid,
       .footer-inner {
         grid-template-columns: 1fr;
+      }
+
+      .mall-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .mall-slot.anchor {
+        grid-column: span 2;
       }
 
       .debbie-panel {
@@ -1500,6 +1701,70 @@
             <h3>Full Metaverse Mall</h3>
             <p>3D storefront slots around the Morris Lane anchor tenant, vendor interiors, digital products, physical goods, and district-level commerce automation.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section metaverse-lab" id="metaverse-blueprint">
+      <div class="section-head">
+        <div>
+          <h2>Metaverse Blueprint</h2>
+        </div>
+        <p>Phase 2 turns Morris Lane from a single storefront into a mall. Phase 3 turns that mall into governed districts Debbie can audit.</p>
+      </div>
+
+      <div class="metaverse-grid">
+        <div class="mall-map" aria-label="Morris Lane metaverse mall slot map">
+          <h3>Anchor Tenant + Deed Slots</h3>
+          <p style="margin:0;color:#c7d1dd;">The Morris Lane store stays at the front. Vendor storefronts mint deed-backed slots around it, then connect products, Stripe onboarding, and 3D storefront controls.</p>
+          <div class="mall-grid">
+            <div class="mall-slot locked">Future District</div>
+            <div class="mall-slot available">Slot 02</div>
+            <div class="mall-slot available">Slot 03</div>
+            <div class="mall-slot available">Slot 04</div>
+            <div class="mall-slot locked">Future District</div>
+            <div class="mall-slot available">Slot 01</div>
+            <div class="mall-slot anchor">Morris Lane Anchor Store</div>
+            <div class="mall-slot available">Slot 05</div>
+            <div class="mall-slot locked">Digital</div>
+            <div class="mall-slot available">Slot 06</div>
+            <div class="mall-slot available">Slot 07</div>
+            <div class="mall-slot available">Slot 08</div>
+            <div class="mall-slot locked">Maker</div>
+          </div>
+          <div class="map-legend" aria-label="Mall map legend">
+            <span><i class="legend-key anchor"></i>Morris Lane anchor</span>
+            <span><i class="legend-key available"></i>Vendor deed slot</span>
+            <span><i class="legend-key"></i>District expansion</span>
+          </div>
+        </div>
+
+        <div class="deed-stack">
+          <div class="deed-panel">
+            <h3>Storefront Deed Pipeline</h3>
+            <ul class="flow-list">
+              <li><span class="flow-step">1</span><span><strong>Mint deed on Base testnet</strong>Hard-capped slots, live on-chain counter, and no mainnet launch before legal/audit gates.</span></li>
+              <li><span class="flow-step">2</span><span><strong>Sync deed to Supabase</strong>Indexer mirrors token ID, slot ID, owner wallet, phase, and transaction hash.</span></li>
+              <li><span class="flow-step">3</span><span><strong>Unlock vendor dashboard</strong>Wallet signature proves ownership, then vendor configures theme, logo, products, and storefront name.</span></li>
+              <li><span class="flow-step">4</span><span><strong>Split vendor sales</strong>Stripe Connect sends vendor payout while Morris Lane collects a platform fee.</span></li>
+            </ul>
+          </div>
+
+          <div class="hoa-panel">
+            <h3>Debbie Digital HOA Scope</h3>
+            <p>District rules stay public. Debbie evaluates compliance, scores quality signals, writes appealable governance events, and produces signed receipts.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hoa-panel" style="margin-top:24px;">
+        <h3>Programmable District Layer</h3>
+        <p>Each district can carry its own rules, fee routing, quality thresholds, treasury ledger, and public governance feed.</p>
+        <div class="governance-grid">
+          <div class="governance-cell"><strong>District Config</strong><span>Founders, Patriot, Maker, Digital, and Trade districts can use different rules without redeploying code.</span></div>
+          <div class="governance-cell"><strong>Quality Signals</strong><span>Completeness, responsiveness, ratings, refunds, and compliance become visible scoring inputs.</span></div>
+          <div class="governance-cell"><strong>Fee Routing</strong><span>District treasury, infrastructure, Debbie compute, and optional alliance funds route from one config.</span></div>
+          <div class="governance-cell"><strong>Public Receipts</strong><span>Governance decisions, appeals, score updates, and treasury flows get auditable Debbie receipts.</span></div>
         </div>
       </div>
     </section>

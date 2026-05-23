@@ -1,242 +1,1634 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Morris Lane | Of the Earth Goods – Fast Lane Account</title>
-  <meta name="description" content="Morris Lane is a veteran-owned American storefront for backyard gear, rustic goods, digital tools, Fast Lane perks, and independent living.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Morris Lane | American Industrial Commerce</title>
+  <meta name="description" content="Morris Lane is a veteran-owned American industrial commerce brand for rugged goods, Fast Lane membership, Digital Steel tools, and the future Morris Lane metaverse marketplace.">
+  <meta property="og:title" content="Morris Lane | American Industrial Commerce">
+  <meta property="og:description" content="Veteran-owned marketplace for rugged goods, Fast Lane perks, future Digital Steel tools, and the long-range Morris Lane metaverse mall.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.morrislane.store/">
+  <meta property="og:image" content="https://www.morrislane.store/assets/hero_flag.png">
+  <meta name="theme-color" content="#071A33">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Morris Lane",
+    "url": "https://www.morrislane.store/",
+    "description": "Veteran-owned American industrial commerce brand for rugged goods, Fast Lane membership, Digital Steel tools, and future marketplace infrastructure.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cove",
+      "addressRegion": "AR",
+      "addressCountry": "US"
+    }
+  }
+  </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap');
-    body { font-family: 'Roboto', sans-serif; }
-    .hero-font { font-family: 'Playfair Display', serif; }
-    .fast-lane-pulse { animation: pulse 2s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
-    .gold-glow { box-shadow: 0 0 20px rgba(240, 193, 75, 0.5); }
-    .barn-bg { background-image: url('assets/barn-texture.jpg'); background-size: cover; }
-    .wood-card { background-color: #f8f1e3; border: 1px solid #d4b48c; }
+    :root {
+      --red: #b11226;
+      --red-dark: #7a0d1a;
+      --navy: #071a33;
+      --navy-deep: #020a14;
+      --steel: #080a0d;
+      --steel-2: #151c25;
+      --steel-3: #26313e;
+      --white: #f8fafc;
+      --off: #e8edf2;
+      --muted: #98a4b3;
+      --wood: #7a4a24;
+      --gold-trim: #b08d57;
+      --line: rgba(232, 237, 242, 0.16);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--navy-deep);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .trustbar {
+      background: var(--navy-deep);
+      color: var(--white);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .trustbar-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      min-height: 34px;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      text-transform: uppercase;
+    }
+
+    .trustbar span + span {
+      border-left: 1px solid rgba(255, 255, 255, 0.28);
+      padding-left: 18px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(7, 26, 51, 0.96);
+      color: var(--white);
+      border-bottom: 3px solid var(--red);
+      backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: grid;
+      grid-template-columns: minmax(240px, 0.8fr) minmax(280px, 1.2fr) auto;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 58px;
+      height: 58px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid rgba(176, 141, 87, 0.7);
+      background: var(--steel);
+      flex: 0 0 auto;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-name {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.1rem;
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .brand-sub {
+      display: block;
+      margin-top: 6px;
+      color: var(--off);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .search {
+      display: flex;
+      min-width: 0;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14);
+      background: var(--white);
+    }
+
+    .search input {
+      width: 100%;
+      min-height: 46px;
+      border: 0;
+      padding: 0 16px;
+      color: var(--navy-deep);
+      outline: none;
+    }
+
+    .search button {
+      width: 56px;
+      border: 0;
+      color: var(--white);
+      background: var(--red);
+      cursor: pointer;
+      display: inline-grid;
+      place-items: center;
+    }
+
+    .search button:hover { background: #d0162e; }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+
+    .header-actions a,
+    .cart-button {
+      min-height: 48px;
+      min-width: 74px;
+      padding: 6px 10px;
+      border: 0;
+      background: transparent;
+      color: var(--white);
+      cursor: pointer;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .header-actions a:hover,
+    .cart-button:hover { color: #ffbec6; }
+
+    .cart-button {
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: 2px;
+      right: 10px;
+      min-width: 19px;
+      min-height: 19px;
+      padding: 0 5px;
+      border-radius: 99px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--red);
+      color: var(--white);
+      font-size: 0.68rem;
+    }
+
+    .icon {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .hero {
+      min-height: 630px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(2, 10, 20, 0.98) 0%, rgba(2, 10, 20, 0.88) 48%, rgba(2, 10, 20, 0.52) 100%),
+        url("assets/hero_flag.png") center right / cover no-repeat;
+      color: var(--white);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--red), var(--white), #19559b, var(--red));
+    }
+
+    .hero-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 82px 22px 96px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.96fr) minmax(300px, 0.58fr);
+      gap: 40px;
+      align-items: end;
+      min-height: 630px;
+    }
+
+    .hero-inner > * {
+      min-width: 0;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: 6.7rem;
+      line-height: 0.88;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      margin: 24px 0 0;
+      max-width: 640px;
+      font-size: 1.28rem;
+      color: #eaf0f7;
+      min-width: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      min-height: 50px;
+      border-radius: 6px;
+      padding: 0 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid transparent;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+
+    .button.primary {
+      background: var(--red);
+      color: var(--white);
+      box-shadow: 0 18px 34px rgba(177, 18, 38, 0.28);
+    }
+
+    .button.primary:hover { background: #d0162e; }
+
+    .button.secondary {
+      background: rgba(248, 250, 252, 0.96);
+      color: var(--navy-deep);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .button.outline {
+      color: var(--white);
+      background: rgba(8, 10, 13, 0.62);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .button.small {
+      min-height: 38px;
+      padding: 0 14px;
+      font-size: 0.78rem;
+    }
+
+    .hero-panel {
+      background: rgba(2, 10, 20, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      padding: 22px;
+      width: 100%;
+      min-width: 0;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel-title {
+      margin: 0 0 14px;
+      font-size: 1.08rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .phase-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .phase {
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      min-width: 0;
+    }
+
+    .phase:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .phase strong {
+      color: #ffced3;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .phase span {
+      color: #d8e0ea;
+      font-size: 0.95rem;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .category-rail {
+      background: var(--navy);
+      color: var(--white);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .category-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(10, minmax(90px, 1fr));
+      overflow-x: auto;
+    }
+
+    .category {
+      min-height: 86px;
+      padding: 14px 12px;
+      display: grid;
+      place-items: center;
+      gap: 6px;
+      border-left: 1px solid rgba(255, 255, 255, 0.13);
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-align: center;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .category:first-child { border-left: 0; }
+    .category:hover,
+    .category.active {
+      background: rgba(177, 18, 38, 0.28);
+      color: var(--white);
+    }
+
+    .category svg {
+      width: 26px;
+      height: 26px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    main {
+      background: var(--white);
+    }
+
+    .section {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 64px 22px;
+    }
+
+    .section.tight { padding-top: 38px; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 22px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid #ccd4dd;
+      padding-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy-deep);
+      font-size: 3.2rem;
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .section-head p,
+    .muted {
+      color: #4d5a69;
+      margin: 0;
+      max-width: 640px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .product-card {
+      background: #fff;
+      border: 1px solid #d7dee7;
+      border-radius: 8px;
+      overflow: hidden;
+      min-height: 438px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 12px 30px rgba(7, 26, 51, 0.08);
+    }
+
+    .product-media {
+      height: 190px;
+      padding: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #f7f9fc, #dfe6ef);
+      position: relative;
+    }
+
+    .product-object {
+      width: 78%;
+      max-width: 220px;
+      aspect-ratio: 1.35;
+      border-radius: 6px;
+      background: var(--steel-2);
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.06), 0 18px 38px rgba(0, 0, 0, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-object::before {
+      content: "";
+      position: absolute;
+      inset: 18% 12%;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 4px;
+    }
+
+    .product-object::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 34%;
+      background: linear-gradient(90deg, var(--red), #c4ccd7);
+      opacity: 0.85;
+    }
+
+    .product-object.wood {
+      background: linear-gradient(135deg, #553118, #9a6537);
+    }
+
+    .product-object.tool {
+      background: linear-gradient(135deg, #1c252f, #6d7782);
+    }
+
+    .product-object.digital {
+      background: radial-gradient(circle at 70% 20%, #1c9df5, #071a33 48%, #020a14);
+    }
+
+    .badge {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 4px;
+      padding: 5px 8px;
+      font-size: 0.68rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .product-body {
+      padding: 18px;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+
+    .product-category {
+      color: var(--red-dark);
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .product-title {
+      margin: 7px 0 0;
+      font-size: 1.08rem;
+      line-height: 1.2;
+      color: var(--navy-deep);
+    }
+
+    .rating {
+      margin: 11px 0 0;
+      color: #d35400;
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .product-copy {
+      margin: 12px 0 0;
+      color: #516070;
+      font-size: 0.92rem;
+    }
+
+    .product-foot {
+      margin-top: auto;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 16px;
+    }
+
+    .price {
+      color: var(--navy-deep);
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .shipping {
+      display: block;
+      color: #526173;
+      font-size: 0.76rem;
+      font-weight: 750;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.72fr);
+      gap: 20px;
+    }
+
+    .fast-lane {
+      min-height: 420px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      background:
+        radial-gradient(circle at 82% 20%, rgba(255, 23, 54, 0.55), transparent 28%),
+        linear-gradient(135deg, #090b10, #1b0207 55%, #060709);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .fast-lane::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 0 45%, rgba(255, 255, 255, 0.14) 45% 46%, transparent 46% 100%),
+        linear-gradient(146deg, transparent 0 62%, rgba(177, 18, 38, 0.5) 62% 64%, transparent 64% 100%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .membership-card {
+      position: absolute;
+      right: 30px;
+      bottom: 36px;
+      width: min(330px, 42vw);
+      aspect-ratio: 1.62;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #161a21, #050607);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
+      transform: rotate(-5deg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .membership-card strong {
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.28rem;
+      letter-spacing: 0.08em;
+    }
+
+    .membership-card span {
+      color: #ffb0ba;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .fast-lane-content {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+    }
+
+    .fast-lane h2,
+    .dark-panel h2 { color: var(--white); }
+
+    .fast-lane ul,
+    .dark-panel ul {
+      list-style: none;
+      margin: 24px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 11px;
+    }
+
+    .fast-lane li,
+    .dark-panel li {
+      color: #edf3fa;
+      display: flex;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .check {
+      color: #ff4258;
+      font-weight: 950;
+    }
+
+    .dark-panel {
+      border-radius: 8px;
+      padding: 30px;
+      min-height: 420px;
+      background:
+        radial-gradient(circle at 75% 35%, rgba(30, 157, 245, 0.32), transparent 28%),
+        linear-gradient(135deg, #020a14, #071a33);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .debbie-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(170px, 0.58fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .debbie-image {
+      position: relative;
+      z-index: 1;
+      align-self: stretch;
+      min-height: 280px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 22px 54px rgba(0, 0, 0, 0.32);
+    }
+
+    .debbie-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .debbie-panel .dark-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .dark-panel::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--red), #1c9df5);
+    }
+
+    .systems-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .system-card {
+      border-radius: 8px;
+      min-height: 244px;
+      padding: 22px;
+      background: var(--steel);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 16px 38px rgba(2, 10, 20, 0.22);
+    }
+
+    .system-card.image-card {
+      padding: 0;
+      overflow: hidden;
+      background: var(--navy-deep);
+    }
+
+    .system-card.image-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .system-card.image-card div {
+      padding: 20px;
+    }
+
+    .system-card h3,
+    .road-card h3 {
+      margin: 0;
+      font-size: 1.22rem;
+    }
+
+    .system-card p {
+      color: #bdc8d4;
+      margin: 12px 0 0;
+      font-size: 0.94rem;
+    }
+
+    .roadmap {
+      background: linear-gradient(180deg, var(--navy-deep), var(--steel));
+      color: var(--white);
+    }
+
+    .roadmap .section-head {
+      border-bottom-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .roadmap h2,
+    .roadmap .section-head p { color: var(--white); }
+
+    .road-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .road-card {
+      border-radius: 8px;
+      padding: 22px;
+      min-height: 210px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .road-card strong {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: #ffbec6;
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .road-card p {
+      color: #c7d1dd;
+      margin: 12px 0 0;
+    }
+
+    .waitlist {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(320px, 0.55fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .waitlist-form {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-row {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .form-row input,
+    .form-row select {
+      min-height: 48px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      padding: 0 14px;
+      outline: none;
+    }
+
+    .form-row select option {
+      color: var(--navy-deep);
+    }
+
+    .site-footer {
+      background: var(--navy-deep);
+      color: var(--white);
+      padding: 44px 22px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    .footer-inner h4 {
+      margin: 0 0 12px;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .footer-inner a,
+    .footer-inner p {
+      display: block;
+      margin: 8px 0;
+      color: #c5ced8;
+      font-size: 0.92rem;
+    }
+
+    .footer-bottom {
+      max-width: 1360px;
+      margin: 34px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: #aeb9c6;
+      font-size: 0.86rem;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      inset: 0 0 0 auto;
+      width: min(430px, 100vw);
+      background: var(--white);
+      color: var(--navy-deep);
+      z-index: 50;
+      transform: translateX(105%);
+      transition: transform 180ms ease;
+      box-shadow: -20px 0 60px rgba(0, 0, 0, 0.32);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.open { transform: translateX(0); }
+
+    .cart-head {
+      padding: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .cart-head h3 { margin: 0; }
+
+    .close-cart {
+      border: 0;
+      color: var(--white);
+      background: transparent;
+      font-size: 1.7rem;
+      cursor: pointer;
+    }
+
+    .cart-items {
+      padding: 20px;
+      display: grid;
+      gap: 14px;
+      overflow: auto;
+      flex: 1;
+    }
+
+    .cart-item {
+      border: 1px solid #d7dee7;
+      border-radius: 8px;
+      padding: 14px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .cart-item strong { display: block; }
+    .cart-item span { color: #536273; font-size: 0.88rem; }
+
+    .cart-foot {
+      padding: 20px;
+      border-top: 1px solid #d7dee7;
+      background: #fff;
+    }
+
+    .cart-note {
+      color: #596778;
+      font-size: 0.9rem;
+      margin: 12px 0 0;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 10, 20, 0.62);
+      z-index: 45;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease;
+    }
+
+    .overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 1080px) {
+      .header-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .header-actions {
+        justify-content: space-between;
+        overflow-x: auto;
+      }
+
+      .hero-inner,
+      .split,
+      .waitlist {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        max-width: 640px;
+      }
+
+      .category-inner {
+        grid-template-columns: repeat(10, minmax(112px, 1fr));
+      }
+
+      .product-grid,
+      .systems-grid,
+      .road-grid,
+      .footer-inner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .trustbar-inner {
+        justify-content: flex-start;
+        gap: 10px 14px;
+        min-height: auto;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-size: 0.7rem;
+      }
+
+      .trustbar span + span {
+        border-left: 0;
+        padding-left: 0;
+      }
+
+      .site-header {
+        position: static;
+      }
+
+      .header-inner {
+        padding: 14px 22px 0;
+      }
+
+      .search {
+        order: 2;
+      }
+
+      .header-actions {
+        order: 3;
+        margin: 0 -22px;
+        padding: 10px 18px 18px;
+        background: rgba(2, 10, 20, 0.26);
+      }
+
+      .brand-name {
+        font-size: 1.55rem;
+      }
+
+      .brand-sub {
+        letter-spacing: 0.1em;
+      }
+
+      .header-actions a,
+      .cart-button {
+        min-width: 62px;
+        font-size: 0.66rem;
+      }
+
+      .hero {
+        min-height: 620px;
+      }
+
+      .hero-inner {
+        min-height: 620px;
+        padding-top: 54px;
+        padding-left: 22px;
+        padding-right: 22px;
+        max-width: 390px;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+      }
+
+      h1 {
+        max-width: 10ch;
+        font-size: 3.15rem;
+        line-height: 0.96;
+      }
+
+      .hero-copy {
+        font-size: 1.05rem;
+        max-width: 346px;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        min-height: 50px;
+        padding: 0 18px;
+        width: 100%;
+      }
+
+      h2 {
+        font-size: 2.05rem;
+      }
+
+      .hero-panel {
+        padding: 18px;
+        max-width: 346px;
+      }
+
+      .phase {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .phase span {
+        overflow-wrap: anywhere;
+      }
+
+      .product-grid,
+      .systems-grid,
+      .road-grid,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .debbie-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .membership-card {
+        position: relative;
+        width: 100%;
+        right: auto;
+        bottom: auto;
+        margin-top: 28px;
+      }
+    }
   </style>
 </head>
-<body class="bg-[#f8f1e3] text-[#3c2f2f]">
-
-  <!-- TOP FAST LANE BAR -->
-  <div class="bg-[#b22234] text-white py-3 text-center font-bold flex items-center justify-center gap-3">
-    <i class="fa fa-bolt text-2xl fast-lane-pulse text-[#f0c14b]"></i>
-    JOIN THE FAST LANE ACCOUNT – FREE 2-DAY SHIPPING • 20% MEMBER SAVINGS • EXCLUSIVE DROPS • VETERAN PERKS
-    <button onclick="showFastLaneModal()" class="bg-white text-[#b22234] px-6 py-1 rounded-full text-sm font-bold hover:bg-[#f0c14b] transition-all">JOIN FREE →</button>
+<body>
+  <div class="trustbar">
+    <div class="trustbar-inner">
+      <span>Veteran Owned</span>
+      <span>American Made / American Designed</span>
+      <span>Fast Shipping Lane</span>
+      <span>Secure Checkout Build</span>
+    </div>
   </div>
 
-  <!-- NAV -->
-  <nav class="bg-[#232f3e] text-white sticky top-0 z-50 shadow-2xl">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <i class="fa fa-eagle text-4xl text-[#f0c14b]"></i>
-        <div class="text-3xl font-bold hero-font tracking-tighter">MORRIS LANE</div>
-      </div>
-      <div class="flex-1 max-w-xl mx-8 relative">
-        <input type="text" placeholder="Search Grillin', Chillin', Knives & American Made Gear..." 
-               class="w-full bg-white text-black rounded-full py-4 px-6 pl-12 focus:outline-none">
-        <i class="fa fa-search absolute left-4 top-4 text-gray-400 text-xl"></i>
-      </div>
-      <div class="flex gap-8 items-center">
-        <a onclick="showFastLaneModal()" class="flex flex-col items-center text-xs hover:text-[#f0c14b] cursor-pointer">
-          <i class="fa fa-bolt text-2xl text-[#f0c14b]"></i>
-          <span class="font-bold uppercase">Fast Lane</span>
-        </a>
-        <a href="#" class="flex flex-col items-center text-xs hover:text-[#f0c14b]">
-          <i class="fa fa-flag-usa text-xl"></i> VETERAN OWNED
-        </a>
-        <button onclick="toggleCart()" class="relative flex flex-col items-center text-xs hover:text-[#f0c14b]">
-          <i class="fa fa-shopping-cart text-3xl"></i>
-          <span id="cartCount" class="absolute -top-1 -right-1 bg-[#f0c14b] text-black text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
-          Cart
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Morris Lane home">
+        <span class="brand-mark"><img src="assets/morrislane-crest.jpg" alt="Morris Lane eagle crest"></span>
+        <span>
+          <strong class="brand-name">Morris Lane</strong>
+          <span class="brand-sub">American Industrial Commerce</span>
+        </span>
+      </a>
+
+      <form class="search" action="#products" onsubmit="return false" role="search">
+        <input id="siteSearch" type="search" placeholder="Search rugged goods, tools, Fast Lane, Digital Steel">
+        <button type="button" id="searchButton" aria-label="Search">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
         </button>
-      </div>
-    </div>
-  </nav>
+      </form>
 
-  <!-- HERO SECTION - THE LANDING -->
-  <div class="relative h-[80vh] flex items-center overflow-hidden">
-    <img src="assets/photo_1775854922953.jpg" alt="Morris Lane Heritage" class="absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent"></div>
-    <div class="relative max-w-7xl mx-auto px-8 text-white z-10">
-      <div class="max-w-2xl">
-        <h1 class="text-8xl hero-font leading-none mb-6">OWN THE<br>BACKYARD</h1>
-        <p class="text-3xl mb-10 font-bold tracking-wide">AMERICAN MADE GEAR FOR REAL AMERICANS</p>
-        <div class="flex gap-6">
-            <a onclick="showFastLaneModal()" class="inline-flex items-center bg-[#b22234] hover:bg-[#f0c14b] hover:text-black text-white font-bold text-3xl px-16 py-6 rounded-3xl transition-all cursor-pointer shadow-xl">
-              JOIN FAST LANE <span class="ml-4 text-4xl">→</span>
-            </a>
+      <nav class="header-actions" aria-label="Primary navigation">
+        <a href="#account"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>Account</a>
+        <a href="#orders"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"></path><path d="M9 7h6"></path><path d="M9 11h6"></path></svg>Orders</a>
+        <a href="#fast-lane"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-9 12h8l-1 8 9-12h-8z"></path></svg>Fast Lane</a>
+        <a href="#wishlist"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>Wishlist</a>
+        <button class="cart-button" type="button" id="openCart">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6l1.6-8.4H5.1"></path></svg>
+          Cart
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <h1>American Industrial Commerce</h1>
+        <p class="hero-copy">Veteran-owned marketplace for rugged goods, Fast Lane perks, Digital Steel tools, and the long-range Morris Lane metaverse mall.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#products">Shop The Store</a>
+          <a class="button secondary" href="#fast-lane">Join Fast Lane</a>
+          <a class="button outline" href="#roadmap">See The Roadmap</a>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- EXPANDED FEATURES GRID -->
-  <div class="bg-white border-b-8 border-[#b22234] py-16">
-    <div class="max-w-7xl mx-auto px-8">
-        <h2 class="text-5xl hero-font text-center mb-12">THE FAST LANE ADVANTAGE</h2>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
-          <div class="text-center">
-            <i class="fa fa-truck text-6xl text-[#b22234] mb-4"></i>
-            <p class="font-bold text-xl">FREE 2-DAY SHIPPING</p>
-          </div>
-          <div class="text-center">
-            <i class="fa fa-percent text-6xl text-[#f0c14b] mb-4"></i>
-            <p class="font-bold text-xl">20% MEMBER SAVINGS</p>
-          </div>
-          <div class="text-center">
-            <i class="fa fa-eagle text-6xl text-[#b22234] mb-4"></i>
-            <p class="font-bold text-xl">EXTRA VETERAN 10% OFF</p>
-          </div>
-          <div class="text-center">
-            <i class="fa fa-gift text-6xl text-[#f0c14b] mb-4"></i>
-            <p class="font-bold text-xl">QUARTERLY FREEDOM BOX</p>
-          </div>
-          <div class="text-center">
-            <i class="fa fa-star text-6xl text-[#b22234] mb-4"></i>
-            <p class="font-bold text-xl">REWARDS PROGRAM</p>
-          </div>
+      <aside class="hero-panel" aria-label="Morris Lane build phases">
+        <p class="hero-panel-title">Build order</p>
+        <div class="phase-list">
+          <div class="phase"><strong>Now</strong><span>Static brand storefront, categories, featured products, Fast Lane lead capture.</span></div>
+          <div class="phase"><strong>Next</strong><span>Marketplace prototype with cart state, product pages, search, and checkout wiring.</span></div>
+          <div class="phase"><strong>End Game</strong><span>3D metaverse mall, vendor storefront deeds, Digital HOA governance, and AI-audited commerce zones.</span></div>
         </div>
+      </aside>
     </div>
-  </div>
+  </section>
 
-  <!-- DEBBIE'S PICKS SECTION -->
-  <div class="max-w-7xl mx-auto px-8 py-20">
-    <div class="flex justify-between items-end mb-12">
+  <section class="category-rail" aria-label="Store categories">
+    <div class="category-inner">
+      <button class="category active" data-filter="all"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="M4 10h16"></path></svg>All</button>
+      <button class="category" data-filter="outdoor"><svg viewBox="0 0 24 24"><path d="M12 3v18"></path><path d="m5 11 7-8 7 8"></path><path d="m6 17 6-7 6 7"></path></svg>Outdoor</button>
+      <button class="category" data-filter="grilling"><svg viewBox="0 0 24 24"><path d="M6 12h12"></path><path d="M8 12a4 4 0 0 0 8 0"></path><path d="M9 18h6"></path><path d="M12 18v3"></path><path d="M8 4c1 1 1 2 0 3"></path><path d="M12 4c1 1 1 2 0 3"></path><path d="M16 4c1 1 1 2 0 3"></path></svg>Grilling</button>
+      <button class="category" data-filter="leather"><svg viewBox="0 0 24 24"><path d="M5 4h14l-2 16H7z"></path><path d="M9 8h6"></path></svg>Leather</button>
+      <button class="category" data-filter="workshop"><svg viewBox="0 0 24 24"><path d="M14 7 7 14"></path><path d="m5 19 4-4"></path><path d="m15 6 3-3 3 3-3 3z"></path><path d="M14 14 20 20"></path></svg>Workshop</button>
+      <button class="category" data-filter="patriot"><svg viewBox="0 0 24 24"><path d="M5 4v16"></path><path d="M5 4h14l-2 4 2 4H5"></path></svg>Patriot Gear</button>
+      <button class="category" data-filter="tech"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"></rect><path d="M9 2v4"></path><path d="M15 2v4"></path><path d="M9 18v4"></path><path d="M15 18v4"></path><path d="M2 9h4"></path><path d="M18 9h4"></path><path d="M2 15h4"></path><path d="M18 15h4"></path></svg>Tech</button>
+      <button class="category" data-filter="ai"><svg viewBox="0 0 24 24"><rect x="7" y="8" width="10" height="9" rx="3"></rect><path d="M12 4v4"></path><path d="M8 13h.01"></path><path d="M16 13h.01"></path><path d="M9 20h6"></path></svg>AI Tools</button>
+      <button class="category" data-filter="digital"><svg viewBox="0 0 24 24"><path d="M12 2 4 7v10l8 5 8-5V7z"></path><path d="M12 22V12"></path><path d="m4 7 8 5 8-5"></path></svg>Digital Steel</button>
+      <button class="category" data-filter="survival"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m14.5 9.5-5 5"></path><path d="m9.5 9.5 5 5"></path></svg>Survival</button>
+    </div>
+  </section>
+
+  <main>
+    <section class="section tight" id="products">
+      <div class="section-head">
         <div>
-            <h2 class="text-6xl hero-font mb-4">Debbie's Picks 🔥</h2>
-            <p class="text-2xl text-gray-600">Hand-selected for the Sovereign Homestead</p>
+          <h2>Featured Products</h2>
         </div>
-        <a href="#" class="text-[#b22234] font-bold text-xl hover:underline">View All Heritage Goods →</a>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-      <!-- Product 1 -->
-      <div class="bg-white rounded-[2rem] overflow-hidden shadow-2xl wood-card transition-all hover:scale-[1.02]">
-        <img src="assets/photo_1775854922952.jpg" class="w-full h-96 object-cover">
-        <div class="p-8">
-          <div class="flex justify-between items-start mb-4">
-              <h3 class="text-3xl font-bold">Heritage Flag</h3>
-              <span class="bg-[#b22234] text-white px-4 py-1 rounded-full text-sm font-bold">BEST SELLER</span>
+        <p id="productStatus">Showing the first Morris Lane product lanes. Checkout is staged until payment wiring is verified.</p>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <article class="product-card" data-category="grilling outdoor" data-name="Morris Lane 24 pellet grill">
+          <div class="product-media">
+            <span class="badge">Grilling</span>
+            <div class="product-object"></div>
           </div>
-          <p class="text-xl text-gray-600 mb-8">Red, White & True. Centered with the Morris "M". Built to last generations.</p>
-          <div class="flex justify-between items-center">
-            <div>
-                <p class="text-sm text-gray-400 line-through">$245.00</p>
-                <p class="text-4xl font-bold text-[#b22234]">$196.00 <span class="text-sm text-gray-500 font-normal">Member Price</span></p>
+          <div class="product-body">
+            <span class="product-category">Outdoor / Grilling</span>
+            <h3 class="product-title">Morris Lane 24 Pellet Grill</h3>
+            <div class="rating">***** <span class="muted">(128)</span></div>
+            <p class="product-copy">Hero product lane for backyard cooking, future bundles, and American-made accessory drops.</p>
+            <div class="product-foot">
+              <div><div class="price">$649.00</div><span class="shipping">Fast Lane shipping lane</span></div>
+              <button class="button primary small add-cart" data-item="Morris Lane 24 Pellet Grill" data-price="649">Add to Cart</button>
             </div>
-            <button onclick="addToCart('Heritage Flag', 196.00)" class="bg-[#232f3e] text-white px-8 py-4 rounded-2xl font-bold hover:bg-[#b22234] transition-all shadow-lg">Add to Cart</button>
           </div>
+        </article>
+
+        <article class="product-card" data-category="leather patriot" data-name="heritage leather tool roll">
+          <div class="product-media">
+            <span class="badge">Leather</span>
+            <div class="product-object wood"></div>
+          </div>
+          <div class="product-body">
+            <span class="product-category">Leather / Patriot Gear</span>
+            <h3 class="product-title">Heritage Leather Tool Roll</h3>
+            <div class="rating">***** <span class="muted">(96)</span></div>
+            <p class="product-copy">Workshop-ready leather goods lane for maker kits, heirloom tools, and branded carry products.</p>
+            <div class="product-foot">
+              <div><div class="price">$89.00</div><span class="shipping">Member pricing ready</span></div>
+              <button class="button primary small add-cart" data-item="Heritage Leather Tool Roll" data-price="89">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="workshop survival" data-name="ml10 operator multi-tool">
+          <div class="product-media">
+            <span class="badge">Tools</span>
+            <div class="product-object tool"></div>
+          </div>
+          <div class="product-body">
+            <span class="product-category">Workshop / Survival</span>
+            <h3 class="product-title">ML10 Operator Multi-Tool</h3>
+            <div class="rating">***** <span class="muted">(215)</span></div>
+            <p class="product-copy">Compact tool lane for preparedness, truck kits, field work, and premium American utility.</p>
+            <div class="product-foot">
+              <div><div class="price">$79.00</div><span class="shipping">Stock model staged</span></div>
+              <button class="button primary small add-cart" data-item="ML10 Operator Multi-Tool" data-price="79">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="workshop tech" data-name="pro series 41 tool chest">
+          <div class="product-media">
+            <span class="badge">Workshop</span>
+            <div class="product-object tool"></div>
+          </div>
+          <div class="product-body">
+            <span class="product-category">Workshop / Tech</span>
+            <h3 class="product-title">Pro Series 41 Tool Chest</h3>
+            <div class="rating">****. <span class="muted">(74)</span></div>
+            <p class="product-copy">High-ticket industrial goods lane for future supplier products and local inventory sync.</p>
+            <div class="product-foot">
+              <div><div class="price">$499.00</div><span class="shipping">Vendor lane ready</span></div>
+              <button class="button primary small add-cart" data-item="Pro Series 41 Tool Chest" data-price="499">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split" id="fast-lane">
+      <div class="fast-lane">
+        <div class="fast-lane-content">
+          <h2>Fast Lane Membership</h2>
+          <p class="hero-copy">More perks, faster access, and a clear membership economy for Morris Lane buyers.</p>
+          <ul>
+            <li><span class="check">+</span><span>Exclusive member pricing and early product drops.</span></li>
+            <li><span class="check">+</span><span>Shipping benefits staged for the live checkout build.</span></li>
+            <li><span class="check">+</span><span>Veteran perks, loyalty rewards, and bundle access.</span></li>
+            <li><span class="check">+</span><span>Future reward rails without turning the store into a crypto pitch.</span></li>
+          </ul>
+          <div class="hero-actions">
+            <a class="button secondary" href="#waitlist">Join Fast Lane</a>
+          </div>
+        </div>
+        <div class="membership-card">
+          <strong>Morris Lane</strong>
+          <span>Fast Lane</span>
         </div>
       </div>
 
-      <!-- Product 2 -->
-      <div class="bg-white rounded-[2rem] overflow-hidden shadow-2xl wood-card transition-all hover:scale-[1.02]">
-        <img src="assets/photo_1775854922947.jpg" class="w-full h-96 object-cover">
-        <div class="p-8">
-          <div class="flex justify-between items-start mb-4">
-              <h3 class="text-3xl font-bold">The Armory Blade</h3>
-              <span class="bg-[#f0c14b] text-black px-4 py-1 rounded-full text-sm font-bold">DEBBIE'S PICK</span>
-          </div>
-          <p class="text-xl text-gray-600 mb-8">Hand-forged steel with a barnwood handle. The ultimate providing tool.</p>
-          <div class="flex justify-between items-center">
-            <div>
-                <p class="text-sm text-gray-400 line-through">$185.00</p>
-                <p class="text-4xl font-bold text-[#b22234]">$148.00 <span class="text-sm text-gray-500 font-normal">Member Price</span></p>
-            </div>
-            <button onclick="addToCart('The Armory Blade', 148.00)" class="bg-[#232f3e] text-white px-8 py-4 rounded-2xl font-bold hover:bg-[#b22234] transition-all shadow-lg">Add to Cart</button>
+      <div class="dark-panel debbie-panel" id="digital-steel">
+        <div class="dark-copy">
+          <h2>Digital Steel / NeoDas</h2>
+          <p class="hero-copy">The future tech division: AI tools, digital assets, patent vaults, private infrastructure, and Debbie-powered commerce automation.</p>
+          <ul>
+            <li><span class="check">+</span><span>Digital products and AI business systems.</span></li>
+            <li><span class="check">+</span><span>NeoDas and Debbie infrastructure pages.</span></li>
+            <li><span class="check">+</span><span>Automation templates, product drafting, and inventory review.</span></li>
+            <li><span class="check">+</span><span>Built as a division of Morris Lane, not the whole store.</span></li>
+          </ul>
+          <div class="hero-actions">
+            <a class="button outline" href="#roadmap">Explore Digital Steel</a>
           </div>
         </div>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="bg-white rounded-[2rem] overflow-hidden shadow-2xl wood-card transition-all hover:scale-[1.02]">
-        <img src="assets/photo_1775854922949.jpg" class="w-full h-96 object-cover">
-        <div class="p-8">
-          <div class="flex justify-between items-start mb-4">
-              <h3 class="text-3xl font-bold">Workshop Tumbler</h3>
-              <span class="bg-black text-white px-4 py-1 rounded-full text-sm font-bold">LIMITED</span>
-          </div>
-          <p class="text-xl text-gray-600 mb-8">Blackout steel. Keeps patriotism hot for 24 hours. Engraved with the Seal.</p>
-          <div class="flex justify-between items-center">
-            <div>
-                <p class="text-sm text-gray-400 line-through">$45.00</p>
-                <p class="text-4xl font-bold text-[#b22234]">$36.00 <span class="text-sm text-gray-500 font-normal">Member Price</span></p>
-            </div>
-            <button onclick="addToCart('Workshop Tumbler', 36.00)" class="bg-[#232f3e] text-white px-8 py-4 rounded-2xl font-bold hover:bg-[#b22234] transition-all shadow-lg">Add to Cart</button>
-          </div>
+        <div class="debbie-image">
+          <img src="assets/debbie-digital.png" alt="Debbie digital infrastructure visual">
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-[#232f3e] text-white py-20">
-    <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-16 text-center md:text-left">
+    <section class="section" id="divisions">
+      <div class="section-head">
         <div>
-            <h4 class="text-3xl hero-font mb-6">MORRIS LANE</h4>
-            <p class="text-gray-400 mb-6 italic">"Grounded in the Red, White & True."</p>
-            <p class="text-sm">VETERAN OWNED • AMERICAN MADE<br>WICKES, ARKANSAS</p>
+          <h2>Four Morris Lane Divisions</h2>
         </div>
-        <div class="flex flex-col gap-4">
-            <h4 class="font-bold uppercase tracking-widest text-[#f0c14b]">Sovereign Links</h4>
-            <a href="#" class="hover:underline">Heritage Story</a>
-            <a href="#" class="hover:underline">Fast Lane Account</a>
-            <a href="#" class="hover:underline">8le Deal Vault</a>
-            <a href="#" class="hover:underline">Veteran Program</a>
+        <p>Build the rugged marketplace first, then layer membership, Digital Steel, and the inventor ecosystem into one American industrial platform.</p>
+      </div>
+      <div class="systems-grid">
+        <article class="system-card">
+          <h3>Main Store</h3>
+          <p>Outdoor, grilling, leather, apparel, tools, survival, veteran-owned products, and workshop goods.</p>
+        </article>
+        <article class="system-card">
+          <h3>Fast Lane</h3>
+          <p>Membership, early access, discounts, shipping benefits, loyalty rewards, and exclusive product drops.</p>
+        </article>
+        <article class="system-card image-card">
+          <img src="assets/debbie-ceo.png" alt="Debbie commerce command visual">
+          <div>
+            <h3>Digital Steel</h3>
+            <p>NeoDas, Debbie tools, digital assets, automation templates, and AI business systems.</p>
+          </div>
+        </article>
+        <article class="system-card image-card">
+          <img src="assets/debbie-digital.png" alt="Debbie patent and inventor ecosystem visual">
+          <div>
+            <h3>Inventor Ecosystem</h3>
+            <p>Invention intake, blueprint marketplace, AI prototyping, licensing support, and fabrication network concepts.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="roadmap" id="roadmap">
+      <div class="section">
+        <div class="section-head">
+          <div>
+            <h2>Roadmap To The Metaverse Mall</h2>
+          </div>
+          <p>The metaverse is the end game. The first job is making Morris Lane a credible commerce brand with real products, search, cart, and member demand.</p>
         </div>
-        <div class="text-center">
-            <i class="fa fa-eagle text-8xl opacity-20 mb-6"></i>
-            <p class="text-xs opacity-50">© 2026 Morris Lane LLC. All Rights Reserved.</p>
+        <div class="road-grid">
+          <article class="road-card">
+            <strong>Phase 1</strong>
+            <h3>Correct Static Storefront</h3>
+            <p>Red, white, blue, navy, steel, product lanes, Fast Lane CTA, Digital Steel teaser, and honest static GitHub Pages deployment.</p>
+          </article>
+          <article class="road-card">
+            <strong>Phase 2</strong>
+            <h3>Marketplace Prototype</h3>
+            <p>Next.js storefront, product detail pages, cart state, category search, product data, and checkout plumbing before live payment claims.</p>
+          </article>
+          <article class="road-card">
+            <strong>Phase 3</strong>
+            <h3>Commerce Backend</h3>
+            <p>Shopify Headless or Medusa, Stripe, order records, customer accounts, email receipts, inventory, and fulfillment workflows.</p>
+          </article>
+          <article class="road-card">
+            <strong>Phase 4</strong>
+            <h3>Fast Lane Economy</h3>
+            <p>Membership pricing, exclusive drops, veteran perks, member-only bundles, loyalty points, and shipping benefit logic.</p>
+          </article>
+          <article class="road-card">
+            <strong>Phase 5</strong>
+            <h3>Digital Steel Products</h3>
+            <p>AI tools, NeoDas pages, Debbie assistant products, digital downloads, patent vault previews, and automation assets.</p>
+          </article>
+          <article class="road-card">
+            <strong>End Game</strong>
+            <h3>Metaverse + Digital HOA</h3>
+            <p>3D storefront mall, vendor slots, deed-backed access, district rules, programmable fee routing, and AI-audited governance receipts.</p>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section waitlist" id="waitlist">
+      <div>
+        <h2>Get On The Morris Lane Build List</h2>
+        <p class="hero-copy" style="color:#344252">Use this first static storefront to collect demand before checkout, membership, vendor slots, and the metaverse mall go live.</p>
+      </div>
+      <form class="waitlist-form" onsubmit="return false">
+        <h3 style="margin:0;font-size:1.4rem;">Join The List</h3>
+        <p style="color:#c8d3df;margin:8px 0 0;">No payment is taken on this static page. This captures intent for the next build phase.</p>
+        <div class="form-row">
+          <input id="leadEmail" type="email" placeholder="Email address">
+          <select id="leadInterest">
+            <option>Fast Lane membership</option>
+            <option>Main Store products</option>
+            <option>Digital Steel / NeoDas</option>
+            <option>Inventor ecosystem</option>
+            <option>Future metaverse vendor slot</option>
+          </select>
+          <button class="button primary" type="button" id="leadButton">Save Interest</button>
+          <p id="leadStatus" style="min-height:22px;margin:0;color:#ffced3;"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="brand" style="margin-bottom:14px;">
+          <span class="brand-mark"><img src="assets/morrislane-crest.jpg" alt="Morris Lane eagle crest"></span>
+          <span>
+            <strong class="brand-name" style="font-size:1.8rem;">Morris Lane</strong>
+            <span class="brand-sub">Veteran Owned</span>
+          </span>
+        </div>
+        <p>American industrial commerce from Cove, Arkansas: rugged goods first, AI infrastructure next, metaverse marketplace as the long-range platform.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#products">All Products</a>
+        <a href="#products">Outdoor</a>
+        <a href="#products">Grilling</a>
+        <a href="#products">Workshop</a>
+        <a href="#digital-steel">Digital Steel</a>
+      </div>
+      <div id="account">
+        <h4>Customer</h4>
+        <a href="#waitlist">Contact</a>
+        <a href="#roadmap">Shipping Build</a>
+        <a href="#roadmap">Returns Build</a>
+        <a href="#orders">Orders Roadmap</a>
+        <a href="#wishlist">Wishlist Roadmap</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#divisions">About Morris Lane</a>
+        <a href="#fast-lane">Fast Lane</a>
+        <a href="#digital-steel">Digital Steel</a>
+        <a href="#roadmap">Metaverse End Game</a>
+        <a href="#waitlist">Vendor Interest</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>support@morrislane.store</p>
+        <p>Cove, Arkansas</p>
+        <p>Veteran-owned American commerce.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>2026 Morris Lane. Static storefront build for www.morrislane.store.</span>
+      <span>Gold remains trim only. Red, white, blue, navy, black steel.</span>
     </div>
   </footer>
 
-  <!-- FAST LANE MODAL -->
-  <div id="fastLaneModal" class="hidden fixed inset-0 bg-black/90 z-[10000] flex items-center justify-center p-4">
-      <div class="bg-white rounded-[3rem] max-w-4xl w-full p-12 relative overflow-hidden">
-          <div class="absolute top-0 right-0 p-8">
-              <button onclick="closeFastLaneModal()" class="text-4xl text-gray-300 hover:text-black">✕</button>
-          </div>
-          <div class="text-center">
-              <i class="fa fa-bolt text-7xl text-[#f0c14b] mb-6 fast-lane-pulse"></i>
-              <h2 class="text-6xl hero-font mb-4 uppercase">Join the Fast Lane</h2>
-              <p class="text-2xl text-gray-600 mb-12">The Ultimate American Membership. 30 Days Free.</p>
-              
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-12">
-                  <div class="flex items-center gap-4 text-xl"><i class="fa fa-check text-green-600"></i> FREE 2-Day Shipping</div>
-                  <div class="flex items-center gap-4 text-xl"><i class="fa fa-check text-green-600"></i> 20% OFF Every Order</div>
-                  <div class="flex items-center gap-4 text-xl"><i class="fa fa-check text-green-600"></i> Quarterly Freedom Box</div>
-                  <div class="flex items-center gap-4 text-xl"><i class="fa fa-check text-green-600"></i> Priority Vault Access</div>
-              </div>
-
-              <button onclick="activateFastLane()" class="w-full bg-[#b22234] text-white py-8 rounded-[2rem] text-3xl font-bold shadow-2xl hover:bg-black transition-all">START FREE TRIAL NOW</button>
-              <p class="mt-8 text-gray-400">No commitment. Cancel anytime with one click.</p>
-          </div>
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Cart preview">
+    <div class="cart-head">
+      <h3>Morris Lane Cart</h3>
+      <button class="close-cart" id="closeCart" type="button" aria-label="Close cart">x</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="muted">Your cart preview is empty.</p>
+    </div>
+    <div class="cart-foot">
+      <div style="display:flex;justify-content:space-between;gap:18px;font-weight:950;font-size:1.1rem;">
+        <span>Preview total</span>
+        <span id="cartTotal">$0.00</span>
       </div>
-  </div>
+      <a class="button primary" style="width:100%;margin-top:16px;" href="mailto:support@morrislane.store?subject=Morris%20Lane%20checkout%20request">Request Checkout Link</a>
+      <p class="cart-note">Live payment is not claimed on this static GitHub Pages build. Checkout goes live only after Stripe and order records are verified.</p>
+    </div>
+  </aside>
 
   <script>
-    let cart = [];
-    function addToCart(name, price) {
-      cart.push({name, price});
-      document.getElementById('cartCount').innerText = cart.length;
-      alert("🎉 " + name + " added to your Sovereign Cart!");
+    const categories = Array.from(document.querySelectorAll(".category"));
+    const products = Array.from(document.querySelectorAll(".product-card"));
+    const searchInput = document.getElementById("siteSearch");
+    const productStatus = document.getElementById("productStatus");
+    const addButtons = Array.from(document.querySelectorAll(".add-cart"));
+    const cartCount = document.getElementById("cartCount");
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+    const cartDrawer = document.getElementById("cartDrawer");
+    const overlay = document.getElementById("overlay");
+    const openCart = document.getElementById("openCart");
+    const closeCart = document.getElementById("closeCart");
+    const leadButton = document.getElementById("leadButton");
+    const leadEmail = document.getElementById("leadEmail");
+    const leadInterest = document.getElementById("leadInterest");
+    const leadStatus = document.getElementById("leadStatus");
+
+    let activeFilter = "all";
+    const cart = [];
+
+    function money(value) {
+      return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value);
     }
-    function showFastLaneModal() {
-      document.getElementById('fastLaneModal').classList.remove('hidden');
+
+    function applyFilters() {
+      const query = (searchInput.value || "").trim().toLowerCase();
+      let visible = 0;
+      products.forEach((card) => {
+        const categoryText = (card.dataset.category || "").toLowerCase();
+        const nameText = (card.dataset.name || card.textContent || "").toLowerCase();
+        const categoryMatch = activeFilter === "all" || categoryText.includes(activeFilter);
+        const queryMatch = !query || nameText.includes(query) || categoryText.includes(query);
+        const show = categoryMatch && queryMatch;
+        card.style.display = show ? "" : "none";
+        if (show) visible += 1;
+      });
+      productStatus.textContent = `Showing ${visible} Morris Lane product lane${visible === 1 ? "" : "s"}. Checkout is staged until payment wiring is verified.`;
     }
-    function closeFastLaneModal() {
-        document.getElementById('fastLaneModal').classList.add('hidden');
+
+    categories.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter || "all";
+        categories.forEach((item) => item.classList.toggle("active", item === button));
+        applyFilters();
+        document.getElementById("products").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    searchInput.addEventListener("input", applyFilters);
+    document.getElementById("searchButton").addEventListener("click", applyFilters);
+
+    function renderCart() {
+      cartCount.textContent = String(cart.length);
+      if (!cart.length) {
+        cartItems.innerHTML = '<p class="muted">Your cart preview is empty.</p>';
+        cartTotal.textContent = "$0.00";
+        return;
+      }
+      let total = 0;
+      cartItems.innerHTML = cart.map((item) => {
+        total += item.price;
+        return `<div class="cart-item"><div><strong>${item.name}</strong><span>Static cart preview</span></div><strong>${money(item.price)}</strong></div>`;
+      }).join("");
+      cartTotal.textContent = money(total);
     }
-    function activateFastLane() {
-        alert("🚀 Glenn, welcome to the Expanded Fast Lane! Your account is now verified. Free shipping and 20% savings applied.");
-        closeFastLaneModal();
+
+    function setCartOpen(open) {
+      cartDrawer.classList.toggle("open", open);
+      overlay.classList.toggle("open", open);
     }
-    function toggleCart() {
-      alert("Your Morris Lane order has " + cart.length + " items ready for the Landing.");
-    }
+
+    addButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        cart.push({
+          name: button.dataset.item || "Morris Lane item",
+          price: Number(button.dataset.price || 0)
+        });
+        renderCart();
+        setCartOpen(true);
+      });
+    });
+
+    openCart.addEventListener("click", () => setCartOpen(true));
+    closeCart.addEventListener("click", () => setCartOpen(false));
+    overlay.addEventListener("click", () => setCartOpen(false));
+
+    leadButton.addEventListener("click", () => {
+      const email = (leadEmail.value || "").trim();
+      const interest = leadInterest.value;
+      if (!email || !email.includes("@")) {
+        leadStatus.textContent = "Enter an email address first.";
+        return;
+      }
+      const key = "morrisLaneLead";
+      localStorage.setItem(key, JSON.stringify({ email, interest, savedAt: new Date().toISOString() }));
+      leadStatus.textContent = "Saved locally. Next phase wires this to email/CRM.";
+    });
+
+    renderCart();
+    applyFilters();
   </script>
 </body>
 </html>

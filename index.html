@@ -3,21 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Morris Lane | American Industrial Commerce</title>
-  <meta name="description" content="Morris Lane is a veteran-owned American industrial commerce brand for rugged goods, Fast Lane membership, Digital Steel tools, and the future Morris Lane metaverse marketplace.">
-  <meta property="og:title" content="Morris Lane | American Industrial Commerce">
-  <meta property="og:description" content="Veteran-owned marketplace for rugged goods, Fast Lane perks, future Digital Steel tools, and the long-range Morris Lane metaverse mall.">
+  <title>Morris Lane World | Sovereign Metaverse Commerce</title>
+  <meta name="description" content="Morris Lane is a veteran-owned metaverse mall and sovereign digital commerce platform. Lead with maker files, AI tools, and Digital Steel products. Independent vendor stores join later - they sell their own goods, handle their own shipping, operate under Morris Lane World rules.">
+  <meta property="og:title" content="Morris Lane World | Sovereign Metaverse Commerce">
+  <meta property="og:description" content="Veteran-owned metaverse mall. Digital first, vendor stores second, Debbie governance always.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.morrislane.store/">
   <meta property="og:image" content="https://www.morrislane.store/assets/debbie-digital.png">
   <meta name="theme-color" content="#071A33">
+  <link rel="icon" href="assets/morrislane-crest.jpg">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Store",
     "name": "Morris Lane",
     "url": "https://www.morrislane.store/",
-    "description": "Veteran-owned American industrial commerce brand for rugged goods, Fast Lane membership, Digital Steel tools, and future marketplace infrastructure.",
+    "description": "Veteran-owned metaverse mall and sovereign digital commerce platform for maker files, AI tools, Digital Steel products, future vendor stores, and Debbie-governed commerce.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Cove",
@@ -271,6 +272,16 @@
       min-width: 0;
     }
 
+    .hero-eyebrow {
+      display: inline-block;
+      margin: 0 0 18px;
+      color: #ffbec6;
+      font-size: 0.78rem;
+      font-weight: 950;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
     h1 {
       margin: 0;
       max-width: 760px;
@@ -449,7 +460,7 @@
       max-width: 1360px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(10, minmax(90px, 1fr));
+      grid-template-columns: repeat(7, minmax(90px, 1fr));
       overflow-x: auto;
     }
 
@@ -521,7 +532,7 @@
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
@@ -581,8 +592,166 @@
       background: linear-gradient(135deg, #1c252f, #6d7782);
     }
 
+    .product-object.svg {
+      background: linear-gradient(135deg, #1c2735, #0a1f44);
+      position: relative;
+    }
+
+    .product-object.svg::before {
+      content: "";
+      position: absolute;
+      inset: 25%;
+      border: 2px solid rgba(248, 250, 252, 0.4);
+      border-radius: 6px;
+      transform: rotate(8deg);
+    }
+
+    .product-object.cnc {
+      background: linear-gradient(135deg, #4a3520, #7a4a24);
+    }
+
+    .product-object.embroidery {
+      background: repeating-linear-gradient(45deg, #b11226, #b11226 6px, #7a0d1a 6px, #7a0d1a 12px);
+      opacity: 0.85;
+    }
+
     .product-object.digital {
       background: radial-gradient(circle at 70% 20%, #1c9df5, #071a33 48%, #020a14);
+    }
+
+    .product-object.storefront {
+      background: linear-gradient(135deg, #2a1810, #b11226 80%, #7a0d1a);
+      position: relative;
+    }
+
+    .product-object.storefront::before {
+      content: "";
+      position: absolute;
+      inset: 35% 30% 15% 30%;
+      background: rgba(248, 250, 252, 0.1);
+      border-top: 2px solid rgba(248, 250, 252, 0.4);
+      border-left: 2px solid rgba(248, 250, 252, 0.4);
+      border-right: 2px solid rgba(248, 250, 252, 0.4);
+    }
+
+    .product-card.coming-soon .badge {
+      background: rgba(2, 10, 20, 0.78);
+      border: 1px solid rgba(176, 141, 87, 0.5);
+    }
+
+    .mall-slider {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .mall-slider-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 4px 4px 16px;
+      flex: 1;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(177, 18, 38, 0.5) rgba(7, 26, 51, 0.3);
+    }
+
+    .mall-slider-track::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .mall-slider-track::-webkit-scrollbar-track {
+      background: rgba(7, 26, 51, 0.3);
+      border-radius: 3px;
+    }
+
+    .mall-slider-track::-webkit-scrollbar-thumb {
+      background: rgba(177, 18, 38, 0.7);
+      border-radius: 3px;
+    }
+
+    .mall-card {
+      flex: 0 0 280px;
+      scroll-snap-align: start;
+      background: linear-gradient(135deg, #0a1f44, #020a14);
+      color: #f8fafc;
+      border: 1px solid rgba(248, 250, 252, 0.12);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 220px;
+    }
+
+    .mall-card-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #c8102e;
+      font-weight: 700;
+    }
+
+    .mall-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #f8fafc;
+    }
+
+    .mall-card p {
+      margin: 0;
+      color: #c5d1de;
+      font-size: 0.92rem;
+      flex: 1;
+    }
+
+    .mall-card-status {
+      display: inline-block;
+      font-size: 0.78rem;
+      color: #b08d57;
+      border-top: 1px solid rgba(248, 250, 252, 0.12);
+      padding-top: 10px;
+      margin-top: auto;
+    }
+
+    .mall-slider-arrow {
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(248, 250, 252, 0.2);
+      background: rgba(2, 10, 20, 0.8);
+      color: #f8fafc;
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background 120ms;
+    }
+
+    .mall-slider-arrow:hover {
+      background: #c8102e;
+    }
+
+    .mall-footer {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 24px;
+      background: rgba(7, 26, 51, 0.06);
+      border-radius: 8px;
+      border-left: 4px solid #c8102e;
+    }
+
+    .mall-footer p {
+      margin: 0;
+      color: #4a5666;
+      max-width: 640px;
     }
 
     .badge {
@@ -786,7 +955,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: center 22%;
     }
 
     .debbie-panel .dark-copy {
@@ -826,8 +995,10 @@
 
     .system-card.image-card img {
       width: 100%;
-      height: 190px;
+      height: 260px;
       object-fit: cover;
+      object-position: center 22%;
+      background: #020a14;
     }
 
     .system-card.image-card div {
@@ -1073,6 +1244,266 @@
       font-size: 0.94rem;
     }
 
+    .architecture-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.74fr) minmax(360px, 0.56fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .commerce-flow {
+      border-radius: 8px;
+      padding: 24px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(200, 16, 46, 0.22), transparent 26%),
+        linear-gradient(145deg, #071a33, #020a14);
+      border: 1px solid rgba(248, 250, 252, 0.14);
+      box-shadow: var(--shadow);
+    }
+
+    .commerce-flow h3,
+    .architecture-card h3,
+    .district-card h3 {
+      margin: 0;
+    }
+
+    .flow-rail {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .flow-node {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .node-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: var(--red);
+      color: var(--white);
+      font-weight: 950;
+      letter-spacing: 0.02em;
+    }
+
+    .flow-node strong {
+      display: block;
+      color: #ffced3;
+      margin-bottom: 3px;
+    }
+
+    .flow-node span {
+      color: #d8e0ea;
+      font-size: 0.94rem;
+    }
+
+    .architecture-stack {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .architecture-card {
+      min-height: 168px;
+      border-radius: 8px;
+      padding: 20px;
+      background: #fff;
+      border: 1px solid #d7dee7;
+      box-shadow: 0 12px 30px rgba(7, 26, 51, 0.08);
+    }
+
+    .architecture-card span {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: 950;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .architecture-card p,
+    .district-card p,
+    .guardrail-list li {
+      color: #4a5666;
+      margin: 10px 0 0;
+      font-size: 0.94rem;
+    }
+
+    .district-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .district-card {
+      min-height: 215px;
+      border-radius: 8px;
+      padding: 18px;
+      background:
+        linear-gradient(180deg, rgba(7, 26, 51, 0.04), rgba(7, 26, 51, 0.02)),
+        #fff;
+      border: 1px solid #d7dee7;
+    }
+
+    .district-card strong {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--red);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .guardrail-band {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(320px, 0.5fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .guardrail-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .guardrail-list li {
+      margin: 0;
+      padding: 16px 18px;
+      border-radius: 8px;
+      background: rgba(7, 26, 51, 0.06);
+      border-left: 4px solid var(--red);
+    }
+
+    .guardrail-list strong {
+      display: block;
+      color: var(--navy-deep);
+      margin-bottom: 4px;
+    }
+
+    .identity-card {
+      border-radius: 8px;
+      padding: 24px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 80% 20%, rgba(28, 157, 245, 0.24), transparent 28%),
+        var(--navy-deep);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .identity-card h3 {
+      margin: 0 0 12px;
+    }
+
+    .identity-card p {
+      margin: 0 0 12px;
+      color: #c7d1dd;
+    }
+
+    .identity-card code {
+      display: inline-block;
+      margin: 4px 6px 0 0;
+      padding: 5px 8px;
+      border-radius: 6px;
+      color: #f8fafc;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.82rem;
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) repeat(2, minmax(240px, 0.58fr));
+      gap: 18px;
+    }
+
+    .site-app-card {
+      border-radius: 8px;
+      padding: 24px;
+      min-height: 285px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: #fff;
+      border: 1px solid #d7dee7;
+      box-shadow: 0 12px 30px rgba(7, 26, 51, 0.08);
+    }
+
+    .site-app-card.featured {
+      color: var(--white);
+      background:
+        radial-gradient(circle at 78% 18%, rgba(0, 240, 255, 0.2), transparent 28%),
+        radial-gradient(circle at 18% 80%, rgba(200, 16, 46, 0.2), transparent 32%),
+        linear-gradient(145deg, #0a0a1f, #071a33 62%, #020a14);
+      border-color: rgba(0, 240, 255, 0.22);
+    }
+
+    .app-kicker {
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: 950;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .site-app-card.featured .app-kicker {
+      color: #63f6ff;
+    }
+
+    .site-app-card h3 {
+      margin: 0;
+      font-size: 1.42rem;
+    }
+
+    .site-app-card p {
+      margin: 0;
+      color: #4a5666;
+      line-height: 1.55;
+    }
+
+    .site-app-card.featured p {
+      color: #d8e0ea;
+    }
+
+    .app-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .app-pills span {
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: #c7d1dd;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .site-app-card:not(.featured) .app-pills span {
+      color: #344252;
+      background: rgba(7, 26, 51, 0.06);
+      border-color: #d7dee7;
+    }
+
     .waitlist {
       display: grid;
       grid-template-columns: minmax(0, 0.86fr) minmax(320px, 0.55fr);
@@ -1259,19 +1690,41 @@
       }
 
       .category-inner {
-        grid-template-columns: repeat(10, minmax(112px, 1fr));
+        grid-template-columns: repeat(7, minmax(112px, 1fr));
       }
 
       .product-grid,
       .systems-grid,
       .governance-grid,
       .road-grid,
+      .architecture-panel,
+      .app-grid,
+      .guardrail-band,
       .footer-inner {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .metaverse-grid {
         grid-template-columns: 1fr;
+      }
+
+      .district-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .mall-card {
+        flex: 0 0 80vw;
+      }
+
+      .mall-slider-arrow {
+        display: none;
+      }
+
+      .mall-footer {
+        grid-template-columns: 1fr;
+        text-align: center;
       }
     }
 
@@ -1389,6 +1842,11 @@
       .systems-grid,
       .governance-grid,
       .road-grid,
+      .architecture-panel,
+      .architecture-stack,
+      .app-grid,
+      .district-grid,
+      .guardrail-band,
       .footer-inner {
         grid-template-columns: 1fr;
       }
@@ -1424,34 +1882,36 @@
   <div class="trustbar">
     <div class="trustbar-inner">
       <span>Veteran Owned</span>
-      <span>American Made / American Designed</span>
-      <span>Fast Shipping Lane</span>
-      <span>Secure Checkout Build</span>
+      <span>American Made Files</span>
+      <span>Instant Download</span>
+      <span>DNA-Stamped</span>
+      <span>Sovereign-AI Governed</span>
     </div>
   </div>
 
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="#top" aria-label="Morris Lane home">
-        <span class="brand-mark"><img src="assets/debbie-ceo.png" alt="Debbie Morris Lane commerce system"></span>
+        <span class="brand-mark"><img src="assets/morrislane-crest.jpg" alt="Morris Lane eagle crest"></span>
         <span>
           <strong class="brand-name">Morris Lane</strong>
-          <span class="brand-sub">American Industrial Commerce</span>
+          <span class="brand-sub">Morris Lane World</span>
         </span>
       </a>
 
       <form class="search" action="#products" onsubmit="return false" role="search">
-        <input id="siteSearch" type="search" placeholder="Search rugged goods, tools, Fast Lane, Digital Steel">
+        <input id="siteSearch" type="search" placeholder="Search drops, stores, Digital Steel, storefronts" aria-label="Search Morris Lane World">
         <button type="button" id="searchButton" aria-label="Search">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
         </button>
       </form>
 
       <nav class="header-actions" aria-label="Primary navigation">
-        <a href="#account"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>Account</a>
-        <a href="#orders"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"></path><path d="M9 7h6"></path><path d="M9 11h6"></path></svg>Orders</a>
+        <a href="#mall"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 7v10l8 5 8-5V7z"></path><path d="M12 22V12"></path><path d="m4 7 8 5 8-5"></path></svg>World</a>
+        <a href="#products"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"></path><path d="M4 10h16"></path><path d="M10 4v16"></path></svg>Drops</a>
+        <a href="#mall"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16"></path><path d="M6 10v10h12V10"></path><path d="m8 10 1-5h6l1 5"></path><path d="M10 20v-5h4v5"></path></svg>Stores</a>
         <a href="#fast-lane"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-9 12h8l-1 8 9-12h-8z"></path></svg>Fast Lane</a>
-        <a href="#wishlist"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>Wishlist</a>
+        <a href="#waitlist"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>Founders</a>
         <button class="cart-button" type="button" id="openCart">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6l1.6-8.4H5.1"></path></svg>
           Cart
@@ -1464,12 +1924,14 @@
   <section class="hero" id="top">
     <div class="hero-inner">
       <div>
-        <h1>Commerce First. Metaverse Next.</h1>
-        <p class="hero-copy">Morris Lane starts as a real American marketplace, then expands into vendor storefront deeds, 3D districts, and Debbie-governed commerce zones.</p>
+        <p class="hero-eyebrow">METAVERSE MALL &middot; DIGITAL COMMERCE &middot; DEBBIE GOVERNED</p>
+        <h1>Digital Commerce. Sovereign Stack.</h1>
+        <p class="hero-copy">A veteran-owned metaverse mall where digital goods, storefront deeds, vendor shops, maker files, AI tools, and Debbie-governed commerce become owned digital property.</p>
+        <p class="hero-copy">Morris Lane starts with digital products and grows into a full metaverse marketplace. We lead with maker files, AI tools, templates, and Digital Steel products. Future mall stores can sell their own goods, run their own shipping, and operate under Morris Lane World rules.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#products">Shop The Store</a>
-          <a class="button secondary" href="#fast-lane">Join Fast Lane</a>
-          <a class="button outline" href="#roadmap">See The Roadmap</a>
+          <a class="button primary" href="#mall">Explore The Mall</a>
+          <a class="button secondary" href="#waitlist">Join Founders List</a>
+          <a class="button outline" href="#products">Browse Digital Drops</a>
         </div>
       </div>
 
@@ -1481,12 +1943,12 @@
             <span>AI storefront support, Digital Steel infrastructure, and future Digital HOA enforcement.</span>
           </div>
         </div>
-        <aside class="hero-panel" aria-label="Morris Lane build phases">
-          <p class="hero-panel-title">Blueprint build order</p>
+        <aside class="hero-panel" aria-label="Morris Lane World build phases">
+          <p class="hero-panel-title">Build order</p>
           <div class="phase-list">
-            <div class="phase"><strong>Now</strong><span>Pre-metaverse storefront, category lanes, Fast Lane capture, and real product demand.</span></div>
-            <div class="phase"><strong>Next</strong><span>Marketplace prototype with cart state, product pages, search, checkout wiring, and vendor prep.</span></div>
-            <div class="phase"><strong>End Game</strong><span>3D metaverse mall, storefront deed slots, Digital HOA districts, and AI-audited fee routing.</span></div>
+            <div class="phase"><strong>Now</strong><span>Digital drops - maker files, AI tools, templates, and Digital Steel products.</span></div>
+            <div class="phase"><strong>Next</strong><span>Mall storefronts - independent vendors selling their own goods, handling their own shipping.</span></div>
+            <div class="phase"><strong>End Game</strong><span>Morris Lane World - programmable storefront deeds, vendor districts, Debbie-governed commerce.</span></div>
           </div>
         </aside>
       </div>
@@ -1496,15 +1958,12 @@
   <section class="category-rail" aria-label="Store categories">
     <div class="category-inner">
       <button class="category active" data-filter="all"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="M4 10h16"></path></svg>All</button>
-      <button class="category" data-filter="outdoor"><svg viewBox="0 0 24 24"><path d="M12 3v18"></path><path d="m5 11 7-8 7 8"></path><path d="m6 17 6-7 6 7"></path></svg>Outdoor</button>
-      <button class="category" data-filter="grilling"><svg viewBox="0 0 24 24"><path d="M6 12h12"></path><path d="M8 12a4 4 0 0 0 8 0"></path><path d="M9 18h6"></path><path d="M12 18v3"></path><path d="M8 4c1 1 1 2 0 3"></path><path d="M12 4c1 1 1 2 0 3"></path><path d="M16 4c1 1 1 2 0 3"></path></svg>Grilling</button>
-      <button class="category" data-filter="leather"><svg viewBox="0 0 24 24"><path d="M5 4h14l-2 16H7z"></path><path d="M9 8h6"></path></svg>Leather</button>
-      <button class="category" data-filter="workshop"><svg viewBox="0 0 24 24"><path d="M14 7 7 14"></path><path d="m5 19 4-4"></path><path d="m15 6 3-3 3 3-3 3z"></path><path d="M14 14 20 20"></path></svg>Workshop</button>
-      <button class="category" data-filter="patriot"><svg viewBox="0 0 24 24"><path d="M5 4v16"></path><path d="M5 4h14l-2 4 2 4H5"></path></svg>Patriot Gear</button>
-      <button class="category" data-filter="tech"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"></rect><path d="M9 2v4"></path><path d="M15 2v4"></path><path d="M9 18v4"></path><path d="M15 18v4"></path><path d="M2 9h4"></path><path d="M18 9h4"></path><path d="M2 15h4"></path><path d="M18 15h4"></path></svg>Tech</button>
-      <button class="category" data-filter="ai"><svg viewBox="0 0 24 24"><rect x="7" y="8" width="10" height="9" rx="3"></rect><path d="M12 4v4"></path><path d="M8 13h.01"></path><path d="M16 13h.01"></path><path d="M9 20h6"></path></svg>AI Tools</button>
-      <button class="category" data-filter="digital"><svg viewBox="0 0 24 24"><path d="M12 2 4 7v10l8 5 8-5V7z"></path><path d="M12 22V12"></path><path d="m4 7 8 5 8-5"></path></svg>Digital Steel</button>
-      <button class="category" data-filter="survival"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m14.5 9.5-5 5"></path><path d="m9.5 9.5 5 5"></path></svg>Survival</button>
+      <button class="category" data-filter="maker"><svg viewBox="0 0 24 24"><path d="M4 12h16"></path><path d="M12 4v16"></path><path d="m7 7 10 10"></path><path d="m17 7-10 10"></path></svg>Maker Files</button>
+      <button class="category" data-filter="maker_svg"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5z"></path><path d="m8 15 3-6 3 6 2-4"></path></svg>SVG Vault</button>
+      <button class="category" data-filter="digital_prompts"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H7l-3 4z"></path><path d="M8 9h8"></path><path d="M8 12h5"></path></svg>Prompts</button>
+      <button class="category" data-filter="digital_templates"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"></path><path d="M14 3v4h4"></path><path d="M9 12h6"></path><path d="M9 16h6"></path></svg>Templates</button>
+      <button class="category" data-filter="inventor"><svg viewBox="0 0 24 24"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M8 14a6 6 0 1 1 8 0c-1 1-1 2-1 4H9c0-2 0-3-1-4z"></path></svg>Inventor</button>
+      <button class="category" data-filter="storefront"><svg viewBox="0 0 24 24"><path d="M4 10h16"></path><path d="M6 10v10h12V10"></path><path d="m8 10 1-5h6l1 5"></path><path d="M10 20v-5h4v5"></path></svg>Storefront</button>
     </div>
   </section>
 
@@ -1512,77 +1971,392 @@
     <section class="section tight" id="products">
       <div class="section-head">
         <div>
-          <h2>Featured Products</h2>
+          <h2>First Drops Inside Morris Lane World</h2>
         </div>
-        <p id="productStatus">Showing the first Morris Lane product lanes. Checkout is staged until payment wiring is verified.</p>
+        <p id="productStatus">The first revenue layer is digital: maker files, AI tools, templates, prompts, inventor systems, and Digital Steel products. The metaverse mall gets built around real products, not empty hype.</p>
       </div>
 
       <div class="product-grid" id="productGrid">
-        <article class="product-card" data-category="grilling outdoor" data-name="Morris Lane 24 pellet grill">
+        <article class="product-card coming-soon" data-category="maker_laser" data-name="patriot laser pattern pack">
           <div class="product-media">
-            <span class="badge">Grilling</span>
+            <span class="badge">Coming Soon</span>
             <div class="product-object"></div>
           </div>
           <div class="product-body">
-            <span class="product-category">Outdoor / Grilling</span>
-            <h3 class="product-title">Morris Lane 24 Pellet Grill</h3>
-            <div class="rating">***** <span class="muted">(128)</span></div>
-            <p class="product-copy">Hero product lane for backyard cooking, future bundles, and American-made accessory drops.</p>
+            <span class="product-category">Maker Files</span>
+            <h3 class="product-title">Patriot Laser Pattern Pack</h3>
+            <p class="product-copy">American-themed SVG and laser-ready files for cutters, engravers, and small-shop makers.</p>
             <div class="product-foot">
-              <div><div class="price">$649.00</div><span class="shipping">Fast Lane shipping lane</span></div>
-              <button class="button primary small add-cart" data-item="Morris Lane 24 Pellet Grill" data-price="649">Add to Cart</button>
+              <div><div class="price">Coming Soon</div><span class="shipping">Founders pricing on launch</span></div>
+              <a class="button primary small" href="#waitlist">Notify Me</a>
             </div>
           </div>
         </article>
 
-        <article class="product-card" data-category="leather patriot" data-name="heritage leather tool roll">
+        <article class="product-card coming-soon" data-category="maker_svg" data-name="sovereign svg vault">
           <div class="product-media">
-            <span class="badge">Leather</span>
-            <div class="product-object wood"></div>
+            <span class="badge">Coming Soon</span>
+            <div class="product-object svg"></div>
           </div>
           <div class="product-body">
-            <span class="product-category">Leather / Patriot Gear</span>
-            <h3 class="product-title">Heritage Leather Tool Roll</h3>
-            <div class="rating">***** <span class="muted">(96)</span></div>
-            <p class="product-copy">Workshop-ready leather goods lane for maker kits, heirloom tools, and branded carry products.</p>
+            <span class="product-category">Maker Files</span>
+            <h3 class="product-title">Sovereign SVG Vault</h3>
+            <p class="product-copy">A growing vault of original SVG designs for makers, crafters, sign builders, and digital product sellers.</p>
             <div class="product-foot">
-              <div><div class="price">$89.00</div><span class="shipping">Member pricing ready</span></div>
-              <button class="button primary small add-cart" data-item="Heritage Leather Tool Roll" data-price="89">Add to Cart</button>
+              <div><div class="price">Coming Soon</div><span class="shipping">Subscription on launch</span></div>
+              <a class="button primary small" href="#waitlist">Notify Me</a>
             </div>
           </div>
         </article>
 
-        <article class="product-card" data-category="workshop survival" data-name="ml10 operator multi-tool">
+        <article class="product-card coming-soon" data-category="digital_prompts" data-name="sovereign prompt pack">
           <div class="product-media">
-            <span class="badge">Tools</span>
-            <div class="product-object tool"></div>
+            <span class="badge">Coming Soon</span>
+            <div class="product-object digital"></div>
           </div>
           <div class="product-body">
-            <span class="product-category">Workshop / Survival</span>
-            <h3 class="product-title">ML10 Operator Multi-Tool</h3>
-            <div class="rating">***** <span class="muted">(215)</span></div>
-            <p class="product-copy">Compact tool lane for preparedness, truck kits, field work, and premium American utility.</p>
+            <span class="product-category">Digital Steel</span>
+            <h3 class="product-title">Sovereign Prompt Pack v1</h3>
+            <p class="product-copy">Prompt systems for small business operators, product builders, marketers, and solo entrepreneurs.</p>
             <div class="product-foot">
-              <div><div class="price">$79.00</div><span class="shipping">Stock model staged</span></div>
-              <button class="button primary small add-cart" data-item="ML10 Operator Multi-Tool" data-price="79">Add to Cart</button>
+              <div><div class="price">Coming Soon</div><span class="shipping">Launch SKU candidate</span></div>
+              <a class="button primary small" href="#waitlist">Notify Me</a>
             </div>
           </div>
         </article>
 
-        <article class="product-card" data-category="workshop tech" data-name="pro series 41 tool chest">
+        <article class="product-card coming-soon" data-category="digital_templates" data-name="debbie business templates">
           <div class="product-media">
-            <span class="badge">Workshop</span>
-            <div class="product-object tool"></div>
+            <span class="badge">Coming Soon</span>
+            <div class="product-object digital"></div>
           </div>
           <div class="product-body">
-            <span class="product-category">Workshop / Tech</span>
-            <h3 class="product-title">Pro Series 41 Tool Chest</h3>
-            <div class="rating">****. <span class="muted">(74)</span></div>
-            <p class="product-copy">High-ticket industrial goods lane for future supplier products and local inventory sync.</p>
+            <span class="product-category">Digital Steel</span>
+            <h3 class="product-title">Debbie Business Templates</h3>
+            <p class="product-copy">Operating templates, SOPs, vendor checklists, launch plans, and AI-assisted business documents.</p>
             <div class="product-foot">
-              <div><div class="price">$499.00</div><span class="shipping">Vendor lane ready</span></div>
-              <button class="button primary small add-cart" data-item="Pro Series 41 Tool Chest" data-price="499">Add to Cart</button>
+              <div><div class="price">Coming Soon</div><span class="shipping">For solo operators and teams</span></div>
+              <a class="button primary small" href="#waitlist">Notify Me</a>
             </div>
+          </div>
+        </article>
+
+        <article class="product-card coming-soon" data-category="inventor" data-name="inventor disclosure kit">
+          <div class="product-media">
+            <span class="badge">Coming Soon</span>
+            <div class="product-object digital"></div>
+          </div>
+          <div class="product-body">
+            <span class="product-category">Inventor Toolkit</span>
+            <h3 class="product-title">Inventor Disclosure Kit</h3>
+            <p class="product-copy">Tools for invention notes, provisional patent prep, prior-art review, and product development planning.</p>
+            <div class="product-foot">
+              <div><div class="price">Coming Soon</div><span class="shipping">From a 35-claim patent holder</span></div>
+              <a class="button primary small" href="#waitlist">Notify Me</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card coming-soon" data-category="storefront" data-name="founders storefront slot">
+          <div class="product-media">
+            <span class="badge">Coming Soon</span>
+            <div class="product-object storefront"></div>
+          </div>
+          <div class="product-body">
+            <span class="product-category">Metaverse Mall</span>
+            <h3 class="product-title">Founders Storefront Slot</h3>
+            <p class="product-copy">Early interest list for future Morris Lane World storefronts, vendor districts, digital deeds, and programmable shop space.</p>
+            <div class="product-foot">
+              <div><div class="price">Coming Soon</div><span class="shipping">Vendor onboarding ahead</span></div>
+              <a class="button primary small" href="#waitlist">Join Founders List</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="mall">
+      <div class="section-head">
+        <div>
+          <h2>Morris Lane Metaverse Mall</h2>
+        </div>
+        <p>Morris Lane World is built to become a mall, not just a store. Morris Lane leads with digital products. Future approved stores can sell their own goods, manage their own shipping, and operate inside the Morris Lane commerce ecosystem.</p>
+      </div>
+
+      <div class="mall-slider" id="mallSlider">
+        <button class="mall-slider-arrow prev" type="button" aria-label="Previous stores">&lsaquo;</button>
+        <div class="mall-slider-track" id="mallSliderTrack">
+          <article class="mall-card">
+            <div class="mall-card-tag">Morris Lane Owned</div>
+            <h3>Morris Lane Digital</h3>
+            <p>Maker files, AI tools, templates, prompts, and Digital Steel products.</p>
+            <span class="mall-card-status">Launching first</span>
+          </article>
+
+          <article class="mall-card">
+            <div class="mall-card-tag">Vendor District</div>
+            <h3>Maker Shops</h3>
+            <p>Laser files, CNC files, embroidery files, SVG packs, printables, and craft files.</p>
+            <span class="mall-card-status">Accepting interest</span>
+          </article>
+
+          <article class="mall-card">
+            <div class="mall-card-tag">Vendor District</div>
+            <h3>Veteran Stores</h3>
+            <p>Veteran-owned vendors selling approved products through their own fulfillment.</p>
+            <span class="mall-card-status">Accepting interest</span>
+          </article>
+
+          <article class="mall-card">
+            <div class="mall-card-tag">Vendor District</div>
+            <h3>Homestead &amp; Prepper</h3>
+            <p>Preparedness products, plans, tools, digital checklists, and vendor goods.</p>
+            <span class="mall-card-status">Accepting interest</span>
+          </article>
+
+          <article class="mall-card">
+            <div class="mall-card-tag">Vendor District</div>
+            <h3>Faith &amp; Family</h3>
+            <p>Faith-rooted designs, gifts, templates, keepsakes, and family legacy products.</p>
+            <span class="mall-card-status">Accepting interest</span>
+          </article>
+
+          <article class="mall-card">
+            <div class="mall-card-tag">Vendor District</div>
+            <h3>Workshop Goods</h3>
+            <p>Physical goods can live here later, but vendors handle inventory, shipping, and fulfillment.</p>
+            <span class="mall-card-status">Vendor-operated</span>
+          </article>
+
+          <article class="mall-card">
+            <div class="mall-card-tag">Vendor District</div>
+            <h3>Inventor Row</h3>
+            <p>Product ideas, invention kits, patent-prep tools, prototypes, and creator resources.</p>
+            <span class="mall-card-status">Accepting interest</span>
+          </article>
+
+          <article class="mall-card">
+            <div class="mall-card-tag">Future Layer</div>
+            <h3>Future Districts</h3>
+            <p>Storefront deeds, digital property, vendor districts, and Debbie-governed mall rules.</p>
+            <span class="mall-card-status">Roadmap Phase 5+</span>
+          </article>
+        </div>
+        <button class="mall-slider-arrow next" type="button" aria-label="Next stores">&rsaquo;</button>
+      </div>
+
+      <div class="mall-footer">
+        <p>Morris Lane is the mall and trust layer. Independent stores can sell their own products and handle their own shipping. Morris Lane provides the storefront system, digital commerce layer, governance receipts, and customer discovery.</p>
+        <a class="button primary" href="#waitlist">Apply for a Storefront</a>
+      </div>
+    </section>
+
+    <section class="section metaverse-lab" id="world-map">
+      <div class="section-head">
+        <div>
+          <h2>Morris Lane World Map</h2>
+        </div>
+        <p>A static blueprint for the mall before the future 3D route exists. The map shows how Morris Lane Digital anchors the world, where vendor districts fit, and how Debbie governance surrounds the commerce layer.</p>
+      </div>
+
+      <div class="metaverse-grid">
+        <div class="mall-map" aria-label="Morris Lane World district map">
+          <h3>Anchor Store + District Rings</h3>
+          <p style="margin:0;color:#c7d1dd;">Morris Lane Digital launches first. Approved vendor stores come later as district storefronts, with each store responsible for its own products, operations, inventory, customer support, and fulfillment.</p>
+          <div class="mall-grid">
+            <div class="mall-slot locked">Future District</div>
+            <div class="mall-slot available">Maker Shops</div>
+            <div class="mall-slot available">Veteran Stores</div>
+            <div class="mall-slot available">Faith &amp; Family</div>
+            <div class="mall-slot locked">Future District</div>
+            <div class="mall-slot available">Inventor Row</div>
+            <div class="mall-slot anchor">Morris Lane Digital Anchor</div>
+            <div class="mall-slot available">Homestead</div>
+            <div class="mall-slot locked">Digital HOA</div>
+            <div class="mall-slot available">Workshop Goods</div>
+            <div class="mall-slot available">AI Tools</div>
+            <div class="mall-slot available">Template Vault</div>
+            <div class="mall-slot locked">Storefront Deeds</div>
+          </div>
+          <div class="map-legend" aria-label="World map legend">
+            <span><i class="legend-key anchor"></i>Morris Lane anchor</span>
+            <span><i class="legend-key available"></i>Vendor district</span>
+            <span><i class="legend-key"></i>Roadmap layer</span>
+          </div>
+        </div>
+
+        <div class="deed-stack">
+          <div class="deed-panel">
+            <h3>Vendor Operating Model</h3>
+            <ul class="flow-list">
+              <li><span class="flow-step">1</span><span><strong>Apply for a storefront</strong>Vendors register interest, identify their district, and explain what they plan to sell.</span></li>
+              <li><span class="flow-step">2</span><span><strong>Pass mall review</strong>Morris Lane approves fit, product standards, support expectations, and rule alignment before a store goes live.</span></li>
+              <li><span class="flow-step">3</span><span><strong>Operate the store</strong>Approved vendors manage their own products, inventory, pricing, customer operations, and fulfillment.</span></li>
+              <li><span class="flow-step">4</span><span><strong>Receive Debbie receipts</strong>Transactions, product updates, disputes, and rule decisions produce auditable governance records.</span></li>
+            </ul>
+          </div>
+
+          <div class="hoa-panel">
+            <h3>World Rules</h3>
+            <p>Morris Lane is the mall layer, not the warehouse. Stores keep responsibility for what they sell and how they serve buyers. Debbie governance keeps receipts, standards, and appealable rule decisions visible.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hoa-panel" style="margin-top:24px;">
+        <h3>Mall Control Layers</h3>
+        <p>The platform grows by adding useful layers in order: digital products, provenance, vendor storefronts, fulfillment rules, deed records, district governance, then the visible 3D world.</p>
+        <div class="governance-grid">
+          <div class="governance-cell"><strong>Digital First</strong><span>Maker files, prompts, templates, inventor systems, and Digital Steel tools create the first revenue lane.</span></div>
+          <div class="governance-cell"><strong>Store Autonomy</strong><span>Independent stores own their products, pricing, inventory, support, and fulfillment responsibilities.</span></div>
+          <div class="governance-cell"><strong>Trust Layer</strong><span>DNA stamps and Debbie receipts make origin, license, transaction, and rule history inspectable.</span></div>
+          <div class="governance-cell"><strong>World Layer</strong><span>The future metaverse route visualizes storefronts, districts, deeds, and commerce zones after demand is proven.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section metaverse-lab" id="architecture">
+      <div class="section-head">
+        <div>
+          <h2>Dynamic Commerce Blueprint</h2>
+        </div>
+        <p>The next build keeps Morris Lane World self-hosted on the primary domain. The public site stays simple for launch, while the architecture prepares for vendor storefronts, digital fulfillment, payment splitting, governance receipts, and a future browser-native world.</p>
+      </div>
+
+      <div class="architecture-panel">
+        <div class="commerce-flow">
+          <h3>Platform Flow</h3>
+          <p style="margin:10px 0 0;color:#c7d1dd;">Morris Lane remains the mall and trust layer. Vendors operate stores inside that layer while the platform handles discovery, receipts, checkout orchestration, and digital delivery rules.</p>
+          <div class="flow-rail">
+            <div class="flow-node"><span class="node-mark">2D</span><span><strong>Digital catalog</strong>Maker files, SVGs, prompts, templates, inventor kits, and Digital Steel products launch in the normal storefront first.</span></div>
+            <div class="flow-node"><span class="node-mark">3D</span><span><strong>Future world route</strong>The later /world experience visualizes the mall, but does not require third-party land, downloads, or a wallet to browse.</span></div>
+            <div class="flow-node"><span class="node-mark">PAY</span><span><strong>Split commerce rail</strong>Stripe Connect can route vendor payouts, platform margin, and district treasury shares after payment confirmation.</span></div>
+            <div class="flow-node"><span class="node-mark">DNA</span><span><strong>Debbie receipt layer</strong>Product licenses, vendor actions, disputes, and rule decisions produce auditable Morris Lane governance records.</span></div>
+          </div>
+        </div>
+
+        <div class="architecture-stack">
+          <article class="architecture-card">
+            <span>System Of Record</span>
+            <h3>Supabase Ledger</h3>
+            <p>Profiles, product metadata, storefront slots, orders, district settings, and governance events live in structured records.</p>
+          </article>
+          <article class="architecture-card">
+            <span>Asset Vault</span>
+            <h3>Cloudflare R2</h3>
+            <p>Digital files, future GLB assets, preview media, and download packages can be served from object storage.</p>
+          </article>
+          <article class="architecture-card">
+            <span>Fulfillment</span>
+            <h3>Signed Delivery</h3>
+            <p>Paid digital goods can unlock expiring download links, license keys, receipt emails, and customer support records.</p>
+          </article>
+          <article class="architecture-card">
+            <span>Identity</span>
+            <h3>Domain First</h3>
+            <p>The ICANN domain remains the public home. ENS and decentralized registry pointers can be added as verification layers later.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="district-grid" aria-label="Planned Morris Lane World district model">
+        <article class="district-card">
+          <strong>Founders District</strong>
+          <h3>Original Anchor</h3>
+          <p>Reserved for early storefront interest, premium launch slots, founder access, and first district governance tests.</p>
+        </article>
+        <article class="district-card">
+          <strong>Patriot District</strong>
+          <h3>Veteran Stores</h3>
+          <p>Veteran-owned, domestic-made, family, faith, and Americana vendors with clear product standards.</p>
+        </article>
+        <article class="district-card">
+          <strong>Maker District</strong>
+          <h3>Craft Commerce</h3>
+          <p>Laser files, CNC plans, embroidery files, shop goods, handcrafts, and maker support resources.</p>
+        </article>
+        <article class="district-card">
+          <strong>Digital District</strong>
+          <h3>File Markets</h3>
+          <p>Templates, prompts, AI tools, software utilities, Digital Steel products, and license-managed downloads.</p>
+        </article>
+        <article class="district-card">
+          <strong>Trade District</strong>
+          <h3>B2B Operators</h3>
+          <p>Future KYB-ready storefronts for wholesale catalogs, contractor tools, service kits, and vendor supply lanes.</p>
+        </article>
+      </div>
+
+      <div class="guardrail-band">
+        <ul class="guardrail-list" aria-label="Morris Lane World guardrails">
+          <li><strong>No third-party land dependency</strong>The world is planned as a MorrisLane.store experience first, avoiding reliance on outside virtual land platforms for the core storefront.</li>
+          <li><strong>No custodial shortcut</strong>Vendor payment routing is planned around established commerce rails and connected accounts instead of Morris Lane holding vendor funds manually.</li>
+          <li><strong>No blind on-chain action</strong>Any future deed or license record needs clear disclosures, support paths, refund policy language, and audit checkpoints before launch.</li>
+          <li><strong>No unmanaged vendor sprawl</strong>District standards, quality scores, appeal records, and Debbie receipts make marketplace rules inspectable instead of hidden.</li>
+        </ul>
+
+        <div class="identity-card">
+          <h3>Identity And Deed Model</h3>
+          <p>Storefront deeds and digital licenses are roadmap records first. They can become blockchain-ready only after legal review, audit gates, and a proven buyer flow.</p>
+          <p>
+            <code>morrislane.store</code>
+            <code>/products</code>
+            <code>/world</code>
+            <code>storefront deeds</code>
+            <code>license records</code>
+            <code>Debbie receipts</code>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="site-apps">
+      <div class="section-head">
+        <div>
+          <h2>Morris Lane Site Apps</h2>
+        </div>
+        <p>Beyond drops and storefronts, Morris Lane World can host focused app surfaces for builders, vendors, contractors, and operators. GigGrow becomes the first linked app in the Morris Lane app layer.</p>
+      </div>
+
+      <div class="app-grid">
+        <article class="site-app-card featured">
+          <span class="app-kicker">Linked Site App</span>
+          <h3>GigGrow</h3>
+          <p>America's elite AI B2B engagement platform for independent provider businesses. Built around dispatch visibility, provider discovery, contract intelligence, opportunity matching, and instant handshake negotiation.</p>
+          <div class="app-pills" aria-label="GigGrow app modules">
+            <span>Dispatch</span>
+            <span>Providers</span>
+            <span>Intel</span>
+            <span>GovBid</span>
+            <span>Contracts</span>
+            <span>Jobs</span>
+            <span>Matches</span>
+          </div>
+          <div class="hero-actions">
+            <a class="button primary" href="apps/giggrow/">Open GigGrow</a>
+            <a class="button outline" href="#architecture">See Platform Rails</a>
+          </div>
+        </article>
+
+        <article class="site-app-card">
+          <span class="app-kicker">Commerce OS</span>
+          <h3>Digital Steel Console</h3>
+          <p>Prompt packs, templates, automation kits, and owned AI tools for small operators inside the Morris Lane ecosystem.</p>
+          <div class="app-pills">
+            <span>Prompts</span>
+            <span>Templates</span>
+            <span>Automation</span>
+          </div>
+        </article>
+
+        <article class="site-app-card">
+          <span class="app-kicker">World Layer</span>
+          <h3>Debbie Governance Desk</h3>
+          <p>Future rule decisions, product provenance, vendor standards, dispute records, and DNA-stamped receipts for Morris Lane World.</p>
+          <div class="app-pills">
+            <span>Receipts</span>
+            <span>Rules</span>
+            <span>Appeals</span>
           </div>
         </article>
       </div>
@@ -1591,40 +2365,41 @@
     <section class="section split" id="fast-lane">
       <div class="fast-lane">
         <div class="fast-lane-content">
-          <h2>Fast Lane Membership</h2>
-          <p class="hero-copy">More perks, faster access, and a clear membership economy for Morris Lane buyers.</p>
+          <h2>Fast Lane Founder Access</h2>
+          <p class="hero-copy">Fast Lane is the founder access layer for Morris Lane World. Early supporters get first eyes on every digital drop, founder pricing locked for life, and priority on vendor storefront opportunities.</p>
           <ul>
-            <li><span class="check">+</span><span>Exclusive member pricing and early product drops.</span></li>
-            <li><span class="check">+</span><span>Shipping benefits staged for the live checkout build.</span></li>
-            <li><span class="check">+</span><span>Veteran perks, loyalty rewards, and bundle access.</span></li>
-            <li><span class="check">+</span><span>Future reward rails without turning the store into a crypto pitch.</span></li>
+            <li><span class="check">+</span><span>First access to digital drops before public launch.</span></li>
+            <li><span class="check">+</span><span>Founder pricing on Maker Files and Digital Steel tools.</span></li>
+            <li><span class="check">+</span><span>Early notice on storefront deed opportunities.</span></li>
+            <li><span class="check">+</span><span>Vendor preview access to upcoming mall stores.</span></li>
+            <li><span class="check">+</span><span>Exclusive bundles and launch rewards.</span></li>
           </ul>
           <div class="hero-actions">
-            <a class="button secondary" href="#waitlist">Join Fast Lane</a>
+            <a class="button secondary" href="#waitlist">Join Founders List</a>
           </div>
         </div>
         <div class="membership-card">
           <strong>Morris Lane</strong>
-          <span>Fast Lane</span>
+          <span>Founder Access</span>
         </div>
       </div>
 
       <div class="dark-panel debbie-panel" id="digital-steel">
         <div class="dark-copy">
           <h2>Digital Steel / NeoDas</h2>
-          <p class="hero-copy">The future tech division: AI tools, digital assets, patent vaults, private infrastructure, and Debbie-powered commerce automation.</p>
+          <p class="hero-copy">The sovereign tech division of Morris Lane. AI tools, digital assets, automation kits, and infrastructure that builders own instead of rent.</p>
           <ul>
-            <li><span class="check">+</span><span>Digital products and AI business systems.</span></li>
-            <li><span class="check">+</span><span>NeoDas and Debbie infrastructure pages.</span></li>
-            <li><span class="check">+</span><span>Automation templates, product drafting, and inventory review.</span></li>
-            <li><span class="check">+</span><span>Built as a division of Morris Lane, not the whole store.</span></li>
+            <li><span class="check">+</span><span>AI-powered prompt packs and business templates.</span></li>
+            <li><span class="check">+</span><span>NeoDas infrastructure for sovereign commerce.</span></li>
+            <li><span class="check">+</span><span>Debbie governance receipts on every transaction.</span></li>
+            <li><span class="check">+</span><span>For builders who want owned tools, not rented dependencies.</span></li>
           </ul>
           <div class="hero-actions">
-            <a class="button outline" href="#roadmap">Explore Digital Steel</a>
+            <a class="button outline" href="#roadmap">See The Roadmap</a>
           </div>
         </div>
         <div class="debbie-image">
-          <img src="assets/debbie-digital.png" alt="Debbie digital infrastructure visual">
+          <img src="assets/debbie-digital.png" alt="Debbie sovereign AI infrastructure visual">
         </div>
       </div>
     </section>
@@ -1632,32 +2407,53 @@
     <section class="section" id="divisions">
       <div class="section-head">
         <div>
-          <h2>Four Morris Lane Divisions</h2>
+          <h2>Morris Lane World Layers</h2>
         </div>
-        <p>Build the rugged marketplace first, then layer membership, Digital Steel, and the inventor ecosystem into one American industrial platform.</p>
+        <p>Morris Lane is the mall, the platform, the storefront layer, the trust layer, and the digital commerce engine for independent stores.</p>
       </div>
       <div class="systems-grid">
         <article class="system-card">
-          <h3>Main Store</h3>
-          <p>Outdoor, grilling, leather, apparel, tools, survival, veteran-owned products, and workshop goods.</p>
+          <h3>Digital Drops</h3>
+          <p>Maker files, SVGs, prompts, templates, AI tools, Digital Steel products, and inventor systems launch first.</p>
         </article>
         <article class="system-card">
-          <h3>Fast Lane</h3>
-          <p>Membership, early access, discounts, shipping benefits, loyalty rewards, and exclusive product drops.</p>
+          <h3>Mall Stores</h3>
+          <p>Independent vendors can sell their own goods, manage their own operations, and plug into Morris Lane discovery.</p>
         </article>
-        <article class="system-card image-card">
-          <img src="assets/debbie-ceo.png" alt="Debbie commerce command visual">
-          <div>
-            <h3>Digital Steel</h3>
-            <p>NeoDas, Debbie tools, digital assets, automation templates, and AI business systems.</p>
-          </div>
+        <article class="system-card">
+          <h3>Debbie Governance</h3>
+          <p>Debbie receipts support product provenance, transaction audits, rule enforcement, and customer trust.</p>
         </article>
-        <article class="system-card image-card">
-          <img src="assets/debbie-digital.png" alt="Debbie patent and inventor ecosystem visual">
-          <div>
-            <h3>Inventor Ecosystem</h3>
-            <p>Invention intake, blueprint marketplace, AI prototyping, licensing support, and fabrication network concepts.</p>
-          </div>
+        <article class="system-card">
+          <h3>Storefront Deeds</h3>
+          <p>Future storefront records, vendor districts, slot IDs, and access rights become the digital property layer.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>What DNA-Stamped Means</h2>
+        </div>
+        <p>DNA-stamped products carry provenance from the source. Morris Lane digital goods are built to show where they came from, who created them, what license applies, and whether the file is authentic.</p>
+      </div>
+      <div class="systems-grid">
+        <article class="system-card">
+          <h3>Verified Source</h3>
+          <p>Every digital file can carry source and authorship records that buyers can inspect before they pay.</p>
+        </article>
+        <article class="system-card">
+          <h3>Authentic Files</h3>
+          <p>Buyers trust they are receiving official Morris Lane files, not copied junk from a resale aggregator.</p>
+        </article>
+        <article class="system-card">
+          <h3>License Clarity</h3>
+          <p>Each product shows personal, commercial, or vendor-use rights so customers always know what they bought.</p>
+        </article>
+        <article class="system-card">
+          <h3>Debbie Receipts</h3>
+          <p>Debbie creates audit records for transactions, product updates, disputes, and marketplace rule decisions.</p>
         </article>
       </div>
     </section>
@@ -1666,128 +2462,74 @@
       <div class="section">
         <div class="section-head">
           <div>
-            <h2>Roadmap To The Metaverse Mall</h2>
+            <h2>Roadmap To Morris Lane World</h2>
           </div>
-          <p>The metaverse is the end game. The current build has to earn it: real commerce first, then vendor storefronts, then programmable districts with Debbie governance.</p>
+          <p>The destination is the metaverse mall. The build order stays disciplined: digital goods first, provenance second, vendor stores third, storefront deeds fourth, Debbie governance always, and the 3D world after the commerce layer proves demand.</p>
         </div>
         <div class="road-grid">
           <article class="road-card">
             <strong>Phase 1</strong>
-            <h3>Correct Static Storefront</h3>
-            <p>Red, white, blue, navy, steel, product lanes, Fast Lane CTA, Digital Steel teaser, and honest static GitHub Pages deployment.</p>
+            <h3>Digital Drops</h3>
+            <p>Maker files, SVGs, CNC designs, embroidery files, prompts, templates, inventor tools, and Digital Steel products.</p>
           </article>
           <article class="road-card">
             <strong>Phase 2</strong>
-            <h3>Marketplace Prototype</h3>
-            <p>Next.js storefront, product detail pages, cart state, category search, product data, and checkout plumbing before live payment claims.</p>
+            <h3>DNA Stamp Layer</h3>
+            <p>Product provenance, authorship, license metadata, authenticity records, and Debbie receipts.</p>
           </article>
           <article class="road-card">
             <strong>Phase 3</strong>
-            <h3>Storefront Deed Layer</h3>
-            <p>Base testnet contract, deed slots, mint page, on-chain counters, vendor dashboard access, and Supabase deed sync before any mainnet launch.</p>
+            <h3>Mall Storefronts</h3>
+            <p>Approved vendors and creators get storefronts inside Morris Lane World.</p>
           </article>
           <article class="road-card">
             <strong>Phase 4</strong>
-            <h3>Vendor Commerce Splits</h3>
-            <p>Stripe Connect onboarding, vendor products, platform fee routing, order records, payout status, and support flows Debbie can answer.</p>
+            <h3>Vendor Fulfillment</h3>
+            <p>Stores sell their own physical or digital goods while handling their own shipping, inventory, and customer operations.</p>
           </article>
           <article class="road-card">
             <strong>Phase 5</strong>
-            <h3>Digital HOA Districts</h3>
-            <p>District configs, public rules, quality scoring, treasury ledger, appeals, Debbie governance receipts, and transparent enforcement history.</p>
+            <h3>Storefront Deeds</h3>
+            <p>Blockchain-ready storefront records, slot IDs, ownership proofs, access rights, and digital property logic.</p>
+          </article>
+          <article class="road-card">
+            <strong>Phase 6</strong>
+            <h3>Digital HOA</h3>
+            <p>Public mall rules, vendor standards, fraud review, appeals, treasury logic, and Debbie-governed receipts.</p>
           </article>
           <article class="road-card">
             <strong>End Game</strong>
-            <h3>Full Metaverse Mall</h3>
-            <p>3D storefront slots around the Morris Lane anchor tenant, vendor interiors, digital products, physical goods, and district-level commerce automation.</p>
+            <h3>Morris Lane World</h3>
+            <p>A visible metaverse mall where storefronts, digital goods, memberships, deeds, vendor districts, and governance become digital property.</p>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section metaverse-lab" id="metaverse-blueprint">
-      <div class="section-head">
-        <div>
-          <h2>Metaverse Blueprint</h2>
-        </div>
-        <p>Phase 2 turns Morris Lane from a single storefront into a mall. Phase 3 turns that mall into governed districts Debbie can audit.</p>
-      </div>
-
-      <div class="metaverse-grid">
-        <div class="mall-map" aria-label="Morris Lane metaverse mall slot map">
-          <h3>Anchor Tenant + Deed Slots</h3>
-          <p style="margin:0;color:#c7d1dd;">The Morris Lane store stays at the front. Vendor storefronts mint deed-backed slots around it, then connect products, Stripe onboarding, and 3D storefront controls.</p>
-          <div class="mall-grid">
-            <div class="mall-slot locked">Future District</div>
-            <div class="mall-slot available">Slot 02</div>
-            <div class="mall-slot available">Slot 03</div>
-            <div class="mall-slot available">Slot 04</div>
-            <div class="mall-slot locked">Future District</div>
-            <div class="mall-slot available">Slot 01</div>
-            <div class="mall-slot anchor">Morris Lane Anchor Store</div>
-            <div class="mall-slot available">Slot 05</div>
-            <div class="mall-slot locked">Digital</div>
-            <div class="mall-slot available">Slot 06</div>
-            <div class="mall-slot available">Slot 07</div>
-            <div class="mall-slot available">Slot 08</div>
-            <div class="mall-slot locked">Maker</div>
-          </div>
-          <div class="map-legend" aria-label="Mall map legend">
-            <span><i class="legend-key anchor"></i>Morris Lane anchor</span>
-            <span><i class="legend-key available"></i>Vendor deed slot</span>
-            <span><i class="legend-key"></i>District expansion</span>
-          </div>
-        </div>
-
-        <div class="deed-stack">
-          <div class="deed-panel">
-            <h3>Storefront Deed Pipeline</h3>
-            <ul class="flow-list">
-              <li><span class="flow-step">1</span><span><strong>Mint deed on Base testnet</strong>Hard-capped slots, live on-chain counter, and no mainnet launch before legal/audit gates.</span></li>
-              <li><span class="flow-step">2</span><span><strong>Sync deed to Supabase</strong>Indexer mirrors token ID, slot ID, owner wallet, phase, and transaction hash.</span></li>
-              <li><span class="flow-step">3</span><span><strong>Unlock vendor dashboard</strong>Wallet signature proves ownership, then vendor configures theme, logo, products, and storefront name.</span></li>
-              <li><span class="flow-step">4</span><span><strong>Split vendor sales</strong>Stripe Connect sends vendor payout while Morris Lane collects a platform fee.</span></li>
-            </ul>
-          </div>
-
-          <div class="hoa-panel">
-            <h3>Debbie Digital HOA Scope</h3>
-            <p>District rules stay public. Debbie evaluates compliance, scores quality signals, writes appealable governance events, and produces signed receipts.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="hoa-panel" style="margin-top:24px;">
-        <h3>Programmable District Layer</h3>
-        <p>Each district can carry its own rules, fee routing, quality thresholds, treasury ledger, and public governance feed.</p>
-        <div class="governance-grid">
-          <div class="governance-cell"><strong>District Config</strong><span>Founders, Patriot, Maker, Digital, and Trade districts can use different rules without redeploying code.</span></div>
-          <div class="governance-cell"><strong>Quality Signals</strong><span>Completeness, responsiveness, ratings, refunds, and compliance become visible scoring inputs.</span></div>
-          <div class="governance-cell"><strong>Fee Routing</strong><span>District treasury, infrastructure, Debbie compute, and optional alliance funds route from one config.</span></div>
-          <div class="governance-cell"><strong>Public Receipts</strong><span>Governance decisions, appeals, score updates, and treasury flows get auditable Debbie receipts.</span></div>
         </div>
       </div>
     </section>
 
     <section class="section waitlist" id="waitlist">
       <div>
-        <h2>Get On The Morris Lane Build List</h2>
-        <p class="hero-copy" style="color:#344252">Use this first static storefront to collect demand before checkout, membership, vendor slots, and the metaverse mall go live.</p>
+        <h2>Join The Morris Lane World Founders List</h2>
+        <p class="hero-copy" style="color:#344252">Get early access to digital drops, Fast Lane membership, Digital Steel tools, vendor storefront updates, and future storefront deed opportunities.</p>
       </div>
-      <form class="waitlist-form" onsubmit="return false">
-        <h3 style="margin:0;font-size:1.4rem;">Join The List</h3>
-        <p style="color:#c8d3df;margin:8px 0 0;">No payment is taken on this static page. This captures intent for the next build phase.</p>
+      <form class="waitlist-form" id="waitlistForm" action="REPLACE_WITH_FORMSPREE_ENDPOINT" method="POST">
+        <h3 style="margin:0;font-size:1.4rem;">Be First In Line</h3>
+        <p style="color:#c8d3df;margin:8px 0 0;">Add your email and pick what you're most interested in. We'll let you know the moment it drops.</p>
+        <input type="hidden" name="_subject" value="New Morris Lane World Founders List signup">
+        <input type="hidden" name="_source" value="morrislane.store">
         <div class="form-row">
-          <input id="leadEmail" type="email" placeholder="Email address">
-          <select id="leadInterest">
-            <option>Fast Lane membership</option>
-            <option>Main Store products</option>
-            <option>Digital Steel / NeoDas</option>
-            <option>Inventor ecosystem</option>
-            <option>Future metaverse vendor slot</option>
+          <input id="leadEmail" name="email" type="email" required placeholder="Email address" aria-label="Email address">
+          <select id="leadInterest" name="interest" required aria-label="Interest area">
+            <option value="Maker Files">Maker Files</option>
+            <option value="Digital Steel Tools">Digital Steel Tools</option>
+            <option value="Fast Lane Membership">Fast Lane Membership</option>
+            <option value="Inventor Toolkit">Inventor Toolkit</option>
+            <option value="Future Storefront Deed">Future Storefront Deed</option>
+            <option value="Vendor Storefront">Vendor Storefront</option>
+            <option value="Mall Store Updates">Mall Store Updates</option>
+            <option value="Morris Lane World Updates">Morris Lane World Updates</option>
           </select>
-          <button class="button primary" type="button" id="leadButton">Save Interest</button>
-          <p id="leadStatus" style="min-height:22px;margin:0;color:#ffced3;"></p>
+          <button class="button primary" type="submit" id="leadButton">Save Interest</button>
+          <p id="leadStatus" style="min-height:22px;margin:0;color:#c8d3df;"></p>
         </div>
       </form>
     </section>
@@ -1797,29 +2539,30 @@
     <div class="footer-inner">
       <div>
         <div class="brand" style="margin-bottom:14px;">
-          <span class="brand-mark"><img src="assets/debbie-ceo.png" alt="Debbie Morris Lane commerce system"></span>
+          <span class="brand-mark"><img src="assets/morrislane-crest.jpg" alt="Morris Lane eagle crest"></span>
           <span>
             <strong class="brand-name" style="font-size:1.8rem;">Morris Lane</strong>
-            <span class="brand-sub">Veteran Owned</span>
+            <span class="brand-sub">Morris Lane World</span>
           </span>
         </div>
-        <p>American industrial commerce from Cove, Arkansas: rugged goods first, AI infrastructure next, metaverse marketplace as the long-range platform.</p>
+        <p>Veteran-owned metaverse commerce from Cove, Arkansas: digital drops first, mall stores second, Debbie-governed trust always.</p>
       </div>
       <div>
-        <h4>Shop</h4>
-        <a href="#products">All Products</a>
-        <a href="#products">Outdoor</a>
-        <a href="#products">Grilling</a>
-        <a href="#products">Workshop</a>
-        <a href="#digital-steel">Digital Steel</a>
+        <h4>Mall</h4>
+        <a href="#mall">Morris Lane World</a>
+        <a href="#products">Digital Drops</a>
+        <a href="#mall">Mall Stores</a>
+        <a href="#site-apps">Site Apps</a>
+        <a href="#fast-lane">Fast Lane</a>
+        <a href="#waitlist">Founders List</a>
       </div>
-      <div id="account">
+      <div>
         <h4>Customer</h4>
         <a href="#waitlist">Contact</a>
-        <a href="#roadmap">Shipping Build</a>
-        <a href="#roadmap">Returns Build</a>
-        <a href="#orders">Orders Roadmap</a>
-        <a href="#wishlist">Wishlist Roadmap</a>
+        <a href="#roadmap">Launch Updates</a>
+        <a href="#architecture">Architecture Blueprint</a>
+        <a href="#mall">Storefront Interest</a>
+        <a href="#products">Digital Drops</a>
       </div>
       <div>
         <h4>Company</h4>
@@ -1833,12 +2576,12 @@
         <h4>Contact</h4>
         <p>support@morrislane.store</p>
         <p>Cove, Arkansas</p>
-        <p>Veteran-owned American commerce.</p>
+        <p>Veteran-owned sovereign digital commerce.</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>2026 Morris Lane. Static storefront build for www.morrislane.store.</span>
-      <span>Gold remains trim only. Red, white, blue, navy, black steel.</span>
+      <span>2026 Morris Lane LLC &middot; Veteran-owned metaverse commerce &middot; Building Morris Lane World.</span>
+      <span>Digital first. Mall second. Sovereign always. American-made, DNA-stamped at the source.</span>
     </div>
   </footer>
 
@@ -1853,11 +2596,11 @@
     </div>
     <div class="cart-foot">
       <div style="display:flex;justify-content:space-between;gap:18px;font-weight:950;font-size:1.1rem;">
-        <span>Preview total</span>
-        <span id="cartTotal">$0.00</span>
+        <span>Launch status</span>
+        <span id="cartTotal">Not live</span>
       </div>
-      <a class="button primary" style="width:100%;margin-top:16px;" href="mailto:support@morrislane.store?subject=Morris%20Lane%20checkout%20request">Request Checkout Link</a>
-      <p class="cart-note">Live payment is not claimed on this static GitHub Pages build. Checkout goes live only after Stripe and order records are verified.</p>
+      <a class="button primary" style="width:100%;margin-top:16px;" href="#waitlist" id="cartCtaJoinList">Join The Founders List</a>
+      <p class="cart-note">Checkout launches with the first Morris Lane World drop. Join the Founders List to be first in line.</p>
     </div>
   </aside>
 
@@ -1866,6 +2609,7 @@
     const products = Array.from(document.querySelectorAll(".product-card"));
     const searchInput = document.getElementById("siteSearch");
     const productStatus = document.getElementById("productStatus");
+    const defaultProductStatus = productStatus.textContent;
     const addButtons = Array.from(document.querySelectorAll(".add-cart"));
     const cartCount = document.getElementById("cartCount");
     const cartItems = document.getElementById("cartItems");
@@ -1874,17 +2618,15 @@
     const overlay = document.getElementById("overlay");
     const openCart = document.getElementById("openCart");
     const closeCart = document.getElementById("closeCart");
-    const leadButton = document.getElementById("leadButton");
-    const leadEmail = document.getElementById("leadEmail");
-    const leadInterest = document.getElementById("leadInterest");
+    const cartCtaJoinList = document.getElementById("cartCtaJoinList");
+    const mallTrack = document.getElementById("mallSliderTrack");
+    const mallPrev = document.querySelector(".mall-slider-arrow.prev");
+    const mallNext = document.querySelector(".mall-slider-arrow.next");
+    const waitlistForm = document.getElementById("waitlistForm");
     const leadStatus = document.getElementById("leadStatus");
 
     let activeFilter = "all";
     const cart = [];
-
-    function money(value) {
-      return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value);
-    }
 
     function applyFilters() {
       const query = (searchInput.value || "").trim().toLowerCase();
@@ -1898,7 +2640,11 @@
         card.style.display = show ? "" : "none";
         if (show) visible += 1;
       });
-      productStatus.textContent = `Showing ${visible} Morris Lane product lane${visible === 1 ? "" : "s"}. Checkout is staged until payment wiring is verified.`;
+      if (activeFilter === "all" && !query) {
+        productStatus.textContent = defaultProductStatus;
+      } else {
+        productStatus.textContent = `Showing ${visible} Morris Lane World drop${visible === 1 ? "" : "s"}. Every lane is coming soon and DNA-stamped at the source.`;
+      }
     }
 
     categories.forEach((button) => {
@@ -1917,15 +2663,13 @@
       cartCount.textContent = String(cart.length);
       if (!cart.length) {
         cartItems.innerHTML = '<p class="muted">Your cart preview is empty.</p>';
-        cartTotal.textContent = "$0.00";
+        cartTotal.textContent = "Not live";
         return;
       }
-      let total = 0;
       cartItems.innerHTML = cart.map((item) => {
-        total += item.price;
-        return `<div class="cart-item"><div><strong>${item.name}</strong><span>Static cart preview</span></div><strong>${money(item.price)}</strong></div>`;
+        return `<div class="cart-item"><div><strong>${item.name}</strong><span>Founders List preview</span></div><strong>Pending</strong></div>`;
       }).join("");
-      cartTotal.textContent = money(total);
+      cartTotal.textContent = "Pending";
     }
 
     function setCartOpen(open) {
@@ -1948,17 +2692,58 @@
     closeCart.addEventListener("click", () => setCartOpen(false));
     overlay.addEventListener("click", () => setCartOpen(false));
 
-    leadButton.addEventListener("click", () => {
-      const email = (leadEmail.value || "").trim();
-      const interest = leadInterest.value;
-      if (!email || !email.includes("@")) {
-        leadStatus.textContent = "Enter an email address first.";
-        return;
-      }
-      const key = "morrisLaneLead";
-      localStorage.setItem(key, JSON.stringify({ email, interest, savedAt: new Date().toISOString() }));
-      leadStatus.textContent = "Saved locally. Next phase wires this to email/CRM.";
-    });
+    if (cartCtaJoinList) {
+      cartCtaJoinList.addEventListener("click", () => {
+        setCartOpen(false);
+      });
+    }
+
+    if (mallTrack && mallPrev && mallNext) {
+      const scrollAmount = 320;
+      mallPrev.addEventListener("click", () => {
+        mallTrack.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      });
+      mallNext.addEventListener("click", () => {
+        mallTrack.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      });
+    }
+
+    if (waitlistForm) {
+      waitlistForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        leadStatus.textContent = "Saving...";
+        leadStatus.style.color = "#c8d3df";
+
+        if (waitlistForm.action.includes("REPLACE_WITH_FORMSPREE_ENDPOINT")) {
+          leadStatus.textContent = "Form endpoint pending. Try again after launch setup.";
+          leadStatus.style.color = "#ffced3";
+          return;
+        }
+
+        const formData = new FormData(waitlistForm);
+
+        try {
+          const res = await fetch(waitlistForm.action, {
+            method: "POST",
+            body: formData,
+            headers: { "Accept": "application/json" },
+          });
+
+          if (res.ok) {
+            leadStatus.textContent = "You're on the Morris Lane World Founders List. Welcome.";
+            leadStatus.style.color = "#9fe6a5";
+            waitlistForm.reset();
+          } else {
+            const data = await res.json().catch(() => ({}));
+            leadStatus.textContent = data.errors?.[0]?.message || "Could not save. Try again or contact support@morrislane.store.";
+            leadStatus.style.color = "#ffced3";
+          }
+        } catch {
+          leadStatus.textContent = "Network error. Try again.";
+          leadStatus.style.color = "#ffced3";
+        }
+      });
+    }
 
     renderCart();
     applyFilters();

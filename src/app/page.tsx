@@ -13,7 +13,7 @@ export default function AmericanMarketPlace() {
             {/* Logo and Title */}
             <div className="flex items-center space-x-4">
               <div className="bg-[#0b0c10] p-1 rounded-full border-4 border-yellow-600 shadow-[0_0_15px_rgba(217,119,6,0.3)] transform hover:scale-110 transition-transform cursor-pointer">
-                <Image src="/american-eagle-crest.png" alt="American Eagle Crest" width={60} height={60} className="rounded-full" />
+                <Image src="/debbie-digital.png" alt="Debbie command visual" width={60} height={60} className="rounded-full" />
               </div>
               <div>
                 <h1 className="text-3xl font-black tracking-tighter uppercase text-white leading-none" style={{ fontFamily: 'Impact, sans-serif' }}>
@@ -49,8 +49,8 @@ export default function AmericanMarketPlace() {
         {/* Cinematic Background */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/hero-bg.jpg" 
-            alt="Rustic American Flag over Weathered Barn Wood" 
+            src="/debbie-digital.png"
+            alt="Debbie digital commerce command visual"
             layout="fill" 
             objectFit="cover" 
             className="opacity-40 grayscale-[20%]" 
@@ -250,7 +250,7 @@ export default function AmericanMarketPlace() {
       <footer className="bg-[#0b0c10] py-20 border-t-8 border-red-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="flex justify-center mb-10">
-                <Image src="/american-eagle-crest.png" alt="Logo" width={80} height={80} className="grayscale brightness-50" />
+                <Image src="/debbie-digital.png" alt="Debbie command visual" width={80} height={80} className="grayscale brightness-50" />
             </div>
             <h4 className="text-2xl font-black text-white uppercase tracking-widest mb-6">AMERICAN MARKET PLACE</h4>
             <div className="flex justify-center space-x-8 text-xs font-black tracking-widest text-gray-600 uppercase mb-12">
